@@ -1,0 +1,16 @@
+{
+    "train_$SSD_71$nfeats": 1000,
+    "train_$SSD_71$cls_type": "LogisticRegression",
+    "train_$SSD_71$param_batch_sz": 10,
+    "train_$SSD_71$C": 0.3,
+    "train_$SSD_71$feature_selection_criterion": "auc",
+    "train_$SSD_71$normalize_for_feature_selection": true,
+    "train_$SSD_71$features": "cosine_delta",
+    "train_$FasterRCNN_83$nfeats": 1000,
+    "train_$FasterRCNN_83$cls_type": "LogisticRegression",
+    "train_$FasterRCNN_83$param_batch_sz": 10,
+    "train_$FasterRCNN_83$C": 0.01,
+    "train_$FasterRCNN_83$feature_selection_criterion": "corr",
+    "train_$FasterRCNN_83$normalize_for_feature_selection": true,
+    "train_$FasterRCNN_83$features": "cosine_delta"
+}

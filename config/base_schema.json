@@ -1,0 +1,68 @@
+{
+  "$id": "https://www.peratonlabs.com/r9gift.schema.json",
+  "title": "PL-GIFT Algorithm Meta-Parameters",
+  "technique": "Cosine-linear weight analysis",
+  "technique_description": "Computes delta cosine features and classifies with a linear model",
+  "technique_changes": "xxxxx",
+  "commit_id": "xxxxx",
+  "repo_name": "https://github.com/plgift/coslin",
+  "$schema": "https://json-schema.org/draft-07/schema",
+  "description": "TrojAI schema for the GIFT team, cos-lin method",
+  "type": "object",
+  "required": [ ],
+  "additionalProperties": false,
+  "properties": {
+    "nfeats": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "how many features tom select",
+      "suggested_minimum": 50,
+      "suggested_maximum": 5000
+    },
+    "cls_type": {
+      "enum": [
+        "LogisticRegression"
+      ],
+      "description": "name of classifier class (only LogisticRegression is currently supported)"
+    },
+    "param_batch_sz": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "how many torch 'parameters' to look at at a time (trade off memory and disk reading)",
+      "suggested_minimum": 80,
+      "suggested_maximum": 80
+    },
+    "C": {
+      "type": "number",
+      "minimum": 0.000000001,
+      "description": "sklearn-style regularization term.  Higher C -> less regularization. Must be positive",
+      "suggested_minimum": 0.01,
+      "suggested_maximum": 200.0
+    },
+    "feature_selection_criterion": {
+      "enum": [
+        "corr",
+        "auc"
+      ],
+      "description": "criterion for greedy feature selection"
+    },
+    "features": {
+      "enum": [
+        "raw",
+        "white_delta",
+        "cosine_delta",
+        "white",
+        "cosine"
+      ],
+      "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
+    },
+    "normalize_for_feature_selection": {
+      "type": "boolean",
+      "description": "whether or not apply normalization before feature selection"
+    }
+  }
+}
+  
+  
+  
+  
