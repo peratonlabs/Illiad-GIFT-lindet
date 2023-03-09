@@ -77,6 +77,7 @@ if __name__ == "__main__":
     if args.configure_mode:
         if (args.learned_parameters_dirpath != None and args.configure_models_dirpath != None ):
             print(f"Configure Mode Activated: Calibrating Detector(s)!")
+            os.makedirs(args.learned_parameters_dirpath, exist_ok=True)
             cal(arg_dict, metaParameters, ref_model_function=ref_model_function)
         else:
             print("Required Self-Tune-Mode parameters missing!")
