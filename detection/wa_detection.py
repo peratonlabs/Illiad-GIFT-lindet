@@ -19,7 +19,9 @@ def cal(arg_dict, metaParameters, ref_model_function=None):
     modeldirs = os.listdir(base_path)
     # modeldirs.sort()
     model_filepaths = [os.path.join(base_path, modeldir, 'model.pt') for modeldir in modeldirs]
-    cls = [utils.get_class(os.path.join(base_path, modeldir, 'config.json')) for modeldir in modeldirs]
+    # cls = [utils.get_class(os.path.join(base_path, modeldir, 'config.json')) for modeldir in modeldirs]
+    cls = [utils.get_class_allrounds(os.path.join(base_path, modeldir)) for modeldir in modeldirs]
+
     # cfg_dict={'nfeats': 1000, 'cls_type': 'LogisticRegression', 'param_batch_sz': 80, 'C': 0.03}
     gift_basepath = arg_dict['gift_basepath']
     holdoutratio=arg_dict['cv_test_prop']
@@ -61,6 +63,7 @@ def cal(arg_dict, metaParameters, ref_model_function=None):
     ISO_arch_classifiers = {}
     arch_classifiers = {}
     # arch_xstats = {}
+    print('calibrating for architectures: ', arch_map.keys())
 
     # import pdb; pdb.set_trace()
     #TODO refactor this code
@@ -71,7 +74,7 @@ def cal(arg_dict, metaParameters, ref_model_function=None):
         arch_fns = np.array([model_filepaths[i] for i in arch_inds])
         arch_classes = np.array([cls[i] for i in arch_inds])
         ref_model = ref_model_function(arch)
-        if torch.cuda.is_available():
+        if torch.cuda.is_available() and ref_model is not None:
             ref_model.cuda()
 
         with torch.no_grad():

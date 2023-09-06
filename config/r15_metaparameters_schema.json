@@ -13,75 +13,75 @@
     "description": "TrojAI schema for the GIFT team, cos-lin method",
     "type": "object",
     "required": [
-        "train_$ResNet_161$nfeats",
-        "train_$ResNet_161$ntensors",
-        "train_$ResNet_161$cls_type",
-        "train_$ResNet_161$param_batch_sz",
-        "train_$ResNet_161$C",
-        "train_$ResNet_161$feature_selection_criterion",
-        "train_$ResNet_161$features",
-        "train_$ResNet_161$normalize_for_feature_selection",
-        "train_$VisionTransformer_152$nfeats",
-        "train_$VisionTransformer_152$ntensors",
-        "train_$VisionTransformer_152$cls_type",
-        "train_$VisionTransformer_152$param_batch_sz",
-        "train_$VisionTransformer_152$C",
-        "train_$VisionTransformer_152$feature_selection_criterion",
-        "train_$VisionTransformer_152$features",
-        "train_$VisionTransformer_152$normalize_for_feature_selection",
-        "train_$MobileNetV2_158$nfeats",
-        "train_$MobileNetV2_158$ntensors",
-        "train_$MobileNetV2_158$cls_type",
-        "train_$MobileNetV2_158$param_batch_sz",
-        "train_$MobileNetV2_158$C",
-        "train_$MobileNetV2_158$feature_selection_criterion",
-        "train_$MobileNetV2_158$features",
-        "train_$MobileNetV2_158$normalize_for_feature_selection"
+        "train_$RobertaForQuestionAnswering_103$nfeats",
+        "train_$RobertaForQuestionAnswering_103$ntensors",
+        "train_$RobertaForQuestionAnswering_103$cls_type",
+        "train_$RobertaForQuestionAnswering_103$param_batch_sz",
+        "train_$RobertaForQuestionAnswering_103$C",
+        "train_$RobertaForQuestionAnswering_103$feature_selection_criterion",
+        "train_$RobertaForQuestionAnswering_103$features",
+        "train_$RobertaForQuestionAnswering_103$normalize_for_feature_selection",
+        "train_$RobertaForQuestionAnswering_199$nfeats",
+        "train_$RobertaForQuestionAnswering_199$ntensors",
+        "train_$RobertaForQuestionAnswering_199$cls_type",
+        "train_$RobertaForQuestionAnswering_199$param_batch_sz",
+        "train_$RobertaForQuestionAnswering_199$C",
+        "train_$RobertaForQuestionAnswering_199$feature_selection_criterion",
+        "train_$RobertaForQuestionAnswering_199$features",
+        "train_$RobertaForQuestionAnswering_199$normalize_for_feature_selection",
+        "train_$MobileBertForQuestionAnswering_1113$nfeats",
+        "train_$MobileBertForQuestionAnswering_1113$ntensors",
+        "train_$MobileBertForQuestionAnswering_1113$cls_type",
+        "train_$MobileBertForQuestionAnswering_1113$param_batch_sz",
+        "train_$MobileBertForQuestionAnswering_1113$C",
+        "train_$MobileBertForQuestionAnswering_1113$feature_selection_criterion",
+        "train_$MobileBertForQuestionAnswering_1113$features",
+        "train_$MobileBertForQuestionAnswering_1113$normalize_for_feature_selection"
     ],
     "additionalProperties": false,
     "properties": {
-        "train_$ResNet_161$nfeats": {
+        "train_$RobertaForQuestionAnswering_103$nfeats": {
             "type": "integer",
             "minimum": 1,
             "description": "how many features to select",
             "suggested_minimum": 50,
             "suggested_maximum": 5000
         },
-        "train_$ResNet_161$ntensors": {
+        "train_$RobertaForQuestionAnswering_103$ntensors": {
             "type": "integer",
             "minimum": 1,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
         },
-        "train_$ResNet_161$cls_type": {
+        "train_$RobertaForQuestionAnswering_103$cls_type": {
             "enum": [
                 "LogisticRegression"
             ],
             "description": "name of classifier class (only LogisticRegression is currently supported)"
         },
-        "train_$ResNet_161$param_batch_sz": {
+        "train_$RobertaForQuestionAnswering_103$param_batch_sz": {
             "type": "integer",
             "minimum": 1,
             "description": "how many torch 'parameters' to look at at a time (trade off memory and disk reading)",
             "suggested_minimum": 80,
             "suggested_maximum": 80
         },
-        "train_$ResNet_161$C": {
+        "train_$RobertaForQuestionAnswering_103$C": {
             "type": "number",
             "minimum": 1e-09,
             "description": "sklearn-style regularization term.  Higher C -> less regularization. Must be positive",
             "suggested_minimum": 0.01,
             "suggested_maximum": 200.0
         },
-        "train_$ResNet_161$feature_selection_criterion": {
+        "train_$RobertaForQuestionAnswering_103$feature_selection_criterion": {
             "enum": [
                 "corr",
                 "auc"
             ],
             "description": "criterion for greedy feature selection"
         },
-        "train_$ResNet_161$features": {
+        "train_$RobertaForQuestionAnswering_103$features": {
             "enum": [
                 "raw",
                 "white_delta",
@@ -93,52 +93,52 @@
             ],
             "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
         },
-        "train_$ResNet_161$normalize_for_feature_selection": {
+        "train_$RobertaForQuestionAnswering_103$normalize_for_feature_selection": {
             "type": "boolean",
             "description": "whether or not apply normalization before feature selection"
         },
-        "train_$VisionTransformer_152$nfeats": {
+        "train_$RobertaForQuestionAnswering_199$nfeats": {
             "type": "integer",
             "minimum": 1,
             "description": "how many features to select",
             "suggested_minimum": 50,
             "suggested_maximum": 5000
         },
-        "train_$VisionTransformer_152$ntensors": {
+        "train_$RobertaForQuestionAnswering_199$ntensors": {
             "type": "integer",
             "minimum": 1,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
         },
-        "train_$VisionTransformer_152$cls_type": {
+        "train_$RobertaForQuestionAnswering_199$cls_type": {
             "enum": [
                 "LogisticRegression"
             ],
             "description": "name of classifier class (only LogisticRegression is currently supported)"
         },
-        "train_$VisionTransformer_152$param_batch_sz": {
+        "train_$RobertaForQuestionAnswering_199$param_batch_sz": {
             "type": "integer",
             "minimum": 1,
             "description": "how many torch 'parameters' to look at at a time (trade off memory and disk reading)",
             "suggested_minimum": 80,
             "suggested_maximum": 80
         },
-        "train_$VisionTransformer_152$C": {
+        "train_$RobertaForQuestionAnswering_199$C": {
             "type": "number",
             "minimum": 1e-09,
             "description": "sklearn-style regularization term.  Higher C -> less regularization. Must be positive",
             "suggested_minimum": 0.01,
             "suggested_maximum": 200.0
         },
-        "train_$VisionTransformer_152$feature_selection_criterion": {
+        "train_$RobertaForQuestionAnswering_199$feature_selection_criterion": {
             "enum": [
                 "corr",
                 "auc"
             ],
             "description": "criterion for greedy feature selection"
         },
-        "train_$VisionTransformer_152$features": {
+        "train_$RobertaForQuestionAnswering_199$features": {
             "enum": [
                 "raw",
                 "white_delta",
@@ -150,52 +150,52 @@
             ],
             "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
         },
-        "train_$VisionTransformer_152$normalize_for_feature_selection": {
+        "train_$RobertaForQuestionAnswering_199$normalize_for_feature_selection": {
             "type": "boolean",
             "description": "whether or not apply normalization before feature selection"
         },
-        "train_$MobileNetV2_158$nfeats": {
+        "train_$MobileBertForQuestionAnswering_1113$nfeats": {
             "type": "integer",
             "minimum": 1,
             "description": "how many features to select",
             "suggested_minimum": 50,
             "suggested_maximum": 5000
         },
-        "train_$MobileNetV2_158$ntensors": {
+        "train_$MobileBertForQuestionAnswering_1113$ntensors": {
             "type": "integer",
             "minimum": 1,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
         },
-        "train_$MobileNetV2_158$cls_type": {
+        "train_$MobileBertForQuestionAnswering_1113$cls_type": {
             "enum": [
                 "LogisticRegression"
             ],
             "description": "name of classifier class (only LogisticRegression is currently supported)"
         },
-        "train_$MobileNetV2_158$param_batch_sz": {
+        "train_$MobileBertForQuestionAnswering_1113$param_batch_sz": {
             "type": "integer",
             "minimum": 1,
             "description": "how many torch 'parameters' to look at at a time (trade off memory and disk reading)",
             "suggested_minimum": 80,
             "suggested_maximum": 80
         },
-        "train_$MobileNetV2_158$C": {
+        "train_$MobileBertForQuestionAnswering_1113$C": {
             "type": "number",
             "minimum": 1e-09,
             "description": "sklearn-style regularization term.  Higher C -> less regularization. Must be positive",
             "suggested_minimum": 0.01,
             "suggested_maximum": 200.0
         },
-        "train_$MobileNetV2_158$feature_selection_criterion": {
+        "train_$MobileBertForQuestionAnswering_1113$feature_selection_criterion": {
             "enum": [
                 "corr",
                 "auc"
             ],
             "description": "criterion for greedy feature selection"
         },
-        "train_$MobileNetV2_158$features": {
+        "train_$MobileBertForQuestionAnswering_1113$features": {
             "enum": [
                 "raw",
                 "white_delta",
@@ -207,7 +207,7 @@
             ],
             "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
         },
-        "train_$MobileNetV2_158$normalize_for_feature_selection": {
+        "train_$MobileBertForQuestionAnswering_1113$normalize_for_feature_selection": {
             "type": "boolean",
             "description": "whether or not apply normalization before feature selection"
         }

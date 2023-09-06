@@ -21,6 +21,10 @@ if __name__ == "__main__":
     parser.add_argument('--examples_dirpath', type=str, help='File path to the directory containing json file(s) that contains the examples which might be useful for determining whether a model is poisoned.')
     parser.add_argument('--source_dataset_dirpath', type=str, help='File path to a directory containing the original clean dataset into which triggers were injected during training.', default=None)
 
+    parser.add_argument('--tokenizer_filepath', type=str, help='', default=None)
+
+
+
     parser.add_argument('--round_training_dataset_dirpath', type=str, help='File path to the directory containing id-xxxxxxxx models of the current rounds training dataset.', default=None)
 
     # parser.add_argument('--metaparameters_filepath', help='Path to JSON file containing values of tunable paramaters to be used when evaluating models.', action=ActionConfigFile)
@@ -70,14 +74,22 @@ if __name__ == "__main__":
     elif args.round == '9':
         ref_models.r9_check_for_ref_models(model_dir)
         ref_model_function = lambda arch: ref_models.r9_load_ref_model(arch, model_dir)
+    elif  args.round == '13':
+        ref_models.r13_check_for_ref_models(model_dir)
+        ref_model_function = lambda arch: ref_models.r13_load_ref_model(arch, model_dir)
+    elif  args.round == '14':
+        ref_model_function = lambda arch: None
+    elif  args.round == '15':
+        ref_models.r15_check_for_ref_models(model_dir)
+        ref_model_function = lambda arch: ref_models.r15_load_ref_model(arch, model_dir)
     else:
-        assert False, 'Round ' + args.round + ' not supported'
+        print('Round ' + args.round + ' not supported, skipping reference models')
+        ref_model_function = lambda arch: None
 
 
     if args.configure_mode:
         if (args.learned_parameters_dirpath != None and args.configure_models_dirpath != None ):
             print(f"Configure Mode Activated: Calibrating Detector(s)!")
-            os.makedirs(args.learned_parameters_dirpath, exist_ok=True)
             cal(arg_dict, metaParameters, ref_model_function=ref_model_function)
         else:
             print("Required Self-Tune-Mode parameters missing!")

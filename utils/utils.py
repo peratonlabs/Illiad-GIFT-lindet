@@ -1,6 +1,6 @@
 import os
 import numpy as np
-import cv2
+# import cv2
 import torch
 import json
 import torchvision
@@ -69,6 +69,7 @@ def get_class(truth_fn):
 
 
 def getImage(fn, model):
+    import cv2
     """
     """
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -109,6 +110,7 @@ def getImage(fn, model):
 
 
 def saveTriggeredImage(imgAdv, saveName, saveDir="/scratch"):
+    import cv2
     img2 = imgAdv.permute((1,2,0))
     img2 = img2.cpu().numpy()
     img2 = (img2 * 255).round().astype(np.uint8)

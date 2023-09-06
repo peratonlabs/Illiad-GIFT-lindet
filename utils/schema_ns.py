@@ -1,6 +1,4 @@
 
-
-
 import json
 import copy
 
@@ -76,11 +74,6 @@ def validate(metaparameters_filepath, schema_filepath):
     print("validation complete")
 
 
-def gen_r10_json():
-    archlist = ["SSD_71", "FasterRCNN_83"]
-    gen_schema("./config/base_schema.json", "./config/r10_metaparameters_schema.json", archlist)
-    gen_init_json("./config/base.json", "./config/r10_metaparameters.json", archlist)
-
 def gen_r9_json():
     archlist = [
         "DistilBertForQuestionAnswering_102",
@@ -96,6 +89,36 @@ def gen_r9_json():
 
     gen_schema("./config/base_schema.json", "./config/r9_metaparameters_schema.json", archlist)
     gen_init_json("./config/base.json", "./config/r9_metaparameters.json", archlist)
+
+
+def gen_r10_json():
+    archlist = ["SSD_71", "FasterRCNN_83"]
+    gen_schema("./config/base_schema.json", "./config/r10_metaparameters_schema.json", archlist)
+    gen_init_json("./config/base.json", "./config/r10_metaparameters.json", archlist)
+
+
+def gen_r11_json():
+    archlist = ["ResNet_161", "VisionTransformer_152", "MobileNetV2_158"]
+    gen_schema("./config/base_schema.json", "./config/r11_metaparameters_schema.json", archlist)
+    gen_init_json("./config/base.json", "./config/r11_metaparameters.json", archlist)
+
+
+def gen_r13_json():
+    archlist = ["SSD_71", "FasterRCNN_209", "DetrForObjectDetection_326"]
+    gen_schema("./config/base_schema.json", "./config/r13_metaparameters_schema.json", archlist)
+    gen_init_json("./config/base.json", "./config/r13_metaparameters.json", archlist)
+
+
+def gen_r14_json():
+    archlist = ["SimplifiedRLStarter_18", "BasicFCModel_12"]
+    gen_schema("./config/base_schema.json", "./config/r14_metaparameters_schema.json", archlist)
+    gen_init_json("./config/base.json", "./config/r14_metaparameters.json", archlist)
+
+
+def gen_r15_json():
+    archlist = ["RobertaForQuestionAnswering_103", "RobertaForQuestionAnswering_199", "MobileBertForQuestionAnswering_1113"]
+    gen_schema("./config/base_schema.json", "./config/r15_metaparameters_schema.json", archlist)
+    gen_init_json("./config/base.json", "./config/r15_metaparameters.json", archlist)
 
 
 
