@@ -1,0 +1,29 @@
+Bootstrap: docker
+From: python:3.9-bullseye
+
+%files
+    ./wa_detector.py /gift/
+    ./reference_models /gift/
+    ./utils /gift/
+    ./detection /gift/
+    ./trinv /gift/
+    ./config /gift/
+    ./config/r14_metaparameters.json /metaparameters.json
+    ./config/r14_metaparameters_schema.json /metaparameters_schema.json
+    ./learned_parameters/wa_lr_round14.joblib /learned_parameters/wa_lr.joblib
+
+%post
+    pip install --upgrade pip
+    pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+    pip install trojai_rl
+    pip install gym_minigrid==1.0.2
+    pip install gym gymnasium minigrid jsonschema jsonpickle scikit-learn==1.1.2 jsonargparse
+    pip install timm
+    #pip install opencv-python
+    #chmod 755 /*.py
+    #chmod -R 755 /utils
+    #chmod 755 /*.json
+    #chmod -R 755 /learned_parameters
+
+%runscript
+    exec python3 /gift/wa_detector.py --round 14 "$@"

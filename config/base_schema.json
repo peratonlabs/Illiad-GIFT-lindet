@@ -4,6 +4,7 @@
   "technique": "Cosine-linear weight analysis",
   "technique_description": "Computes delta cosine features and classifies with a linear model",
   "technique_changes": "xxxxx",
+  "technique_type": ["Weight Analysis"],
   "commit_id": "xxxxx",
   "repo_name": "https://github.com/plgift/coslin",
   "$schema": "https://json-schema.org/draft-07/schema",
@@ -15,9 +16,16 @@
     "nfeats": {
       "type": "integer",
       "minimum": 1,
-      "description": "how many features tom select",
+      "description": "how many features to select",
       "suggested_minimum": 50,
       "suggested_maximum": 5000
+    },
+    "ntensors": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "how many tensors select features from",
+      "suggested_minimum": 5,
+      "suggested_maximum": 100
     },
     "cls_type": {
       "enum": [
@@ -51,8 +59,10 @@
         "raw",
         "white_delta",
         "cosine_delta",
+        "pnorm_delta",
         "white",
-        "cosine"
+        "cosine",
+        "pnorm"
       ],
       "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
     },

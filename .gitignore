@@ -1,1 +1,11 @@
-./reference_models
+__pycache__
+.vscode
+.idea
+containers
+learned_parameters
+reference_models
+test_scripts
+*/__pycache__
+scratch
+
+

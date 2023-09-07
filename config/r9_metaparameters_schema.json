@@ -4,6 +4,9 @@
     "technique": "Cosine-linear weight analysis",
     "technique_description": "Computes delta cosine features and classifies with a linear model",
     "technique_changes": "xxxxx",
+    "technique_type": [
+        "Weight Analysis"
+    ],
     "commit_id": "xxxxx",
     "repo_name": "https://github.com/plgift/coslin",
     "$schema": "https://json-schema.org/draft-07/schema",
@@ -11,6 +14,7 @@
     "type": "object",
     "required": [
         "train_$DistilBertForQuestionAnswering_102$nfeats",
+        "train_$DistilBertForQuestionAnswering_102$ntensors",
         "train_$DistilBertForQuestionAnswering_102$cls_type",
         "train_$DistilBertForQuestionAnswering_102$param_batch_sz",
         "train_$DistilBertForQuestionAnswering_102$C",
@@ -18,6 +22,7 @@
         "train_$DistilBertForQuestionAnswering_102$features",
         "train_$DistilBertForQuestionAnswering_102$normalize_for_feature_selection",
         "train_$DistilBertForSequenceClassification_104$nfeats",
+        "train_$DistilBertForSequenceClassification_104$ntensors",
         "train_$DistilBertForSequenceClassification_104$cls_type",
         "train_$DistilBertForSequenceClassification_104$param_batch_sz",
         "train_$DistilBertForSequenceClassification_104$C",
@@ -25,6 +30,7 @@
         "train_$DistilBertForSequenceClassification_104$features",
         "train_$DistilBertForSequenceClassification_104$normalize_for_feature_selection",
         "train_$DistilBertForTokenClassification_102$nfeats",
+        "train_$DistilBertForTokenClassification_102$ntensors",
         "train_$DistilBertForTokenClassification_102$cls_type",
         "train_$DistilBertForTokenClassification_102$param_batch_sz",
         "train_$DistilBertForTokenClassification_102$C",
@@ -32,6 +38,7 @@
         "train_$DistilBertForTokenClassification_102$features",
         "train_$DistilBertForTokenClassification_102$normalize_for_feature_selection",
         "train_$ElectraForQuestionAnswering_201$nfeats",
+        "train_$ElectraForQuestionAnswering_201$ntensors",
         "train_$ElectraForQuestionAnswering_201$cls_type",
         "train_$ElectraForQuestionAnswering_201$param_batch_sz",
         "train_$ElectraForQuestionAnswering_201$C",
@@ -39,6 +46,7 @@
         "train_$ElectraForQuestionAnswering_201$features",
         "train_$ElectraForQuestionAnswering_201$normalize_for_feature_selection",
         "train_$ElectraForSequenceClassification_203$nfeats",
+        "train_$ElectraForSequenceClassification_203$ntensors",
         "train_$ElectraForSequenceClassification_203$cls_type",
         "train_$ElectraForSequenceClassification_203$param_batch_sz",
         "train_$ElectraForSequenceClassification_203$C",
@@ -46,6 +54,7 @@
         "train_$ElectraForSequenceClassification_203$features",
         "train_$ElectraForSequenceClassification_203$normalize_for_feature_selection",
         "train_$ElectraForTokenClassification_201$nfeats",
+        "train_$ElectraForTokenClassification_201$ntensors",
         "train_$ElectraForTokenClassification_201$cls_type",
         "train_$ElectraForTokenClassification_201$param_batch_sz",
         "train_$ElectraForTokenClassification_201$C",
@@ -53,6 +62,7 @@
         "train_$ElectraForTokenClassification_201$features",
         "train_$ElectraForTokenClassification_201$normalize_for_feature_selection",
         "train_$RobertaForQuestionAnswering_199$nfeats",
+        "train_$RobertaForQuestionAnswering_199$ntensors",
         "train_$RobertaForQuestionAnswering_199$cls_type",
         "train_$RobertaForQuestionAnswering_199$param_batch_sz",
         "train_$RobertaForQuestionAnswering_199$C",
@@ -60,6 +70,7 @@
         "train_$RobertaForQuestionAnswering_199$features",
         "train_$RobertaForQuestionAnswering_199$normalize_for_feature_selection",
         "train_$RobertaForSequenceClassification_201$nfeats",
+        "train_$RobertaForSequenceClassification_201$ntensors",
         "train_$RobertaForSequenceClassification_201$cls_type",
         "train_$RobertaForSequenceClassification_201$param_batch_sz",
         "train_$RobertaForSequenceClassification_201$C",
@@ -67,6 +78,7 @@
         "train_$RobertaForSequenceClassification_201$features",
         "train_$RobertaForSequenceClassification_201$normalize_for_feature_selection",
         "train_$RobertaForTokenClassification_199$nfeats",
+        "train_$RobertaForTokenClassification_199$ntensors",
         "train_$RobertaForTokenClassification_199$cls_type",
         "train_$RobertaForTokenClassification_199$param_batch_sz",
         "train_$RobertaForTokenClassification_199$C",
@@ -79,9 +91,16 @@
         "train_$DistilBertForQuestionAnswering_102$nfeats": {
             "type": "integer",
             "minimum": 1,
-            "description": "how many features tom select",
+            "description": "how many features to select",
             "suggested_minimum": 50,
             "suggested_maximum": 5000
+        },
+        "train_$DistilBertForQuestionAnswering_102$ntensors": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many tensors select features from",
+            "suggested_minimum": 5,
+            "suggested_maximum": 100
         },
         "train_$DistilBertForQuestionAnswering_102$cls_type": {
             "enum": [
@@ -115,8 +134,10 @@
                 "raw",
                 "white_delta",
                 "cosine_delta",
+                "pnorm_delta",
                 "white",
-                "cosine"
+                "cosine",
+                "pnorm"
             ],
             "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
         },
@@ -127,9 +148,16 @@
         "train_$DistilBertForSequenceClassification_104$nfeats": {
             "type": "integer",
             "minimum": 1,
-            "description": "how many features tom select",
+            "description": "how many features to select",
             "suggested_minimum": 50,
             "suggested_maximum": 5000
+        },
+        "train_$DistilBertForSequenceClassification_104$ntensors": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many tensors select features from",
+            "suggested_minimum": 5,
+            "suggested_maximum": 100
         },
         "train_$DistilBertForSequenceClassification_104$cls_type": {
             "enum": [
@@ -163,8 +191,10 @@
                 "raw",
                 "white_delta",
                 "cosine_delta",
+                "pnorm_delta",
                 "white",
-                "cosine"
+                "cosine",
+                "pnorm"
             ],
             "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
         },
@@ -175,9 +205,16 @@
         "train_$DistilBertForTokenClassification_102$nfeats": {
             "type": "integer",
             "minimum": 1,
-            "description": "how many features tom select",
+            "description": "how many features to select",
             "suggested_minimum": 50,
             "suggested_maximum": 5000
+        },
+        "train_$DistilBertForTokenClassification_102$ntensors": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many tensors select features from",
+            "suggested_minimum": 5,
+            "suggested_maximum": 100
         },
         "train_$DistilBertForTokenClassification_102$cls_type": {
             "enum": [
@@ -211,8 +248,10 @@
                 "raw",
                 "white_delta",
                 "cosine_delta",
+                "pnorm_delta",
                 "white",
-                "cosine"
+                "cosine",
+                "pnorm"
             ],
             "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
         },
@@ -223,9 +262,16 @@
         "train_$ElectraForQuestionAnswering_201$nfeats": {
             "type": "integer",
             "minimum": 1,
-            "description": "how many features tom select",
+            "description": "how many features to select",
             "suggested_minimum": 50,
             "suggested_maximum": 5000
+        },
+        "train_$ElectraForQuestionAnswering_201$ntensors": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many tensors select features from",
+            "suggested_minimum": 5,
+            "suggested_maximum": 100
         },
         "train_$ElectraForQuestionAnswering_201$cls_type": {
             "enum": [
@@ -259,8 +305,10 @@
                 "raw",
                 "white_delta",
                 "cosine_delta",
+                "pnorm_delta",
                 "white",
-                "cosine"
+                "cosine",
+                "pnorm"
             ],
             "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
         },
@@ -271,9 +319,16 @@
         "train_$ElectraForSequenceClassification_203$nfeats": {
             "type": "integer",
             "minimum": 1,
-            "description": "how many features tom select",
+            "description": "how many features to select",
             "suggested_minimum": 50,
             "suggested_maximum": 5000
+        },
+        "train_$ElectraForSequenceClassification_203$ntensors": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many tensors select features from",
+            "suggested_minimum": 5,
+            "suggested_maximum": 100
         },
         "train_$ElectraForSequenceClassification_203$cls_type": {
             "enum": [
@@ -307,8 +362,10 @@
                 "raw",
                 "white_delta",
                 "cosine_delta",
+                "pnorm_delta",
                 "white",
-                "cosine"
+                "cosine",
+                "pnorm"
             ],
             "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
         },
@@ -319,9 +376,16 @@
         "train_$ElectraForTokenClassification_201$nfeats": {
             "type": "integer",
             "minimum": 1,
-            "description": "how many features tom select",
+            "description": "how many features to select",
             "suggested_minimum": 50,
             "suggested_maximum": 5000
+        },
+        "train_$ElectraForTokenClassification_201$ntensors": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many tensors select features from",
+            "suggested_minimum": 5,
+            "suggested_maximum": 100
         },
         "train_$ElectraForTokenClassification_201$cls_type": {
             "enum": [
@@ -355,8 +419,10 @@
                 "raw",
                 "white_delta",
                 "cosine_delta",
+                "pnorm_delta",
                 "white",
-                "cosine"
+                "cosine",
+                "pnorm"
             ],
             "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
         },
@@ -367,9 +433,16 @@
         "train_$RobertaForQuestionAnswering_199$nfeats": {
             "type": "integer",
             "minimum": 1,
-            "description": "how many features tom select",
+            "description": "how many features to select",
             "suggested_minimum": 50,
             "suggested_maximum": 5000
+        },
+        "train_$RobertaForQuestionAnswering_199$ntensors": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many tensors select features from",
+            "suggested_minimum": 5,
+            "suggested_maximum": 100
         },
         "train_$RobertaForQuestionAnswering_199$cls_type": {
             "enum": [
@@ -403,8 +476,10 @@
                 "raw",
                 "white_delta",
                 "cosine_delta",
+                "pnorm_delta",
                 "white",
-                "cosine"
+                "cosine",
+                "pnorm"
             ],
             "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
         },
@@ -415,9 +490,16 @@
         "train_$RobertaForSequenceClassification_201$nfeats": {
             "type": "integer",
             "minimum": 1,
-            "description": "how many features tom select",
+            "description": "how many features to select",
             "suggested_minimum": 50,
             "suggested_maximum": 5000
+        },
+        "train_$RobertaForSequenceClassification_201$ntensors": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many tensors select features from",
+            "suggested_minimum": 5,
+            "suggested_maximum": 100
         },
         "train_$RobertaForSequenceClassification_201$cls_type": {
             "enum": [
@@ -451,8 +533,10 @@
                 "raw",
                 "white_delta",
                 "cosine_delta",
+                "pnorm_delta",
                 "white",
-                "cosine"
+                "cosine",
+                "pnorm"
             ],
             "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
         },
@@ -463,9 +547,16 @@
         "train_$RobertaForTokenClassification_199$nfeats": {
             "type": "integer",
             "minimum": 1,
-            "description": "how many features tom select",
+            "description": "how many features to select",
             "suggested_minimum": 50,
             "suggested_maximum": 5000
+        },
+        "train_$RobertaForTokenClassification_199$ntensors": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many tensors select features from",
+            "suggested_minimum": 5,
+            "suggested_maximum": 100
         },
         "train_$RobertaForTokenClassification_199$cls_type": {
             "enum": [
@@ -499,8 +590,10 @@
                 "raw",
                 "white_delta",
                 "cosine_delta",
+                "pnorm_delta",
                 "white",
-                "cosine"
+                "cosine",
+                "pnorm"
             ],
             "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
         },

@@ -5,6 +5,62 @@ import timm
 import os
 import torchvision
 
+
+def r13_check_for_ref_models(model_dir):
+    # object_detection: ssd300_vgg16
+    # object_detection: detr
+    # object_detection: fasterrcnn_resnet50_fpn_v2
+
+    # this function is called once during setup
+    pth = os.path.join(model_dir, 'FasterRCNN_209.pt')
+    if not os.path.exists(pth):
+        ref_model = torchvision.models.detection.fasterrcnn_resnet50_fpn_v2()
+        # torch.save(ref_model.state_dict(), pth)
+        torch.save(ref_model, pth)
+
+    pth = os.path.join(model_dir, 'SSD_71.pt')
+    if not os.path.exists(pth):
+        ref_model = torchvision.models.detection.ssd300_vgg16(weights=torchvision.models.detection.SSD300_VGG16_Weights.DEFAULT)
+        # torch.save(ref_model.state_dict(), pth)
+        torch.save(ref_model, pth)
+
+    pth = os.path.join(model_dir, 'DetrForObjectDetection_326.pt')
+    if not os.path.exists(pth):
+        import transformers
+        ref_model = transformers.models.detr.modeling_detr.DetrForObjectDetection.from_pretrained("facebook/detr-resnet-50")
+
+        # ref_model = torchvision.models.detection.ssd300_vgg16(weights=torchvision.models.detection.SSD300_VGG16_Weights.DEFAULT)
+        # torch.save(ref_model.state_dict(), pth)
+        torch.save(ref_model, pth)
+
+
+
+def r13_load_ref_model(arch, model_dir):
+    # 'DetrForObjectDetection_326', 'FasterRCNN_209', 'SSD_71'
+    if "FasterRCNN_209" == arch:
+        # ref_model = torchvision.models.detection.fasterrcnn_resnet50_fpn(weights_backbone=None)
+        # ref_model.load_state_dict(torch.load(os.path.join(model_dir, 'frcnn_COCO_V1.pt')))
+
+        ref_model = torch.load(os.path.join(model_dir, 'FasterRCNN_209.pt'))
+
+    elif "SSD_71" == arch:
+        # ref_model = torchvision.models.detection.ssd300_vgg16(weights_backbone=None)
+        # ref_model.load_state_dict(torch.load(os.path.join(model_dir, 'ssd300_vgg16_coco.pt')))
+
+        ref_model = torch.load(os.path.join(model_dir, 'SSD_71.pt'))
+    elif "DetrForObjectDetection_326" == arch:
+        # ref_model = torchvision.models.detection.ssd300_vgg16(weights_backbone=None)
+        # ref_model.load_state_dict(torch.load(os.path.join(model_dir, 'ssd300_vgg16_coco.pt')))
+
+        ref_model = torch.load(os.path.join(model_dir, 'DetrForObjectDetection_326.pt'))
+
+    else:
+        assert False, "bad arch"
+    if torch.cuda.is_available():
+        ref_model.cuda()
+    return ref_model
+
+
 def r11_check_for_ref_models(model_dir):
     # this function is called once during setup
     pth = os.path.join(model_dir, 'resnet50_V2.pt')
@@ -154,6 +210,50 @@ def r9_load_ref_model(arch, model_dir):
         "RobertaForQuestionAnswering_199": 'roberta_qa.pt',
         "RobertaForSequenceClassification_201": 'roberta_sc.pt',
         "RobertaForTokenClassification_199": 'roberta_ner.pt',
+    }
+
+    if arch in  fnmap:
+        ref_model = torch.load(os.path.join(model_dir, fnmap[arch]))
+    else:
+        assert False, "bad arch"
+    if torch.cuda.is_available():
+        ref_model.cuda()
+    return ref_model
+
+
+
+
+def r15_check_for_ref_models(model_dir):
+    import transformers
+    # this function is called once during setup
+
+    pth = os.path.join(model_dir, 'tinyroberta15_qa.pt')
+    if not os.path.exists(pth):
+        ref_model = transformers.models.roberta.modeling_roberta.RobertaForQuestionAnswering.from_pretrained(
+            'deepset/tinyroberta-squad2')
+        torch.save(ref_model, pth)
+
+    pth = os.path.join(model_dir, 'roberta15_qa.pt')
+    if not os.path.exists(pth):
+        ref_model = transformers.models.roberta.modeling_roberta.RobertaForQuestionAnswering.from_pretrained(
+            'deepset/roberta-base-squad2')
+        torch.save(ref_model, pth)
+
+    pth = os.path.join(model_dir, 'mobilebert15_qa.pt')
+    if not os.path.exists(pth):
+        ref_model = transformers.models.mobilebert.modeling_mobilebert.MobileBertForQuestionAnswering.from_pretrained(
+            'csarron/mobilebert-uncased-squad-v2')
+        torch.save(ref_model, pth)
+
+
+
+
+def r15_load_ref_model(arch, model_dir):
+
+    fnmap = {
+        "RobertaForQuestionAnswering_103": 'tinyroberta15_qa.pt',
+        "RobertaForQuestionAnswering_199": 'roberta15_qa.pt',
+        "MobileBertForQuestionAnswering_1113": 'mobilebert15_qa.pt',
     }
 
     if arch in  fnmap:
