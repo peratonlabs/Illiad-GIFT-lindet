@@ -66,3 +66,21 @@ Several examples are available in the ./singularity directory. Be sure to update
 ### Build & execute singularity container
 See above.
 
+
+## Multiround environments
+
+
+### Round 11 env
+
+```
+conda env create -f r11new2.yml
+```
+Note: conda seems to have more issues than pip, so I recommend the following for addressing new requirements:
+```
+conda create -n r11new2 python=3.8.17
+pip install <whatever packages>
+```
+
+
+
+
