@@ -1,0 +1,280 @@
+{
+    "$id": "https://www.peratonlabs.com/r9gift.schema.json",
+    "title": "PL-GIFT Algorithm Meta-Parameters",
+    "technique": "Cosine-linear weight analysis",
+    "technique_description": "Computes delta cosine features and classifies with a linear model",
+    "technique_changes": "xxxxx",
+    "technique_type": [
+        "Weight Analysis"
+    ],
+    "commit_id": "xxxxx",
+    "repo_name": "https://github.com/plgift/coslin",
+    "$schema": "https://json-schema.org/draft-07/schema",
+    "description": "TrojAI schema for the GIFT team, cos-lin method",
+    "type": "object",
+    "required": [
+        "train_$MobileBertModel_1113$nfeats",
+        "train_$MobileBertModel_1113$ntensors",
+        "train_$MobileBertModel_1113$cls_type",
+        "train_$MobileBertModel_1113$param_batch_sz",
+        "train_$MobileBertModel_1113$C",
+        "train_$MobileBertModel_1113$feature_selection_criterion",
+        "train_$MobileBertModel_1113$features",
+        "train_$MobileBertModel_1113$normalize_for_feature_selection",
+        "train_$BertModel_199$nfeats",
+        "train_$BertModel_199$ntensors",
+        "train_$BertModel_199$cls_type",
+        "train_$BertModel_199$param_batch_sz",
+        "train_$BertModel_199$C",
+        "train_$BertModel_199$feature_selection_criterion",
+        "train_$BertModel_199$features",
+        "train_$BertModel_199$normalize_for_feature_selection",
+        "train_$RobertaModel_199$nfeats",
+        "train_$RobertaModel_199$ntensors",
+        "train_$RobertaModel_199$cls_type",
+        "train_$RobertaModel_199$param_batch_sz",
+        "train_$RobertaModel_199$C",
+        "train_$RobertaModel_199$feature_selection_criterion",
+        "train_$RobertaModel_199$features",
+        "train_$RobertaModel_199$normalize_for_feature_selection",
+        "train_$DistilBertModel_102$nfeats",
+        "train_$DistilBertModel_102$ntensors",
+        "train_$DistilBertModel_102$cls_type",
+        "train_$DistilBertModel_102$param_batch_sz",
+        "train_$DistilBertModel_102$C",
+        "train_$DistilBertModel_102$feature_selection_criterion",
+        "train_$DistilBertModel_102$features",
+        "train_$DistilBertModel_102$normalize_for_feature_selection"
+    ],
+    "additionalProperties": false,
+    "properties": {
+        "train_$MobileBertModel_1113$nfeats": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many features to select",
+            "suggested_minimum": 50,
+            "suggested_maximum": 5000
+        },
+        "train_$MobileBertModel_1113$ntensors": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many tensors select features from",
+            "suggested_minimum": 5,
+            "suggested_maximum": 100
+        },
+        "train_$MobileBertModel_1113$cls_type": {
+            "enum": [
+                "LogisticRegression"
+            ],
+            "description": "name of classifier class (only LogisticRegression is currently supported)"
+        },
+        "train_$MobileBertModel_1113$param_batch_sz": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many torch 'parameters' to look at at a time (trade off memory and disk reading)",
+            "suggested_minimum": 80,
+            "suggested_maximum": 80
+        },
+        "train_$MobileBertModel_1113$C": {
+            "type": "number",
+            "minimum": 1e-09,
+            "description": "sklearn-style regularization term.  Higher C -> less regularization. Must be positive",
+            "suggested_minimum": 0.01,
+            "suggested_maximum": 200.0
+        },
+        "train_$MobileBertModel_1113$feature_selection_criterion": {
+            "enum": [
+                "corr",
+                "auc"
+            ],
+            "description": "criterion for greedy feature selection"
+        },
+        "train_$MobileBertModel_1113$features": {
+            "enum": [
+                "raw",
+                "white_delta",
+                "cosine_delta",
+                "pnorm_delta",
+                "white",
+                "cosine",
+                "pnorm"
+            ],
+            "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
+        },
+        "train_$MobileBertModel_1113$normalize_for_feature_selection": {
+            "type": "boolean",
+            "description": "whether or not apply normalization before feature selection"
+        },
+        "train_$BertModel_199$nfeats": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many features to select",
+            "suggested_minimum": 50,
+            "suggested_maximum": 5000
+        },
+        "train_$BertModel_199$ntensors": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many tensors select features from",
+            "suggested_minimum": 5,
+            "suggested_maximum": 100
+        },
+        "train_$BertModel_199$cls_type": {
+            "enum": [
+                "LogisticRegression"
+            ],
+            "description": "name of classifier class (only LogisticRegression is currently supported)"
+        },
+        "train_$BertModel_199$param_batch_sz": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many torch 'parameters' to look at at a time (trade off memory and disk reading)",
+            "suggested_minimum": 80,
+            "suggested_maximum": 80
+        },
+        "train_$BertModel_199$C": {
+            "type": "number",
+            "minimum": 1e-09,
+            "description": "sklearn-style regularization term.  Higher C -> less regularization. Must be positive",
+            "suggested_minimum": 0.01,
+            "suggested_maximum": 200.0
+        },
+        "train_$BertModel_199$feature_selection_criterion": {
+            "enum": [
+                "corr",
+                "auc"
+            ],
+            "description": "criterion for greedy feature selection"
+        },
+        "train_$BertModel_199$features": {
+            "enum": [
+                "raw",
+                "white_delta",
+                "cosine_delta",
+                "pnorm_delta",
+                "white",
+                "cosine",
+                "pnorm"
+            ],
+            "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
+        },
+        "train_$BertModel_199$normalize_for_feature_selection": {
+            "type": "boolean",
+            "description": "whether or not apply normalization before feature selection"
+        },
+        "train_$RobertaModel_199$nfeats": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many features to select",
+            "suggested_minimum": 50,
+            "suggested_maximum": 5000
+        },
+        "train_$RobertaModel_199$ntensors": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many tensors select features from",
+            "suggested_minimum": 5,
+            "suggested_maximum": 100
+        },
+        "train_$RobertaModel_199$cls_type": {
+            "enum": [
+                "LogisticRegression"
+            ],
+            "description": "name of classifier class (only LogisticRegression is currently supported)"
+        },
+        "train_$RobertaModel_199$param_batch_sz": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many torch 'parameters' to look at at a time (trade off memory and disk reading)",
+            "suggested_minimum": 80,
+            "suggested_maximum": 80
+        },
+        "train_$RobertaModel_199$C": {
+            "type": "number",
+            "minimum": 1e-09,
+            "description": "sklearn-style regularization term.  Higher C -> less regularization. Must be positive",
+            "suggested_minimum": 0.01,
+            "suggested_maximum": 200.0
+        },
+        "train_$RobertaModel_199$feature_selection_criterion": {
+            "enum": [
+                "corr",
+                "auc"
+            ],
+            "description": "criterion for greedy feature selection"
+        },
+        "train_$RobertaModel_199$features": {
+            "enum": [
+                "raw",
+                "white_delta",
+                "cosine_delta",
+                "pnorm_delta",
+                "white",
+                "cosine",
+                "pnorm"
+            ],
+            "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
+        },
+        "train_$RobertaModel_199$normalize_for_feature_selection": {
+            "type": "boolean",
+            "description": "whether or not apply normalization before feature selection"
+        },
+        "train_$DistilBertModel_102$nfeats": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many features to select",
+            "suggested_minimum": 50,
+            "suggested_maximum": 5000
+        },
+        "train_$DistilBertModel_102$ntensors": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many tensors select features from",
+            "suggested_minimum": 5,
+            "suggested_maximum": 100
+        },
+        "train_$DistilBertModel_102$cls_type": {
+            "enum": [
+                "LogisticRegression"
+            ],
+            "description": "name of classifier class (only LogisticRegression is currently supported)"
+        },
+        "train_$DistilBertModel_102$param_batch_sz": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many torch 'parameters' to look at at a time (trade off memory and disk reading)",
+            "suggested_minimum": 80,
+            "suggested_maximum": 80
+        },
+        "train_$DistilBertModel_102$C": {
+            "type": "number",
+            "minimum": 1e-09,
+            "description": "sklearn-style regularization term.  Higher C -> less regularization. Must be positive",
+            "suggested_minimum": 0.01,
+            "suggested_maximum": 200.0
+        },
+        "train_$DistilBertModel_102$feature_selection_criterion": {
+            "enum": [
+                "corr",
+                "auc"
+            ],
+            "description": "criterion for greedy feature selection"
+        },
+        "train_$DistilBertModel_102$features": {
+            "enum": [
+                "raw",
+                "white_delta",
+                "cosine_delta",
+                "pnorm_delta",
+                "white",
+                "cosine",
+                "pnorm"
+            ],
+            "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
+        },
+        "train_$DistilBertModel_102$normalize_for_feature_selection": {
+            "type": "boolean",
+            "description": "whether or not apply normalization before feature selection"
+        }
+    }
+}

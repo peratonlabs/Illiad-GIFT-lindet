@@ -18,7 +18,7 @@ import torchvision
 from torchvision.models import resnet50, mobilenet_v2
 import timm
 from timm.models.vision_transformer import VisionTransformer
-
+import model_factories
 
 def get_arch(model_filepath):
     if torch.cuda.is_available():
@@ -26,13 +26,21 @@ def get_arch(model_filepath):
     else:
         model = torch.load(model_filepath, map_location=torch.device('cpu'))
 
-    if isinstance(model, torch.nn.Module):
+    if isinstance(model, model_factories.NerLinearModel):
+        numparams = len([p for p in model.parameters()])
+        cls = [p for p in model.modules()][1].__class__.__name__ + '_' + str(numparams)
+    elif isinstance(model, model_factories.LstmLinearModel) or isinstance(model, model_factories.GruLinearModel) or isinstance(model, model_factories.FCLinearModel):
+        params = [p for p in model.parameters()]
+        numparams = len(params)
+        szparams = params[1].shape[0]
+        cls = model.__class__.__name__ + '_' + str(numparams) + '_' + str(szparams)
+    elif isinstance(model, torch.nn.Module):
         numparams = len([p for p in model.parameters()])
         cls = model.__class__.__name__ + '_' + str(numparams)
     else:
         numparams = len(model['state_dict'])
         cls = model['model'] + '_' + str(numparams)
-    
+    # print(cls)
     return cls
 
 

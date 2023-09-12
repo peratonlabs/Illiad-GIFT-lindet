@@ -1,0 +1,1060 @@
+{
+    "$id": "https://www.peratonlabs.com/r9gift.schema.json",
+    "title": "PL-GIFT Algorithm Meta-Parameters",
+    "technique": "Cosine-linear weight analysis",
+    "technique_description": "Computes delta cosine features and classifies with a linear model",
+    "technique_changes": "xxxxx",
+    "technique_type": [
+        "Weight Analysis"
+    ],
+    "commit_id": "xxxxx",
+    "repo_name": "https://github.com/plgift/coslin",
+    "$schema": "https://json-schema.org/draft-07/schema",
+    "description": "TrojAI schema for the GIFT team, cos-lin method",
+    "type": "object",
+    "required": [
+        "train_$FCLinearModel_6_256$nfeats",
+        "train_$FCLinearModel_6_256$ntensors",
+        "train_$FCLinearModel_6_256$cls_type",
+        "train_$FCLinearModel_6_256$param_batch_sz",
+        "train_$FCLinearModel_6_256$C",
+        "train_$FCLinearModel_6_256$feature_selection_criterion",
+        "train_$FCLinearModel_6_256$features",
+        "train_$FCLinearModel_6_256$normalize_for_feature_selection",
+        "train_$LstmLinearModel_18_1024$nfeats",
+        "train_$LstmLinearModel_18_1024$ntensors",
+        "train_$LstmLinearModel_18_1024$cls_type",
+        "train_$LstmLinearModel_18_1024$param_batch_sz",
+        "train_$LstmLinearModel_18_1024$C",
+        "train_$LstmLinearModel_18_1024$feature_selection_criterion",
+        "train_$LstmLinearModel_18_1024$features",
+        "train_$LstmLinearModel_18_1024$normalize_for_feature_selection",
+        "train_$GruLinearModel_10_768$nfeats",
+        "train_$GruLinearModel_10_768$ntensors",
+        "train_$GruLinearModel_10_768$cls_type",
+        "train_$GruLinearModel_10_768$param_batch_sz",
+        "train_$GruLinearModel_10_768$C",
+        "train_$GruLinearModel_10_768$feature_selection_criterion",
+        "train_$GruLinearModel_10_768$features",
+        "train_$GruLinearModel_10_768$normalize_for_feature_selection",
+        "train_$LstmLinearModel_34_1024$nfeats",
+        "train_$LstmLinearModel_34_1024$ntensors",
+        "train_$LstmLinearModel_34_1024$cls_type",
+        "train_$LstmLinearModel_34_1024$param_batch_sz",
+        "train_$LstmLinearModel_34_1024$C",
+        "train_$LstmLinearModel_34_1024$feature_selection_criterion",
+        "train_$LstmLinearModel_34_1024$features",
+        "train_$LstmLinearModel_34_1024$normalize_for_feature_selection",
+        "train_$GruLinearModel_34_1536$nfeats",
+        "train_$GruLinearModel_34_1536$ntensors",
+        "train_$GruLinearModel_34_1536$cls_type",
+        "train_$GruLinearModel_34_1536$param_batch_sz",
+        "train_$GruLinearModel_34_1536$C",
+        "train_$GruLinearModel_34_1536$feature_selection_criterion",
+        "train_$GruLinearModel_34_1536$features",
+        "train_$GruLinearModel_34_1536$normalize_for_feature_selection",
+        "train_$LstmLinearModel_18_2048$nfeats",
+        "train_$LstmLinearModel_18_2048$ntensors",
+        "train_$LstmLinearModel_18_2048$cls_type",
+        "train_$LstmLinearModel_18_2048$param_batch_sz",
+        "train_$LstmLinearModel_18_2048$C",
+        "train_$LstmLinearModel_18_2048$feature_selection_criterion",
+        "train_$LstmLinearModel_18_2048$features",
+        "train_$LstmLinearModel_18_2048$normalize_for_feature_selection",
+        "train_$FCLinearModel_10_256$nfeats",
+        "train_$FCLinearModel_10_256$ntensors",
+        "train_$FCLinearModel_10_256$cls_type",
+        "train_$FCLinearModel_10_256$param_batch_sz",
+        "train_$FCLinearModel_10_256$C",
+        "train_$FCLinearModel_10_256$feature_selection_criterion",
+        "train_$FCLinearModel_10_256$features",
+        "train_$FCLinearModel_10_256$normalize_for_feature_selection",
+        "train_$FCLinearModel_10_512$nfeats",
+        "train_$FCLinearModel_10_512$ntensors",
+        "train_$FCLinearModel_10_512$cls_type",
+        "train_$FCLinearModel_10_512$param_batch_sz",
+        "train_$FCLinearModel_10_512$C",
+        "train_$FCLinearModel_10_512$feature_selection_criterion",
+        "train_$FCLinearModel_10_512$features",
+        "train_$FCLinearModel_10_512$normalize_for_feature_selection",
+        "train_$GruLinearModel_18_768$nfeats",
+        "train_$GruLinearModel_18_768$ntensors",
+        "train_$GruLinearModel_18_768$cls_type",
+        "train_$GruLinearModel_18_768$param_batch_sz",
+        "train_$GruLinearModel_18_768$C",
+        "train_$GruLinearModel_18_768$feature_selection_criterion",
+        "train_$GruLinearModel_18_768$features",
+        "train_$GruLinearModel_18_768$normalize_for_feature_selection",
+        "train_$FCLinearModel_6_512$nfeats",
+        "train_$FCLinearModel_6_512$ntensors",
+        "train_$FCLinearModel_6_512$cls_type",
+        "train_$FCLinearModel_6_512$param_batch_sz",
+        "train_$FCLinearModel_6_512$C",
+        "train_$FCLinearModel_6_512$feature_selection_criterion",
+        "train_$FCLinearModel_6_512$features",
+        "train_$FCLinearModel_6_512$normalize_for_feature_selection",
+        "train_$LstmLinearModel_34_2048$nfeats",
+        "train_$LstmLinearModel_34_2048$ntensors",
+        "train_$LstmLinearModel_34_2048$cls_type",
+        "train_$LstmLinearModel_34_2048$param_batch_sz",
+        "train_$LstmLinearModel_34_2048$C",
+        "train_$LstmLinearModel_34_2048$feature_selection_criterion",
+        "train_$LstmLinearModel_34_2048$features",
+        "train_$LstmLinearModel_34_2048$normalize_for_feature_selection",
+        "train_$GruLinearModel_18_1536$nfeats",
+        "train_$GruLinearModel_18_1536$ntensors",
+        "train_$GruLinearModel_18_1536$cls_type",
+        "train_$GruLinearModel_18_1536$param_batch_sz",
+        "train_$GruLinearModel_18_1536$C",
+        "train_$GruLinearModel_18_1536$feature_selection_criterion",
+        "train_$GruLinearModel_18_1536$features",
+        "train_$GruLinearModel_18_1536$normalize_for_feature_selection",
+        "train_$GruLinearModel_10_1536$nfeats",
+        "train_$GruLinearModel_10_1536$ntensors",
+        "train_$GruLinearModel_10_1536$cls_type",
+        "train_$GruLinearModel_10_1536$param_batch_sz",
+        "train_$GruLinearModel_10_1536$C",
+        "train_$GruLinearModel_10_1536$feature_selection_criterion",
+        "train_$GruLinearModel_10_1536$features",
+        "train_$GruLinearModel_10_1536$normalize_for_feature_selection",
+        "train_$LstmLinearModel_10_1024$nfeats",
+        "train_$LstmLinearModel_10_1024$ntensors",
+        "train_$LstmLinearModel_10_1024$cls_type",
+        "train_$LstmLinearModel_10_1024$param_batch_sz",
+        "train_$LstmLinearModel_10_1024$C",
+        "train_$LstmLinearModel_10_1024$feature_selection_criterion",
+        "train_$LstmLinearModel_10_1024$features",
+        "train_$LstmLinearModel_10_1024$normalize_for_feature_selection",
+        "train_$LstmLinearModel_10_2048$nfeats",
+        "train_$LstmLinearModel_10_2048$ntensors",
+        "train_$LstmLinearModel_10_2048$cls_type",
+        "train_$LstmLinearModel_10_2048$param_batch_sz",
+        "train_$LstmLinearModel_10_2048$C",
+        "train_$LstmLinearModel_10_2048$feature_selection_criterion",
+        "train_$LstmLinearModel_10_2048$features",
+        "train_$LstmLinearModel_10_2048$normalize_for_feature_selection",
+        "train_$GruLinearModel_34_768$nfeats",
+        "train_$GruLinearModel_34_768$ntensors",
+        "train_$GruLinearModel_34_768$cls_type",
+        "train_$GruLinearModel_34_768$param_batch_sz",
+        "train_$GruLinearModel_34_768$C",
+        "train_$GruLinearModel_34_768$feature_selection_criterion",
+        "train_$GruLinearModel_34_768$features",
+        "train_$GruLinearModel_34_768$normalize_for_feature_selection"
+    ],
+    "additionalProperties": false,
+    "properties": {
+        "train_$FCLinearModel_6_256$nfeats": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many features to select",
+            "suggested_minimum": 50,
+            "suggested_maximum": 5000
+        },
+        "train_$FCLinearModel_6_256$ntensors": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many tensors select features from",
+            "suggested_minimum": 5,
+            "suggested_maximum": 100
+        },
+        "train_$FCLinearModel_6_256$cls_type": {
+            "enum": [
+                "LogisticRegression"
+            ],
+            "description": "name of classifier class (only LogisticRegression is currently supported)"
+        },
+        "train_$FCLinearModel_6_256$param_batch_sz": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many torch 'parameters' to look at at a time (trade off memory and disk reading)",
+            "suggested_minimum": 80,
+            "suggested_maximum": 80
+        },
+        "train_$FCLinearModel_6_256$C": {
+            "type": "number",
+            "minimum": 1e-09,
+            "description": "sklearn-style regularization term.  Higher C -> less regularization. Must be positive",
+            "suggested_minimum": 0.01,
+            "suggested_maximum": 200.0
+        },
+        "train_$FCLinearModel_6_256$feature_selection_criterion": {
+            "enum": [
+                "corr",
+                "auc"
+            ],
+            "description": "criterion for greedy feature selection"
+        },
+        "train_$FCLinearModel_6_256$features": {
+            "enum": [
+                "raw",
+                "white_delta",
+                "cosine_delta",
+                "pnorm_delta",
+                "white",
+                "cosine",
+                "pnorm"
+            ],
+            "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
+        },
+        "train_$FCLinearModel_6_256$normalize_for_feature_selection": {
+            "type": "boolean",
+            "description": "whether or not apply normalization before feature selection"
+        },
+        "train_$LstmLinearModel_18_1024$nfeats": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many features to select",
+            "suggested_minimum": 50,
+            "suggested_maximum": 5000
+        },
+        "train_$LstmLinearModel_18_1024$ntensors": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many tensors select features from",
+            "suggested_minimum": 5,
+            "suggested_maximum": 100
+        },
+        "train_$LstmLinearModel_18_1024$cls_type": {
+            "enum": [
+                "LogisticRegression"
+            ],
+            "description": "name of classifier class (only LogisticRegression is currently supported)"
+        },
+        "train_$LstmLinearModel_18_1024$param_batch_sz": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many torch 'parameters' to look at at a time (trade off memory and disk reading)",
+            "suggested_minimum": 80,
+            "suggested_maximum": 80
+        },
+        "train_$LstmLinearModel_18_1024$C": {
+            "type": "number",
+            "minimum": 1e-09,
+            "description": "sklearn-style regularization term.  Higher C -> less regularization. Must be positive",
+            "suggested_minimum": 0.01,
+            "suggested_maximum": 200.0
+        },
+        "train_$LstmLinearModel_18_1024$feature_selection_criterion": {
+            "enum": [
+                "corr",
+                "auc"
+            ],
+            "description": "criterion for greedy feature selection"
+        },
+        "train_$LstmLinearModel_18_1024$features": {
+            "enum": [
+                "raw",
+                "white_delta",
+                "cosine_delta",
+                "pnorm_delta",
+                "white",
+                "cosine",
+                "pnorm"
+            ],
+            "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
+        },
+        "train_$LstmLinearModel_18_1024$normalize_for_feature_selection": {
+            "type": "boolean",
+            "description": "whether or not apply normalization before feature selection"
+        },
+        "train_$GruLinearModel_10_768$nfeats": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many features to select",
+            "suggested_minimum": 50,
+            "suggested_maximum": 5000
+        },
+        "train_$GruLinearModel_10_768$ntensors": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many tensors select features from",
+            "suggested_minimum": 5,
+            "suggested_maximum": 100
+        },
+        "train_$GruLinearModel_10_768$cls_type": {
+            "enum": [
+                "LogisticRegression"
+            ],
+            "description": "name of classifier class (only LogisticRegression is currently supported)"
+        },
+        "train_$GruLinearModel_10_768$param_batch_sz": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many torch 'parameters' to look at at a time (trade off memory and disk reading)",
+            "suggested_minimum": 80,
+            "suggested_maximum": 80
+        },
+        "train_$GruLinearModel_10_768$C": {
+            "type": "number",
+            "minimum": 1e-09,
+            "description": "sklearn-style regularization term.  Higher C -> less regularization. Must be positive",
+            "suggested_minimum": 0.01,
+            "suggested_maximum": 200.0
+        },
+        "train_$GruLinearModel_10_768$feature_selection_criterion": {
+            "enum": [
+                "corr",
+                "auc"
+            ],
+            "description": "criterion for greedy feature selection"
+        },
+        "train_$GruLinearModel_10_768$features": {
+            "enum": [
+                "raw",
+                "white_delta",
+                "cosine_delta",
+                "pnorm_delta",
+                "white",
+                "cosine",
+                "pnorm"
+            ],
+            "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
+        },
+        "train_$GruLinearModel_10_768$normalize_for_feature_selection": {
+            "type": "boolean",
+            "description": "whether or not apply normalization before feature selection"
+        },
+        "train_$LstmLinearModel_34_1024$nfeats": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many features to select",
+            "suggested_minimum": 50,
+            "suggested_maximum": 5000
+        },
+        "train_$LstmLinearModel_34_1024$ntensors": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many tensors select features from",
+            "suggested_minimum": 5,
+            "suggested_maximum": 100
+        },
+        "train_$LstmLinearModel_34_1024$cls_type": {
+            "enum": [
+                "LogisticRegression"
+            ],
+            "description": "name of classifier class (only LogisticRegression is currently supported)"
+        },
+        "train_$LstmLinearModel_34_1024$param_batch_sz": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many torch 'parameters' to look at at a time (trade off memory and disk reading)",
+            "suggested_minimum": 80,
+            "suggested_maximum": 80
+        },
+        "train_$LstmLinearModel_34_1024$C": {
+            "type": "number",
+            "minimum": 1e-09,
+            "description": "sklearn-style regularization term.  Higher C -> less regularization. Must be positive",
+            "suggested_minimum": 0.01,
+            "suggested_maximum": 200.0
+        },
+        "train_$LstmLinearModel_34_1024$feature_selection_criterion": {
+            "enum": [
+                "corr",
+                "auc"
+            ],
+            "description": "criterion for greedy feature selection"
+        },
+        "train_$LstmLinearModel_34_1024$features": {
+            "enum": [
+                "raw",
+                "white_delta",
+                "cosine_delta",
+                "pnorm_delta",
+                "white",
+                "cosine",
+                "pnorm"
+            ],
+            "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
+        },
+        "train_$LstmLinearModel_34_1024$normalize_for_feature_selection": {
+            "type": "boolean",
+            "description": "whether or not apply normalization before feature selection"
+        },
+        "train_$GruLinearModel_34_1536$nfeats": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many features to select",
+            "suggested_minimum": 50,
+            "suggested_maximum": 5000
+        },
+        "train_$GruLinearModel_34_1536$ntensors": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many tensors select features from",
+            "suggested_minimum": 5,
+            "suggested_maximum": 100
+        },
+        "train_$GruLinearModel_34_1536$cls_type": {
+            "enum": [
+                "LogisticRegression"
+            ],
+            "description": "name of classifier class (only LogisticRegression is currently supported)"
+        },
+        "train_$GruLinearModel_34_1536$param_batch_sz": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many torch 'parameters' to look at at a time (trade off memory and disk reading)",
+            "suggested_minimum": 80,
+            "suggested_maximum": 80
+        },
+        "train_$GruLinearModel_34_1536$C": {
+            "type": "number",
+            "minimum": 1e-09,
+            "description": "sklearn-style regularization term.  Higher C -> less regularization. Must be positive",
+            "suggested_minimum": 0.01,
+            "suggested_maximum": 200.0
+        },
+        "train_$GruLinearModel_34_1536$feature_selection_criterion": {
+            "enum": [
+                "corr",
+                "auc"
+            ],
+            "description": "criterion for greedy feature selection"
+        },
+        "train_$GruLinearModel_34_1536$features": {
+            "enum": [
+                "raw",
+                "white_delta",
+                "cosine_delta",
+                "pnorm_delta",
+                "white",
+                "cosine",
+                "pnorm"
+            ],
+            "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
+        },
+        "train_$GruLinearModel_34_1536$normalize_for_feature_selection": {
+            "type": "boolean",
+            "description": "whether or not apply normalization before feature selection"
+        },
+        "train_$LstmLinearModel_18_2048$nfeats": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many features to select",
+            "suggested_minimum": 50,
+            "suggested_maximum": 5000
+        },
+        "train_$LstmLinearModel_18_2048$ntensors": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many tensors select features from",
+            "suggested_minimum": 5,
+            "suggested_maximum": 100
+        },
+        "train_$LstmLinearModel_18_2048$cls_type": {
+            "enum": [
+                "LogisticRegression"
+            ],
+            "description": "name of classifier class (only LogisticRegression is currently supported)"
+        },
+        "train_$LstmLinearModel_18_2048$param_batch_sz": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many torch 'parameters' to look at at a time (trade off memory and disk reading)",
+            "suggested_minimum": 80,
+            "suggested_maximum": 80
+        },
+        "train_$LstmLinearModel_18_2048$C": {
+            "type": "number",
+            "minimum": 1e-09,
+            "description": "sklearn-style regularization term.  Higher C -> less regularization. Must be positive",
+            "suggested_minimum": 0.01,
+            "suggested_maximum": 200.0
+        },
+        "train_$LstmLinearModel_18_2048$feature_selection_criterion": {
+            "enum": [
+                "corr",
+                "auc"
+            ],
+            "description": "criterion for greedy feature selection"
+        },
+        "train_$LstmLinearModel_18_2048$features": {
+            "enum": [
+                "raw",
+                "white_delta",
+                "cosine_delta",
+                "pnorm_delta",
+                "white",
+                "cosine",
+                "pnorm"
+            ],
+            "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
+        },
+        "train_$LstmLinearModel_18_2048$normalize_for_feature_selection": {
+            "type": "boolean",
+            "description": "whether or not apply normalization before feature selection"
+        },
+        "train_$FCLinearModel_10_256$nfeats": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many features to select",
+            "suggested_minimum": 50,
+            "suggested_maximum": 5000
+        },
+        "train_$FCLinearModel_10_256$ntensors": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many tensors select features from",
+            "suggested_minimum": 5,
+            "suggested_maximum": 100
+        },
+        "train_$FCLinearModel_10_256$cls_type": {
+            "enum": [
+                "LogisticRegression"
+            ],
+            "description": "name of classifier class (only LogisticRegression is currently supported)"
+        },
+        "train_$FCLinearModel_10_256$param_batch_sz": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many torch 'parameters' to look at at a time (trade off memory and disk reading)",
+            "suggested_minimum": 80,
+            "suggested_maximum": 80
+        },
+        "train_$FCLinearModel_10_256$C": {
+            "type": "number",
+            "minimum": 1e-09,
+            "description": "sklearn-style regularization term.  Higher C -> less regularization. Must be positive",
+            "suggested_minimum": 0.01,
+            "suggested_maximum": 200.0
+        },
+        "train_$FCLinearModel_10_256$feature_selection_criterion": {
+            "enum": [
+                "corr",
+                "auc"
+            ],
+            "description": "criterion for greedy feature selection"
+        },
+        "train_$FCLinearModel_10_256$features": {
+            "enum": [
+                "raw",
+                "white_delta",
+                "cosine_delta",
+                "pnorm_delta",
+                "white",
+                "cosine",
+                "pnorm"
+            ],
+            "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
+        },
+        "train_$FCLinearModel_10_256$normalize_for_feature_selection": {
+            "type": "boolean",
+            "description": "whether or not apply normalization before feature selection"
+        },
+        "train_$FCLinearModel_10_512$nfeats": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many features to select",
+            "suggested_minimum": 50,
+            "suggested_maximum": 5000
+        },
+        "train_$FCLinearModel_10_512$ntensors": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many tensors select features from",
+            "suggested_minimum": 5,
+            "suggested_maximum": 100
+        },
+        "train_$FCLinearModel_10_512$cls_type": {
+            "enum": [
+                "LogisticRegression"
+            ],
+            "description": "name of classifier class (only LogisticRegression is currently supported)"
+        },
+        "train_$FCLinearModel_10_512$param_batch_sz": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many torch 'parameters' to look at at a time (trade off memory and disk reading)",
+            "suggested_minimum": 80,
+            "suggested_maximum": 80
+        },
+        "train_$FCLinearModel_10_512$C": {
+            "type": "number",
+            "minimum": 1e-09,
+            "description": "sklearn-style regularization term.  Higher C -> less regularization. Must be positive",
+            "suggested_minimum": 0.01,
+            "suggested_maximum": 200.0
+        },
+        "train_$FCLinearModel_10_512$feature_selection_criterion": {
+            "enum": [
+                "corr",
+                "auc"
+            ],
+            "description": "criterion for greedy feature selection"
+        },
+        "train_$FCLinearModel_10_512$features": {
+            "enum": [
+                "raw",
+                "white_delta",
+                "cosine_delta",
+                "pnorm_delta",
+                "white",
+                "cosine",
+                "pnorm"
+            ],
+            "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
+        },
+        "train_$FCLinearModel_10_512$normalize_for_feature_selection": {
+            "type": "boolean",
+            "description": "whether or not apply normalization before feature selection"
+        },
+        "train_$GruLinearModel_18_768$nfeats": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many features to select",
+            "suggested_minimum": 50,
+            "suggested_maximum": 5000
+        },
+        "train_$GruLinearModel_18_768$ntensors": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many tensors select features from",
+            "suggested_minimum": 5,
+            "suggested_maximum": 100
+        },
+        "train_$GruLinearModel_18_768$cls_type": {
+            "enum": [
+                "LogisticRegression"
+            ],
+            "description": "name of classifier class (only LogisticRegression is currently supported)"
+        },
+        "train_$GruLinearModel_18_768$param_batch_sz": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many torch 'parameters' to look at at a time (trade off memory and disk reading)",
+            "suggested_minimum": 80,
+            "suggested_maximum": 80
+        },
+        "train_$GruLinearModel_18_768$C": {
+            "type": "number",
+            "minimum": 1e-09,
+            "description": "sklearn-style regularization term.  Higher C -> less regularization. Must be positive",
+            "suggested_minimum": 0.01,
+            "suggested_maximum": 200.0
+        },
+        "train_$GruLinearModel_18_768$feature_selection_criterion": {
+            "enum": [
+                "corr",
+                "auc"
+            ],
+            "description": "criterion for greedy feature selection"
+        },
+        "train_$GruLinearModel_18_768$features": {
+            "enum": [
+                "raw",
+                "white_delta",
+                "cosine_delta",
+                "pnorm_delta",
+                "white",
+                "cosine",
+                "pnorm"
+            ],
+            "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
+        },
+        "train_$GruLinearModel_18_768$normalize_for_feature_selection": {
+            "type": "boolean",
+            "description": "whether or not apply normalization before feature selection"
+        },
+        "train_$FCLinearModel_6_512$nfeats": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many features to select",
+            "suggested_minimum": 50,
+            "suggested_maximum": 5000
+        },
+        "train_$FCLinearModel_6_512$ntensors": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many tensors select features from",
+            "suggested_minimum": 5,
+            "suggested_maximum": 100
+        },
+        "train_$FCLinearModel_6_512$cls_type": {
+            "enum": [
+                "LogisticRegression"
+            ],
+            "description": "name of classifier class (only LogisticRegression is currently supported)"
+        },
+        "train_$FCLinearModel_6_512$param_batch_sz": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many torch 'parameters' to look at at a time (trade off memory and disk reading)",
+            "suggested_minimum": 80,
+            "suggested_maximum": 80
+        },
+        "train_$FCLinearModel_6_512$C": {
+            "type": "number",
+            "minimum": 1e-09,
+            "description": "sklearn-style regularization term.  Higher C -> less regularization. Must be positive",
+            "suggested_minimum": 0.01,
+            "suggested_maximum": 200.0
+        },
+        "train_$FCLinearModel_6_512$feature_selection_criterion": {
+            "enum": [
+                "corr",
+                "auc"
+            ],
+            "description": "criterion for greedy feature selection"
+        },
+        "train_$FCLinearModel_6_512$features": {
+            "enum": [
+                "raw",
+                "white_delta",
+                "cosine_delta",
+                "pnorm_delta",
+                "white",
+                "cosine",
+                "pnorm"
+            ],
+            "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
+        },
+        "train_$FCLinearModel_6_512$normalize_for_feature_selection": {
+            "type": "boolean",
+            "description": "whether or not apply normalization before feature selection"
+        },
+        "train_$LstmLinearModel_34_2048$nfeats": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many features to select",
+            "suggested_minimum": 50,
+            "suggested_maximum": 5000
+        },
+        "train_$LstmLinearModel_34_2048$ntensors": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many tensors select features from",
+            "suggested_minimum": 5,
+            "suggested_maximum": 100
+        },
+        "train_$LstmLinearModel_34_2048$cls_type": {
+            "enum": [
+                "LogisticRegression"
+            ],
+            "description": "name of classifier class (only LogisticRegression is currently supported)"
+        },
+        "train_$LstmLinearModel_34_2048$param_batch_sz": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many torch 'parameters' to look at at a time (trade off memory and disk reading)",
+            "suggested_minimum": 80,
+            "suggested_maximum": 80
+        },
+        "train_$LstmLinearModel_34_2048$C": {
+            "type": "number",
+            "minimum": 1e-09,
+            "description": "sklearn-style regularization term.  Higher C -> less regularization. Must be positive",
+            "suggested_minimum": 0.01,
+            "suggested_maximum": 200.0
+        },
+        "train_$LstmLinearModel_34_2048$feature_selection_criterion": {
+            "enum": [
+                "corr",
+                "auc"
+            ],
+            "description": "criterion for greedy feature selection"
+        },
+        "train_$LstmLinearModel_34_2048$features": {
+            "enum": [
+                "raw",
+                "white_delta",
+                "cosine_delta",
+                "pnorm_delta",
+                "white",
+                "cosine",
+                "pnorm"
+            ],
+            "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
+        },
+        "train_$LstmLinearModel_34_2048$normalize_for_feature_selection": {
+            "type": "boolean",
+            "description": "whether or not apply normalization before feature selection"
+        },
+        "train_$GruLinearModel_18_1536$nfeats": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many features to select",
+            "suggested_minimum": 50,
+            "suggested_maximum": 5000
+        },
+        "train_$GruLinearModel_18_1536$ntensors": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many tensors select features from",
+            "suggested_minimum": 5,
+            "suggested_maximum": 100
+        },
+        "train_$GruLinearModel_18_1536$cls_type": {
+            "enum": [
+                "LogisticRegression"
+            ],
+            "description": "name of classifier class (only LogisticRegression is currently supported)"
+        },
+        "train_$GruLinearModel_18_1536$param_batch_sz": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many torch 'parameters' to look at at a time (trade off memory and disk reading)",
+            "suggested_minimum": 80,
+            "suggested_maximum": 80
+        },
+        "train_$GruLinearModel_18_1536$C": {
+            "type": "number",
+            "minimum": 1e-09,
+            "description": "sklearn-style regularization term.  Higher C -> less regularization. Must be positive",
+            "suggested_minimum": 0.01,
+            "suggested_maximum": 200.0
+        },
+        "train_$GruLinearModel_18_1536$feature_selection_criterion": {
+            "enum": [
+                "corr",
+                "auc"
+            ],
+            "description": "criterion for greedy feature selection"
+        },
+        "train_$GruLinearModel_18_1536$features": {
+            "enum": [
+                "raw",
+                "white_delta",
+                "cosine_delta",
+                "pnorm_delta",
+                "white",
+                "cosine",
+                "pnorm"
+            ],
+            "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
+        },
+        "train_$GruLinearModel_18_1536$normalize_for_feature_selection": {
+            "type": "boolean",
+            "description": "whether or not apply normalization before feature selection"
+        },
+        "train_$GruLinearModel_10_1536$nfeats": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many features to select",
+            "suggested_minimum": 50,
+            "suggested_maximum": 5000
+        },
+        "train_$GruLinearModel_10_1536$ntensors": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many tensors select features from",
+            "suggested_minimum": 5,
+            "suggested_maximum": 100
+        },
+        "train_$GruLinearModel_10_1536$cls_type": {
+            "enum": [
+                "LogisticRegression"
+            ],
+            "description": "name of classifier class (only LogisticRegression is currently supported)"
+        },
+        "train_$GruLinearModel_10_1536$param_batch_sz": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many torch 'parameters' to look at at a time (trade off memory and disk reading)",
+            "suggested_minimum": 80,
+            "suggested_maximum": 80
+        },
+        "train_$GruLinearModel_10_1536$C": {
+            "type": "number",
+            "minimum": 1e-09,
+            "description": "sklearn-style regularization term.  Higher C -> less regularization. Must be positive",
+            "suggested_minimum": 0.01,
+            "suggested_maximum": 200.0
+        },
+        "train_$GruLinearModel_10_1536$feature_selection_criterion": {
+            "enum": [
+                "corr",
+                "auc"
+            ],
+            "description": "criterion for greedy feature selection"
+        },
+        "train_$GruLinearModel_10_1536$features": {
+            "enum": [
+                "raw",
+                "white_delta",
+                "cosine_delta",
+                "pnorm_delta",
+                "white",
+                "cosine",
+                "pnorm"
+            ],
+            "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
+        },
+        "train_$GruLinearModel_10_1536$normalize_for_feature_selection": {
+            "type": "boolean",
+            "description": "whether or not apply normalization before feature selection"
+        },
+        "train_$LstmLinearModel_10_1024$nfeats": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many features to select",
+            "suggested_minimum": 50,
+            "suggested_maximum": 5000
+        },
+        "train_$LstmLinearModel_10_1024$ntensors": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many tensors select features from",
+            "suggested_minimum": 5,
+            "suggested_maximum": 100
+        },
+        "train_$LstmLinearModel_10_1024$cls_type": {
+            "enum": [
+                "LogisticRegression"
+            ],
+            "description": "name of classifier class (only LogisticRegression is currently supported)"
+        },
+        "train_$LstmLinearModel_10_1024$param_batch_sz": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many torch 'parameters' to look at at a time (trade off memory and disk reading)",
+            "suggested_minimum": 80,
+            "suggested_maximum": 80
+        },
+        "train_$LstmLinearModel_10_1024$C": {
+            "type": "number",
+            "minimum": 1e-09,
+            "description": "sklearn-style regularization term.  Higher C -> less regularization. Must be positive",
+            "suggested_minimum": 0.01,
+            "suggested_maximum": 200.0
+        },
+        "train_$LstmLinearModel_10_1024$feature_selection_criterion": {
+            "enum": [
+                "corr",
+                "auc"
+            ],
+            "description": "criterion for greedy feature selection"
+        },
+        "train_$LstmLinearModel_10_1024$features": {
+            "enum": [
+                "raw",
+                "white_delta",
+                "cosine_delta",
+                "pnorm_delta",
+                "white",
+                "cosine",
+                "pnorm"
+            ],
+            "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
+        },
+        "train_$LstmLinearModel_10_1024$normalize_for_feature_selection": {
+            "type": "boolean",
+            "description": "whether or not apply normalization before feature selection"
+        },
+        "train_$LstmLinearModel_10_2048$nfeats": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many features to select",
+            "suggested_minimum": 50,
+            "suggested_maximum": 5000
+        },
+        "train_$LstmLinearModel_10_2048$ntensors": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many tensors select features from",
+            "suggested_minimum": 5,
+            "suggested_maximum": 100
+        },
+        "train_$LstmLinearModel_10_2048$cls_type": {
+            "enum": [
+                "LogisticRegression"
+            ],
+            "description": "name of classifier class (only LogisticRegression is currently supported)"
+        },
+        "train_$LstmLinearModel_10_2048$param_batch_sz": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many torch 'parameters' to look at at a time (trade off memory and disk reading)",
+            "suggested_minimum": 80,
+            "suggested_maximum": 80
+        },
+        "train_$LstmLinearModel_10_2048$C": {
+            "type": "number",
+            "minimum": 1e-09,
+            "description": "sklearn-style regularization term.  Higher C -> less regularization. Must be positive",
+            "suggested_minimum": 0.01,
+            "suggested_maximum": 200.0
+        },
+        "train_$LstmLinearModel_10_2048$feature_selection_criterion": {
+            "enum": [
+                "corr",
+                "auc"
+            ],
+            "description": "criterion for greedy feature selection"
+        },
+        "train_$LstmLinearModel_10_2048$features": {
+            "enum": [
+                "raw",
+                "white_delta",
+                "cosine_delta",
+                "pnorm_delta",
+                "white",
+                "cosine",
+                "pnorm"
+            ],
+            "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
+        },
+        "train_$LstmLinearModel_10_2048$normalize_for_feature_selection": {
+            "type": "boolean",
+            "description": "whether or not apply normalization before feature selection"
+        },
+        "train_$GruLinearModel_34_768$nfeats": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many features to select",
+            "suggested_minimum": 50,
+            "suggested_maximum": 5000
+        },
+        "train_$GruLinearModel_34_768$ntensors": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many tensors select features from",
+            "suggested_minimum": 5,
+            "suggested_maximum": 100
+        },
+        "train_$GruLinearModel_34_768$cls_type": {
+            "enum": [
+                "LogisticRegression"
+            ],
+            "description": "name of classifier class (only LogisticRegression is currently supported)"
+        },
+        "train_$GruLinearModel_34_768$param_batch_sz": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many torch 'parameters' to look at at a time (trade off memory and disk reading)",
+            "suggested_minimum": 80,
+            "suggested_maximum": 80
+        },
+        "train_$GruLinearModel_34_768$C": {
+            "type": "number",
+            "minimum": 1e-09,
+            "description": "sklearn-style regularization term.  Higher C -> less regularization. Must be positive",
+            "suggested_minimum": 0.01,
+            "suggested_maximum": 200.0
+        },
+        "train_$GruLinearModel_34_768$feature_selection_criterion": {
+            "enum": [
+                "corr",
+                "auc"
+            ],
+            "description": "criterion for greedy feature selection"
+        },
+        "train_$GruLinearModel_34_768$features": {
+            "enum": [
+                "raw",
+                "white_delta",
+                "cosine_delta",
+                "pnorm_delta",
+                "white",
+                "cosine",
+                "pnorm"
+            ],
+            "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
+        },
+        "train_$GruLinearModel_34_768$normalize_for_feature_selection": {
+            "type": "boolean",
+            "description": "whether or not apply normalization before feature selection"
+        }
+    }
+}

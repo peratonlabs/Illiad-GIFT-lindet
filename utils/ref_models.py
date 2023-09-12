@@ -221,6 +221,91 @@ def r9_load_ref_model(arch, model_dir):
     return ref_model
 
 
+def r8_check_for_ref_models(model_dir):
+    import transformers
+    # this function is called once during setup
+
+    pth = os.path.join(model_dir, 'electra_qa.pt')
+    if not os.path.exists(pth):
+        ref_model = transformers.models.electra.modeling_electra.ElectraForQuestionAnswering.from_pretrained(
+            'google/electra-small-discriminator')
+        torch.save(ref_model, pth)
+
+    pth = os.path.join(model_dir, 'roberta_qa.pt')
+    if not os.path.exists(pth):
+        ref_model = transformers.models.roberta.modeling_roberta.RobertaForQuestionAnswering.from_pretrained(
+            'roberta-base')
+        torch.save(ref_model, pth)
+
+
+def r8_load_ref_model(arch, model_dir):
+
+    fnmap = {
+        "ElectraForQuestionAnswering_201": 'electra_qa.pt',
+        "RobertaForQuestionAnswering_199": 'roberta_qa.pt',
+    }
+
+    if arch in  fnmap:
+        ref_model = torch.load(os.path.join(model_dir, fnmap[arch]))
+    else:
+        assert False, "bad arch"
+    if torch.cuda.is_available():
+        ref_model.cuda()
+    return ref_model
+
+
+def r7_check_for_ref_models(model_dir):
+    import transformers
+    # this function is called once during setup
+
+    # transformers.models.mobilebert.modeling_mobilebert.MobileBertModel   id 0 1113 params       model.modules
+    # transformers.models.bert.modeling_bert.BertModel                     id 1 199 params
+    # transformers.models.roberta.modeling_roberta.RobertaModel            id 2 199 params
+    # transformers.models.distilbert.modeling_distilbert.DistilBertModel   id 6 102 params
+    
+
+
+    pth = os.path.join(model_dir, 'mobilebert_r7.pt')
+    if not os.path.exists(pth):
+        ref_model = transformers.models.mobilebert.modeling_mobilebert.MobileBertModel.from_pretrained(
+            'google/mobilebert-uncased')
+        torch.save(ref_model, pth)
+
+    pth = os.path.join(model_dir, 'bert_r7.pt')
+    if not os.path.exists(pth):
+        ref_model = transformers.models.bert.modeling_bert.BertModel.from_pretrained(
+            'bert-base-uncased')
+        torch.save(ref_model, pth)
+    
+    pth = os.path.join(model_dir, 'roberta_r7.pt')
+    if not os.path.exists(pth):
+        ref_model = transformers.models.roberta.modeling_roberta.RobertaModel.from_pretrained(
+            'roberta-base')
+        torch.save(ref_model, pth)
+    
+    pth = os.path.join(model_dir, 'distillbert_r7.pt')
+    if not os.path.exists(pth):
+        ref_model = transformers.models.distilbert.modeling_distilbert.DistilBertModel.from_pretrained(
+            'distilbert-base-cased')
+        torch.save(ref_model, pth)
+
+
+def r7_load_ref_model(arch, model_dir):
+
+    fnmap = {
+        "MobileBertModel_1113": 'mobilebert_r7.pt',
+        "BertModel_199": 'bert_r7.pt',
+        "RobertaModel_199": 'roberta_r7.pt',
+        "DistilBertModel_102": 'distillbert_r7.pt',
+    }
+
+    if arch in  fnmap:
+        ref_model = torch.load(os.path.join(model_dir, fnmap[arch]))
+    else:
+        assert False, "bad arch"
+    if torch.cuda.is_available():
+        ref_model.cuda()
+    return ref_model
 
 
 def r15_check_for_ref_models(model_dir):
@@ -244,8 +329,6 @@ def r15_check_for_ref_models(model_dir):
         ref_model = transformers.models.mobilebert.modeling_mobilebert.MobileBertForQuestionAnswering.from_pretrained(
             'csarron/mobilebert-uncased-squad-v2')
         torch.save(ref_model, pth)
-
-
 
 
 def r15_load_ref_model(arch, model_dir):

@@ -121,6 +121,63 @@ def gen_r15_json():
     gen_init_json("./config/base.json", "./config/r15_metaparameters.json", archlist)
 
 
+def gen_r8_json():
+    archlist = [
+        "ElectraForQuestionAnswering_201",
+        "RobertaForQuestionAnswering_199",
+    ]
+
+    gen_schema("./config/base_schema.json", "./config/r8_metaparameters_schema.json", archlist)
+    gen_init_json("./config/base.json", "./config/r8_metaparameters.json", archlist)
+
+
+def gen_r7_json():
+    archlist = [
+        "MobileBertModel_1113",
+        "BertModel_199",
+        "RobertaModel_199",
+        "DistilBertModel_102",
+    ]
+
+    gen_schema("./config/base_schema.json", "./config/r7_metaparameters_schema.json", archlist)
+    gen_init_json("./config/base.json", "./config/r7_metaparameters.json", archlist)
+
+
+def gen_r6_json():
+    archlist = ['FCLinearModel_6_256', 'LstmLinearModel_18_1024', 'GruLinearModel_10_768', 'LstmLinearModel_34_1024', 'GruLinearModel_34_1536', 'LstmLinearModel_18_2048', 'FCLinearModel_10_256', 'FCLinearModel_10_512', 'GruLinearModel_18_768', 'FCLinearModel_6_512', 'LstmLinearModel_34_2048', 'GruLinearModel_18_1536', 'GruLinearModel_10_1536', 'LstmLinearModel_10_1024', 'LstmLinearModel_10_2048', 'GruLinearModel_34_768']
+
+    gen_schema("./config/base_schema.json", "./config/r6_metaparameters_schema.json", archlist)
+    gen_init_json("./config/base.json", "./config/r6_metaparameters.json", archlist)
+
+def gen_r5_json():
+    archlist = ['GruLinearModel_18_768', 'LstmLinearModel_18_1024', 'LinearModel_2']
+
+    gen_schema("./config/base_schema.json", "./config/r5_metaparameters_schema.json", archlist)
+    gen_init_json("./config/base.json", "./config/r5_metaparameters.json", archlist)
+
+def gen_r4_json():
+    archlist = []
+
+    gen_schema("./config/base_schema.json", "./config/r4_metaparameters_schema.json", archlist)
+    gen_init_json("./config/base.json", "./config/r4_metaparameters.json", archlist)
+
+def gen_r3_json():
+    archlist = []
+
+    gen_schema("./config/base_schema.json", "./config/r3_metaparameters_schema.json", archlist)
+    gen_init_json("./config/base.json", "./config/r3_metaparameters.json", archlist)
+
+def gen_r2_json():
+    archlist = []
+
+    gen_schema("./config/base_schema.json", "./config/r2_metaparameters_schema.json", archlist)
+    gen_init_json("./config/base.json", "./config/r2_metaparameters.json", archlist)
+
+def gen_r1_json():
+    archlist = ['ResNet_161', 'DenseNet_364', 'Inception3_284']
+
+    gen_schema("./config/base_schema.json", "./config/r1_metaparameters_schema.json", archlist)
+    gen_init_json("./config/base.json", "./config/r1_metaparameters.json", archlist)
 
 # gen_schema("./config/base_schema.json", "./config/test_schema.json", ["SSD_71", "FasterRCNN_83"])
 # gen_init_json("./config/base.json", "./config/test.json", ["SSD_71", "FasterRCNN_83"])

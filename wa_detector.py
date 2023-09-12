@@ -1,3 +1,6 @@
+import warnings
+warnings.filterwarnings("ignore")
+
 from detection.wa_detection import det
 from detection.wa_detection import cal
 
@@ -38,7 +41,7 @@ if __name__ == "__main__":
     parser.add_argument('--gift_basepath', type=str, help='File path to the folder where our trained detection or calibration models are.', default='/gift/')
     parser.add_argument('--task', type=str, help='Which task(s) to calibrate.  valid options: [ob, cv, all]', default='all')
 
-    parser.add_argument('--num_cv_trials', help='number of cross validation trials to run.',  type=int, default=20)
+    parser.add_argument('--num_cv_trials', help='number of cross validation trials to run.',  type=int, default=30)
     parser.add_argument('--cv_test_prop', help='proportion of samples to be held out during cross validation.', type=float, default=0.1)
     parser.add_argument('--round', help='the round we are running on.', type=str, default='11')
 
@@ -65,15 +68,23 @@ if __name__ == "__main__":
     if not os.path.exists(model_dir):
         os.makedirs(model_dir)
 
-    if args.round == '11':
-        ref_models.r11_check_for_ref_models(model_dir)
-        ref_model_function = lambda arch: ref_models.r11_load_ref_model(arch, model_dir)
-    elif  args.round == '10':
-        ref_models.r10_check_for_ref_models(model_dir)
-        ref_model_function = lambda arch: ref_models.r10_load_ref_model(arch, model_dir)
+    if args.round == '-1':
+        pass
+    elif args.round == '7':
+        ref_models.r7_check_for_ref_models(model_dir)
+        ref_model_function = lambda arch: ref_models.r7_load_ref_model(arch, model_dir)
+    elif args.round == '8':
+        ref_models.r8_check_for_ref_models(model_dir)
+        ref_model_function = lambda arch: ref_models.r8_load_ref_model(arch, model_dir)
     elif args.round == '9':
         ref_models.r9_check_for_ref_models(model_dir)
         ref_model_function = lambda arch: ref_models.r9_load_ref_model(arch, model_dir)
+    elif  args.round == '10':
+        ref_models.r10_check_for_ref_models(model_dir)
+        ref_model_function = lambda arch: ref_models.r10_load_ref_model(arch, model_dir)
+    elif args.round == '11':
+        ref_models.r11_check_for_ref_models(model_dir)
+        ref_model_function = lambda arch: ref_models.r11_load_ref_model(arch, model_dir)
     elif  args.round == '13':
         ref_models.r13_check_for_ref_models(model_dir)
         ref_model_function = lambda arch: ref_models.r13_load_ref_model(arch, model_dir)
