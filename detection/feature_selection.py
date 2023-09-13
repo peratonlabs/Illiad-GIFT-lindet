@@ -58,7 +58,7 @@ def get_archmap(model_filepaths, metadata_path):
             index = ids.index(this_id)
             arch_list.append(archs[index])
     else:
-        arch_list = [get_arch(model_filepath) for model_filepath in model_filepaths]
+        arch_list = [get_arch(model_filepath) for model_filepath in model_filepaths] 
     arch_map = {}
     for i, arch in enumerate(arch_list):
         if arch not in arch_map:

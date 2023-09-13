@@ -24,7 +24,7 @@ def r13_check_for_ref_models(model_dir):
         # torch.save(ref_model.state_dict(), pth)
         torch.save(ref_model, pth)
 
-    pth = os.path.join(model_dir, 'DetrForObjectDetection_326.pt')
+    pth = os.path.join(model_dir, 'DetrForObjectDetection_326_r13.pt')
     if not os.path.exists(pth):
         import transformers
         ref_model = transformers.models.detr.modeling_detr.DetrForObjectDetection.from_pretrained("facebook/detr-resnet-50")
@@ -52,7 +52,7 @@ def r13_load_ref_model(arch, model_dir):
         # ref_model = torchvision.models.detection.ssd300_vgg16(weights_backbone=None)
         # ref_model.load_state_dict(torch.load(os.path.join(model_dir, 'ssd300_vgg16_coco.pt')))
 
-        ref_model = torch.load(os.path.join(model_dir, 'DetrForObjectDetection_326.pt'))
+        ref_model = torch.load(os.path.join(model_dir, 'DetrForObjectDetection_326_r13.pt'))
 
     else:
         assert False, "bad arch"
