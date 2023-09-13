@@ -7,6 +7,7 @@
     "train_$ElectraForQuestionAnswering_201$normalize_for_feature_selection": true,
     "train_$ElectraForQuestionAnswering_201$features": "pnorm_delta",
     "train_$ElectraForQuestionAnswering_201$ntensors": 25,
+    "train_$ElectraForQuestionAnswering_201$sort_tensors": false,
     "train_$RobertaForQuestionAnswering_199$nfeats": 1000,
     "train_$RobertaForQuestionAnswering_199$cls_type": "LogisticRegression",
     "train_$RobertaForQuestionAnswering_199$param_batch_sz": 80,
@@ -14,5 +15,6 @@
     "train_$RobertaForQuestionAnswering_199$feature_selection_criterion": "auc",
     "train_$RobertaForQuestionAnswering_199$normalize_for_feature_selection": true,
     "train_$RobertaForQuestionAnswering_199$features": "pnorm_delta",
-    "train_$RobertaForQuestionAnswering_199$ntensors": 25
+    "train_$RobertaForQuestionAnswering_199$ntensors": 25,
+    "train_$RobertaForQuestionAnswering_199$sort_tensors": false
 }

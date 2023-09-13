@@ -21,6 +21,7 @@
         "train_$SSD_71$feature_selection_criterion",
         "train_$SSD_71$features",
         "train_$SSD_71$normalize_for_feature_selection",
+        "train_$SSD_71$sort_tensors",
         "train_$FasterRCNN_83$nfeats",
         "train_$FasterRCNN_83$ntensors",
         "train_$FasterRCNN_83$cls_type",
@@ -28,7 +29,8 @@
         "train_$FasterRCNN_83$C",
         "train_$FasterRCNN_83$feature_selection_criterion",
         "train_$FasterRCNN_83$features",
-        "train_$FasterRCNN_83$normalize_for_feature_selection"
+        "train_$FasterRCNN_83$normalize_for_feature_selection",
+        "train_$FasterRCNN_83$sort_tensors"
     ],
     "additionalProperties": false,
     "properties": {
@@ -87,7 +89,11 @@
         },
         "train_$SSD_71$normalize_for_feature_selection": {
             "type": "boolean",
-            "description": "whether or not apply normalization before feature selection"
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$SSD_71$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
         },
         "train_$FasterRCNN_83$nfeats": {
             "type": "integer",
@@ -144,7 +150,11 @@
         },
         "train_$FasterRCNN_83$normalize_for_feature_selection": {
             "type": "boolean",
-            "description": "whether or not apply normalization before feature selection"
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$FasterRCNN_83$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
         }
     }
 }

@@ -21,6 +21,7 @@
         "train_$FCLinearModel_6_256$feature_selection_criterion",
         "train_$FCLinearModel_6_256$features",
         "train_$FCLinearModel_6_256$normalize_for_feature_selection",
+        "train_$FCLinearModel_6_256$sort_tensors",
         "train_$LstmLinearModel_18_1024$nfeats",
         "train_$LstmLinearModel_18_1024$ntensors",
         "train_$LstmLinearModel_18_1024$cls_type",
@@ -29,6 +30,7 @@
         "train_$LstmLinearModel_18_1024$feature_selection_criterion",
         "train_$LstmLinearModel_18_1024$features",
         "train_$LstmLinearModel_18_1024$normalize_for_feature_selection",
+        "train_$LstmLinearModel_18_1024$sort_tensors",
         "train_$GruLinearModel_10_768$nfeats",
         "train_$GruLinearModel_10_768$ntensors",
         "train_$GruLinearModel_10_768$cls_type",
@@ -37,6 +39,7 @@
         "train_$GruLinearModel_10_768$feature_selection_criterion",
         "train_$GruLinearModel_10_768$features",
         "train_$GruLinearModel_10_768$normalize_for_feature_selection",
+        "train_$GruLinearModel_10_768$sort_tensors",
         "train_$LstmLinearModel_34_1024$nfeats",
         "train_$LstmLinearModel_34_1024$ntensors",
         "train_$LstmLinearModel_34_1024$cls_type",
@@ -45,6 +48,7 @@
         "train_$LstmLinearModel_34_1024$feature_selection_criterion",
         "train_$LstmLinearModel_34_1024$features",
         "train_$LstmLinearModel_34_1024$normalize_for_feature_selection",
+        "train_$LstmLinearModel_34_1024$sort_tensors",
         "train_$GruLinearModel_34_1536$nfeats",
         "train_$GruLinearModel_34_1536$ntensors",
         "train_$GruLinearModel_34_1536$cls_type",
@@ -53,6 +57,7 @@
         "train_$GruLinearModel_34_1536$feature_selection_criterion",
         "train_$GruLinearModel_34_1536$features",
         "train_$GruLinearModel_34_1536$normalize_for_feature_selection",
+        "train_$GruLinearModel_34_1536$sort_tensors",
         "train_$LstmLinearModel_18_2048$nfeats",
         "train_$LstmLinearModel_18_2048$ntensors",
         "train_$LstmLinearModel_18_2048$cls_type",
@@ -61,6 +66,7 @@
         "train_$LstmLinearModel_18_2048$feature_selection_criterion",
         "train_$LstmLinearModel_18_2048$features",
         "train_$LstmLinearModel_18_2048$normalize_for_feature_selection",
+        "train_$LstmLinearModel_18_2048$sort_tensors",
         "train_$FCLinearModel_10_256$nfeats",
         "train_$FCLinearModel_10_256$ntensors",
         "train_$FCLinearModel_10_256$cls_type",
@@ -69,6 +75,7 @@
         "train_$FCLinearModel_10_256$feature_selection_criterion",
         "train_$FCLinearModel_10_256$features",
         "train_$FCLinearModel_10_256$normalize_for_feature_selection",
+        "train_$FCLinearModel_10_256$sort_tensors",
         "train_$FCLinearModel_10_512$nfeats",
         "train_$FCLinearModel_10_512$ntensors",
         "train_$FCLinearModel_10_512$cls_type",
@@ -77,6 +84,7 @@
         "train_$FCLinearModel_10_512$feature_selection_criterion",
         "train_$FCLinearModel_10_512$features",
         "train_$FCLinearModel_10_512$normalize_for_feature_selection",
+        "train_$FCLinearModel_10_512$sort_tensors",
         "train_$GruLinearModel_18_768$nfeats",
         "train_$GruLinearModel_18_768$ntensors",
         "train_$GruLinearModel_18_768$cls_type",
@@ -85,6 +93,7 @@
         "train_$GruLinearModel_18_768$feature_selection_criterion",
         "train_$GruLinearModel_18_768$features",
         "train_$GruLinearModel_18_768$normalize_for_feature_selection",
+        "train_$GruLinearModel_18_768$sort_tensors",
         "train_$FCLinearModel_6_512$nfeats",
         "train_$FCLinearModel_6_512$ntensors",
         "train_$FCLinearModel_6_512$cls_type",
@@ -93,6 +102,7 @@
         "train_$FCLinearModel_6_512$feature_selection_criterion",
         "train_$FCLinearModel_6_512$features",
         "train_$FCLinearModel_6_512$normalize_for_feature_selection",
+        "train_$FCLinearModel_6_512$sort_tensors",
         "train_$LstmLinearModel_34_2048$nfeats",
         "train_$LstmLinearModel_34_2048$ntensors",
         "train_$LstmLinearModel_34_2048$cls_type",
@@ -101,6 +111,7 @@
         "train_$LstmLinearModel_34_2048$feature_selection_criterion",
         "train_$LstmLinearModel_34_2048$features",
         "train_$LstmLinearModel_34_2048$normalize_for_feature_selection",
+        "train_$LstmLinearModel_34_2048$sort_tensors",
         "train_$GruLinearModel_18_1536$nfeats",
         "train_$GruLinearModel_18_1536$ntensors",
         "train_$GruLinearModel_18_1536$cls_type",
@@ -109,6 +120,7 @@
         "train_$GruLinearModel_18_1536$feature_selection_criterion",
         "train_$GruLinearModel_18_1536$features",
         "train_$GruLinearModel_18_1536$normalize_for_feature_selection",
+        "train_$GruLinearModel_18_1536$sort_tensors",
         "train_$GruLinearModel_10_1536$nfeats",
         "train_$GruLinearModel_10_1536$ntensors",
         "train_$GruLinearModel_10_1536$cls_type",
@@ -117,6 +129,7 @@
         "train_$GruLinearModel_10_1536$feature_selection_criterion",
         "train_$GruLinearModel_10_1536$features",
         "train_$GruLinearModel_10_1536$normalize_for_feature_selection",
+        "train_$GruLinearModel_10_1536$sort_tensors",
         "train_$LstmLinearModel_10_1024$nfeats",
         "train_$LstmLinearModel_10_1024$ntensors",
         "train_$LstmLinearModel_10_1024$cls_type",
@@ -125,6 +138,7 @@
         "train_$LstmLinearModel_10_1024$feature_selection_criterion",
         "train_$LstmLinearModel_10_1024$features",
         "train_$LstmLinearModel_10_1024$normalize_for_feature_selection",
+        "train_$LstmLinearModel_10_1024$sort_tensors",
         "train_$LstmLinearModel_10_2048$nfeats",
         "train_$LstmLinearModel_10_2048$ntensors",
         "train_$LstmLinearModel_10_2048$cls_type",
@@ -133,6 +147,7 @@
         "train_$LstmLinearModel_10_2048$feature_selection_criterion",
         "train_$LstmLinearModel_10_2048$features",
         "train_$LstmLinearModel_10_2048$normalize_for_feature_selection",
+        "train_$LstmLinearModel_10_2048$sort_tensors",
         "train_$GruLinearModel_34_768$nfeats",
         "train_$GruLinearModel_34_768$ntensors",
         "train_$GruLinearModel_34_768$cls_type",
@@ -140,7 +155,8 @@
         "train_$GruLinearModel_34_768$C",
         "train_$GruLinearModel_34_768$feature_selection_criterion",
         "train_$GruLinearModel_34_768$features",
-        "train_$GruLinearModel_34_768$normalize_for_feature_selection"
+        "train_$GruLinearModel_34_768$normalize_for_feature_selection",
+        "train_$GruLinearModel_34_768$sort_tensors"
     ],
     "additionalProperties": false,
     "properties": {
@@ -199,7 +215,11 @@
         },
         "train_$FCLinearModel_6_256$normalize_for_feature_selection": {
             "type": "boolean",
-            "description": "whether or not apply normalization before feature selection"
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$FCLinearModel_6_256$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
         },
         "train_$LstmLinearModel_18_1024$nfeats": {
             "type": "integer",
@@ -256,7 +276,11 @@
         },
         "train_$LstmLinearModel_18_1024$normalize_for_feature_selection": {
             "type": "boolean",
-            "description": "whether or not apply normalization before feature selection"
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$LstmLinearModel_18_1024$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
         },
         "train_$GruLinearModel_10_768$nfeats": {
             "type": "integer",
@@ -313,7 +337,11 @@
         },
         "train_$GruLinearModel_10_768$normalize_for_feature_selection": {
             "type": "boolean",
-            "description": "whether or not apply normalization before feature selection"
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$GruLinearModel_10_768$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
         },
         "train_$LstmLinearModel_34_1024$nfeats": {
             "type": "integer",
@@ -370,7 +398,11 @@
         },
         "train_$LstmLinearModel_34_1024$normalize_for_feature_selection": {
             "type": "boolean",
-            "description": "whether or not apply normalization before feature selection"
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$LstmLinearModel_34_1024$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
         },
         "train_$GruLinearModel_34_1536$nfeats": {
             "type": "integer",
@@ -427,7 +459,11 @@
         },
         "train_$GruLinearModel_34_1536$normalize_for_feature_selection": {
             "type": "boolean",
-            "description": "whether or not apply normalization before feature selection"
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$GruLinearModel_34_1536$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
         },
         "train_$LstmLinearModel_18_2048$nfeats": {
             "type": "integer",
@@ -484,7 +520,11 @@
         },
         "train_$LstmLinearModel_18_2048$normalize_for_feature_selection": {
             "type": "boolean",
-            "description": "whether or not apply normalization before feature selection"
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$LstmLinearModel_18_2048$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
         },
         "train_$FCLinearModel_10_256$nfeats": {
             "type": "integer",
@@ -541,7 +581,11 @@
         },
         "train_$FCLinearModel_10_256$normalize_for_feature_selection": {
             "type": "boolean",
-            "description": "whether or not apply normalization before feature selection"
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$FCLinearModel_10_256$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
         },
         "train_$FCLinearModel_10_512$nfeats": {
             "type": "integer",
@@ -598,7 +642,11 @@
         },
         "train_$FCLinearModel_10_512$normalize_for_feature_selection": {
             "type": "boolean",
-            "description": "whether or not apply normalization before feature selection"
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$FCLinearModel_10_512$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
         },
         "train_$GruLinearModel_18_768$nfeats": {
             "type": "integer",
@@ -655,7 +703,11 @@
         },
         "train_$GruLinearModel_18_768$normalize_for_feature_selection": {
             "type": "boolean",
-            "description": "whether or not apply normalization before feature selection"
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$GruLinearModel_18_768$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
         },
         "train_$FCLinearModel_6_512$nfeats": {
             "type": "integer",
@@ -712,7 +764,11 @@
         },
         "train_$FCLinearModel_6_512$normalize_for_feature_selection": {
             "type": "boolean",
-            "description": "whether or not apply normalization before feature selection"
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$FCLinearModel_6_512$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
         },
         "train_$LstmLinearModel_34_2048$nfeats": {
             "type": "integer",
@@ -769,7 +825,11 @@
         },
         "train_$LstmLinearModel_34_2048$normalize_for_feature_selection": {
             "type": "boolean",
-            "description": "whether or not apply normalization before feature selection"
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$LstmLinearModel_34_2048$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
         },
         "train_$GruLinearModel_18_1536$nfeats": {
             "type": "integer",
@@ -826,7 +886,11 @@
         },
         "train_$GruLinearModel_18_1536$normalize_for_feature_selection": {
             "type": "boolean",
-            "description": "whether or not apply normalization before feature selection"
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$GruLinearModel_18_1536$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
         },
         "train_$GruLinearModel_10_1536$nfeats": {
             "type": "integer",
@@ -883,7 +947,11 @@
         },
         "train_$GruLinearModel_10_1536$normalize_for_feature_selection": {
             "type": "boolean",
-            "description": "whether or not apply normalization before feature selection"
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$GruLinearModel_10_1536$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
         },
         "train_$LstmLinearModel_10_1024$nfeats": {
             "type": "integer",
@@ -940,7 +1008,11 @@
         },
         "train_$LstmLinearModel_10_1024$normalize_for_feature_selection": {
             "type": "boolean",
-            "description": "whether or not apply normalization before feature selection"
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$LstmLinearModel_10_1024$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
         },
         "train_$LstmLinearModel_10_2048$nfeats": {
             "type": "integer",
@@ -997,7 +1069,11 @@
         },
         "train_$LstmLinearModel_10_2048$normalize_for_feature_selection": {
             "type": "boolean",
-            "description": "whether or not apply normalization before feature selection"
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$LstmLinearModel_10_2048$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
         },
         "train_$GruLinearModel_34_768$nfeats": {
             "type": "integer",
@@ -1054,7 +1130,11 @@
         },
         "train_$GruLinearModel_34_768$normalize_for_feature_selection": {
             "type": "boolean",
-            "description": "whether or not apply normalization before feature selection"
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$GruLinearModel_34_768$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
         }
     }
 }

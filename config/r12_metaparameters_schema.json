@@ -1,0 +1,18 @@
+{
+    "$id": "https://www.peratonlabs.com/r9gift.schema.json",
+    "title": "PL-GIFT Algorithm Meta-Parameters",
+    "technique": "Cosine-linear weight analysis",
+    "technique_description": "Computes delta cosine features and classifies with a linear model",
+    "technique_changes": "xxxxx",
+    "technique_type": [
+        "Weight Analysis"
+    ],
+    "commit_id": "xxxxx",
+    "repo_name": "https://github.com/plgift/coslin",
+    "$schema": "https://json-schema.org/draft-07/schema",
+    "description": "TrojAI schema for the GIFT team, cos-lin method",
+    "type": "object",
+    "required": [],
+    "additionalProperties": false,
+    "properties": {}
+}

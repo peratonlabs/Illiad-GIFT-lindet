@@ -21,6 +21,7 @@
         "train_$ResNet_161$feature_selection_criterion",
         "train_$ResNet_161$features",
         "train_$ResNet_161$normalize_for_feature_selection",
+        "train_$ResNet_161$sort_tensors",
         "train_$VisionTransformer_152$nfeats",
         "train_$VisionTransformer_152$ntensors",
         "train_$VisionTransformer_152$cls_type",
@@ -29,6 +30,7 @@
         "train_$VisionTransformer_152$feature_selection_criterion",
         "train_$VisionTransformer_152$features",
         "train_$VisionTransformer_152$normalize_for_feature_selection",
+        "train_$VisionTransformer_152$sort_tensors",
         "train_$MobileNetV2_158$nfeats",
         "train_$MobileNetV2_158$ntensors",
         "train_$MobileNetV2_158$cls_type",
@@ -36,7 +38,8 @@
         "train_$MobileNetV2_158$C",
         "train_$MobileNetV2_158$feature_selection_criterion",
         "train_$MobileNetV2_158$features",
-        "train_$MobileNetV2_158$normalize_for_feature_selection"
+        "train_$MobileNetV2_158$normalize_for_feature_selection",
+        "train_$MobileNetV2_158$sort_tensors"
     ],
     "additionalProperties": false,
     "properties": {
@@ -95,7 +98,11 @@
         },
         "train_$ResNet_161$normalize_for_feature_selection": {
             "type": "boolean",
-            "description": "whether or not apply normalization before feature selection"
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$ResNet_161$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
         },
         "train_$VisionTransformer_152$nfeats": {
             "type": "integer",
@@ -152,7 +159,11 @@
         },
         "train_$VisionTransformer_152$normalize_for_feature_selection": {
             "type": "boolean",
-            "description": "whether or not apply normalization before feature selection"
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$VisionTransformer_152$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
         },
         "train_$MobileNetV2_158$nfeats": {
             "type": "integer",
@@ -209,7 +220,11 @@
         },
         "train_$MobileNetV2_158$normalize_for_feature_selection": {
             "type": "boolean",
-            "description": "whether or not apply normalization before feature selection"
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$MobileNetV2_158$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
         }
     }
 }

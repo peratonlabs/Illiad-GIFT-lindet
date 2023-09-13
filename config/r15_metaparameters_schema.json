@@ -21,6 +21,7 @@
         "train_$RobertaForQuestionAnswering_103$feature_selection_criterion",
         "train_$RobertaForQuestionAnswering_103$features",
         "train_$RobertaForQuestionAnswering_103$normalize_for_feature_selection",
+        "train_$RobertaForQuestionAnswering_103$sort_tensors",
         "train_$RobertaForQuestionAnswering_199$nfeats",
         "train_$RobertaForQuestionAnswering_199$ntensors",
         "train_$RobertaForQuestionAnswering_199$cls_type",
@@ -29,6 +30,7 @@
         "train_$RobertaForQuestionAnswering_199$feature_selection_criterion",
         "train_$RobertaForQuestionAnswering_199$features",
         "train_$RobertaForQuestionAnswering_199$normalize_for_feature_selection",
+        "train_$RobertaForQuestionAnswering_199$sort_tensors",
         "train_$MobileBertForQuestionAnswering_1113$nfeats",
         "train_$MobileBertForQuestionAnswering_1113$ntensors",
         "train_$MobileBertForQuestionAnswering_1113$cls_type",
@@ -36,7 +38,8 @@
         "train_$MobileBertForQuestionAnswering_1113$C",
         "train_$MobileBertForQuestionAnswering_1113$feature_selection_criterion",
         "train_$MobileBertForQuestionAnswering_1113$features",
-        "train_$MobileBertForQuestionAnswering_1113$normalize_for_feature_selection"
+        "train_$MobileBertForQuestionAnswering_1113$normalize_for_feature_selection",
+        "train_$MobileBertForQuestionAnswering_1113$sort_tensors"
     ],
     "additionalProperties": false,
     "properties": {
@@ -95,7 +98,11 @@
         },
         "train_$RobertaForQuestionAnswering_103$normalize_for_feature_selection": {
             "type": "boolean",
-            "description": "whether or not apply normalization before feature selection"
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$RobertaForQuestionAnswering_103$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
         },
         "train_$RobertaForQuestionAnswering_199$nfeats": {
             "type": "integer",
@@ -152,7 +159,11 @@
         },
         "train_$RobertaForQuestionAnswering_199$normalize_for_feature_selection": {
             "type": "boolean",
-            "description": "whether or not apply normalization before feature selection"
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$RobertaForQuestionAnswering_199$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
         },
         "train_$MobileBertForQuestionAnswering_1113$nfeats": {
             "type": "integer",
@@ -209,7 +220,11 @@
         },
         "train_$MobileBertForQuestionAnswering_1113$normalize_for_feature_selection": {
             "type": "boolean",
-            "description": "whether or not apply normalization before feature selection"
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$MobileBertForQuestionAnswering_1113$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
         }
     }
 }

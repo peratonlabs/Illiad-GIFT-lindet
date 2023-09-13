@@ -7,6 +7,7 @@
     "train_$SimplifiedRLStarter_18$normalize_for_feature_selection": true,
     "train_$SimplifiedRLStarter_18$features": "pnorm_delta",
     "train_$SimplifiedRLStarter_18$ntensors": 25,
+    "train_$SimplifiedRLStarter_18$sort_tensors": false,
     "train_$BasicFCModel_12$nfeats": 1000,
     "train_$BasicFCModel_12$cls_type": "LogisticRegression",
     "train_$BasicFCModel_12$param_batch_sz": 80,
@@ -14,5 +15,6 @@
     "train_$BasicFCModel_12$feature_selection_criterion": "auc",
     "train_$BasicFCModel_12$normalize_for_feature_selection": true,
     "train_$BasicFCModel_12$features": "pnorm_delta",
-    "train_$BasicFCModel_12$ntensors": 25
+    "train_$BasicFCModel_12$ntensors": 25,
+    "train_$BasicFCModel_12$sort_tensors": false
 }

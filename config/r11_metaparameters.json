@@ -7,6 +7,7 @@
     "train_$ResNet_161$normalize_for_feature_selection": true,
     "train_$ResNet_161$features": "pnorm_delta",
     "train_$ResNet_161$ntensors": 25,
+    "train_$ResNet_161$sort_tensors": false,
     "train_$VisionTransformer_152$nfeats": 1000,
     "train_$VisionTransformer_152$cls_type": "LogisticRegression",
     "train_$VisionTransformer_152$param_batch_sz": 80,
@@ -15,6 +16,7 @@
     "train_$VisionTransformer_152$normalize_for_feature_selection": true,
     "train_$VisionTransformer_152$features": "pnorm_delta",
     "train_$VisionTransformer_152$ntensors": 25,
+    "train_$VisionTransformer_152$sort_tensors": false,
     "train_$MobileNetV2_158$nfeats": 1000,
     "train_$MobileNetV2_158$cls_type": "LogisticRegression",
     "train_$MobileNetV2_158$param_batch_sz": 80,
@@ -22,5 +24,6 @@
     "train_$MobileNetV2_158$feature_selection_criterion": "auc",
     "train_$MobileNetV2_158$normalize_for_feature_selection": true,
     "train_$MobileNetV2_158$features": "pnorm_delta",
-    "train_$MobileNetV2_158$ntensors": 25
+    "train_$MobileNetV2_158$ntensors": 25,
+    "train_$MobileNetV2_158$sort_tensors": false
 }

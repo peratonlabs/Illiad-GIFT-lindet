@@ -211,7 +211,7 @@ def get_metric_batched(x,y, maxelements=600000000, fun=get_corr):
     return np.concatenate(this_param_metric)
 
 
-def get_deltas(model_or_path, ref_model=None, norm=None):
+def get_deltas(model_or_path, ref_model=None, norm=None, psort=False):
     if not isinstance(model_or_path, torch.nn.Module):
         if torch.cuda.is_available():
             model = torch.load(model_or_path)
@@ -250,21 +250,33 @@ def get_deltas(model_or_path, ref_model=None, norm=None):
                 scaling_factor = norm
 
             ps = [p/scaling_factor for p in ps]
+    
+    if psort:
+        ps = [p.sort()[0] for p in ps]
 
     return ps
+
+
+def proc_feat_type(feat_type, ref_model):
+    if feat_type == 'raw':
+        norm_type = None
+    elif feat_type == 'cosine_delta' or feat_type == 'cosine':
+        norm_type = 'cosine'
+    elif feat_type == 'white_delta' or feat_type == 'white':
+        norm_type = 'white'
+    elif feat_type == 'pnorm_delta' or feat_type == 'pnorm':
+        norm_type = 'pnorm'
+
+    if "_delta" not in feat_type:
+        ref_model = None
+
+    return norm_type, ref_model
 
 
 def get_mapped_weights(model_filepath, weight_mapping, cfg_dict, ref_model=None):
     # print(ref_model)
 
-    if cfg_dict['features'] == 'raw':
-        norm_type = None
-    elif cfg_dict['features'] == 'cosine_delta' or cfg_dict['features'] == 'cosine':
-        norm_type = 'cosine'
-    elif cfg_dict['features'] == 'white_delta' or cfg_dict['features'] == 'white':
-        norm_type = 'white'
-    elif cfg_dict['features'] == 'pnorm_delta' or cfg_dict['features'] == 'pnorm':
-        norm_type = 'pnorm'
+    norm_type, ref_model = proc_feat_type(cfg_dict['features'], ref_model)
 
     if cfg_dict['normalize_for_feature_selection']:
         post_norm = None
@@ -272,8 +284,10 @@ def get_mapped_weights(model_filepath, weight_mapping, cfg_dict, ref_model=None)
     else:
         post_norm = norm_type
         feat_sel_norm = None
-
-    ps = get_deltas(model_filepath, ref_model=ref_model, norm=feat_sel_norm)
+    
+    with torch.no_grad():
+        ps = get_deltas(model_filepath, ref_model=ref_model, norm=feat_sel_norm, psort=cfg_dict["sort_tensors"])
+    
     mapped_weights = []
 
     for i in range(len(weight_mapping)):
@@ -292,17 +306,18 @@ def get_mapped_weights(model_filepath, weight_mapping, cfg_dict, ref_model=None)
     return mapped_weights
 
 
-def get_params(models, start_ind, num_params, ref_model=None, norm=None, pinds=None):
+def get_params(models, start_ind, num_params, ref_model=None, norm=None, pinds=None, psort=False):
 
     output_ps = []
     for model in models:
-        ps = get_deltas(model, ref_model=ref_model, norm=norm)
+        ps = get_deltas(model, ref_model=ref_model, norm=norm, psort=False)
         if pinds is None:
             ps = ps[start_ind:start_ind+num_params]
         else:
             ps = [ps[pind] for pind in pinds]
         # ps = [p.cpu().detach().numpy().reshape(-1) for p in ps]
         ps = [p.reshape(-1).cpu() for p in ps]
+        
 
         if len(output_ps)==0:
             output_ps = [[p] for p in ps]
@@ -429,15 +444,9 @@ def select_feats(model_fns, labels, cfg_dict, ref_model=None):
     criterion = cfg_dict['feature_selection_criterion']
     param_batch_sz = cfg_dict['param_batch_sz']
 
+    norm_type, ref_model = proc_feat_type(cfg_dict['features'], ref_model)
     if cfg_dict['normalize_for_feature_selection']:
-        if cfg_dict['features'] == 'cosine_delta' or cfg_dict['features'] == 'cosine':
-            norm = 'cosine'
-        elif cfg_dict['features'] == 'white_delta' or cfg_dict['features'] == 'white':
-            norm = 'white'
-        elif cfg_dict['features'] == 'pnorm_delta' or cfg_dict['features'] == 'pnorm':
-            norm = 'pnorm'
-        else:
-            norm = None
+        norm = norm_type
     else:
         norm = None
 
@@ -537,6 +546,9 @@ def select_pinds(model_fns, labels, cfg_dict, norm, ref_model=None):
     ntrials = 10
     holdout_ratio = 0.2
     # ntensors = 25
+    if ntensors == 0:
+        return select_feats(model_fns, labels, cfg_dict, ref_model=ref_model)
+
     nfeats = round(nfeats/ntensors)
 
     ind = 0
@@ -601,17 +613,12 @@ def select_feats2(model_fns, labels, cfg_dict, ref_model=None):
     criterion = cfg_dict['feature_selection_criterion']
     param_batch_sz = cfg_dict['param_batch_sz']
 
+    norm_type, ref_model = proc_feat_type(cfg_dict['features'], ref_model)
     if cfg_dict['normalize_for_feature_selection']:
-        if cfg_dict['features'] == 'cosine_delta' or cfg_dict['features'] == 'cosine':
-            norm = 'cosine'
-        elif cfg_dict['features'] == 'white_delta' or cfg_dict['features'] == 'white':
-            norm = 'white'
-        elif cfg_dict['features'] == 'pnorm_delta' or cfg_dict['features'] == 'pnorm':
-            norm = 'pnorm'
-        else:
-            norm = None
+        norm = norm_type
     else:
         norm = None
+
 
     # nfeats = 100
 

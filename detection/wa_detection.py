@@ -159,7 +159,7 @@ def cal(arg_dict, metaParameters, ref_model_function=None):
         if use_ISO:
             ISO_arch_classifiers[arch] = ir_model
 
-
+    os.makedirs(os.path.join(arg_dict['learned_parameters_dirpath']), exist_ok=True)
     if use_ISO:
         dump([arch_weight_mappings, arch_classifiers, ISO_arch_classifiers, cfg_dicts], os.path.join(arg_dict['learned_parameters_dirpath'], 'wa_lr.joblib'))
     else:

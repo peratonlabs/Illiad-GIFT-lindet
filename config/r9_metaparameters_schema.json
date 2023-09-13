@@ -21,6 +21,7 @@
         "train_$DistilBertForQuestionAnswering_102$feature_selection_criterion",
         "train_$DistilBertForQuestionAnswering_102$features",
         "train_$DistilBertForQuestionAnswering_102$normalize_for_feature_selection",
+        "train_$DistilBertForQuestionAnswering_102$sort_tensors",
         "train_$DistilBertForSequenceClassification_104$nfeats",
         "train_$DistilBertForSequenceClassification_104$ntensors",
         "train_$DistilBertForSequenceClassification_104$cls_type",
@@ -29,6 +30,7 @@
         "train_$DistilBertForSequenceClassification_104$feature_selection_criterion",
         "train_$DistilBertForSequenceClassification_104$features",
         "train_$DistilBertForSequenceClassification_104$normalize_for_feature_selection",
+        "train_$DistilBertForSequenceClassification_104$sort_tensors",
         "train_$DistilBertForTokenClassification_102$nfeats",
         "train_$DistilBertForTokenClassification_102$ntensors",
         "train_$DistilBertForTokenClassification_102$cls_type",
@@ -37,6 +39,7 @@
         "train_$DistilBertForTokenClassification_102$feature_selection_criterion",
         "train_$DistilBertForTokenClassification_102$features",
         "train_$DistilBertForTokenClassification_102$normalize_for_feature_selection",
+        "train_$DistilBertForTokenClassification_102$sort_tensors",
         "train_$ElectraForQuestionAnswering_201$nfeats",
         "train_$ElectraForQuestionAnswering_201$ntensors",
         "train_$ElectraForQuestionAnswering_201$cls_type",
@@ -45,6 +48,7 @@
         "train_$ElectraForQuestionAnswering_201$feature_selection_criterion",
         "train_$ElectraForQuestionAnswering_201$features",
         "train_$ElectraForQuestionAnswering_201$normalize_for_feature_selection",
+        "train_$ElectraForQuestionAnswering_201$sort_tensors",
         "train_$ElectraForSequenceClassification_203$nfeats",
         "train_$ElectraForSequenceClassification_203$ntensors",
         "train_$ElectraForSequenceClassification_203$cls_type",
@@ -53,6 +57,7 @@
         "train_$ElectraForSequenceClassification_203$feature_selection_criterion",
         "train_$ElectraForSequenceClassification_203$features",
         "train_$ElectraForSequenceClassification_203$normalize_for_feature_selection",
+        "train_$ElectraForSequenceClassification_203$sort_tensors",
         "train_$ElectraForTokenClassification_201$nfeats",
         "train_$ElectraForTokenClassification_201$ntensors",
         "train_$ElectraForTokenClassification_201$cls_type",
@@ -61,6 +66,7 @@
         "train_$ElectraForTokenClassification_201$feature_selection_criterion",
         "train_$ElectraForTokenClassification_201$features",
         "train_$ElectraForTokenClassification_201$normalize_for_feature_selection",
+        "train_$ElectraForTokenClassification_201$sort_tensors",
         "train_$RobertaForQuestionAnswering_199$nfeats",
         "train_$RobertaForQuestionAnswering_199$ntensors",
         "train_$RobertaForQuestionAnswering_199$cls_type",
@@ -69,6 +75,7 @@
         "train_$RobertaForQuestionAnswering_199$feature_selection_criterion",
         "train_$RobertaForQuestionAnswering_199$features",
         "train_$RobertaForQuestionAnswering_199$normalize_for_feature_selection",
+        "train_$RobertaForQuestionAnswering_199$sort_tensors",
         "train_$RobertaForSequenceClassification_201$nfeats",
         "train_$RobertaForSequenceClassification_201$ntensors",
         "train_$RobertaForSequenceClassification_201$cls_type",
@@ -77,6 +84,7 @@
         "train_$RobertaForSequenceClassification_201$feature_selection_criterion",
         "train_$RobertaForSequenceClassification_201$features",
         "train_$RobertaForSequenceClassification_201$normalize_for_feature_selection",
+        "train_$RobertaForSequenceClassification_201$sort_tensors",
         "train_$RobertaForTokenClassification_199$nfeats",
         "train_$RobertaForTokenClassification_199$ntensors",
         "train_$RobertaForTokenClassification_199$cls_type",
@@ -84,7 +92,8 @@
         "train_$RobertaForTokenClassification_199$C",
         "train_$RobertaForTokenClassification_199$feature_selection_criterion",
         "train_$RobertaForTokenClassification_199$features",
-        "train_$RobertaForTokenClassification_199$normalize_for_feature_selection"
+        "train_$RobertaForTokenClassification_199$normalize_for_feature_selection",
+        "train_$RobertaForTokenClassification_199$sort_tensors"
     ],
     "additionalProperties": false,
     "properties": {
@@ -143,7 +152,11 @@
         },
         "train_$DistilBertForQuestionAnswering_102$normalize_for_feature_selection": {
             "type": "boolean",
-            "description": "whether or not apply normalization before feature selection"
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$DistilBertForQuestionAnswering_102$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
         },
         "train_$DistilBertForSequenceClassification_104$nfeats": {
             "type": "integer",
@@ -200,7 +213,11 @@
         },
         "train_$DistilBertForSequenceClassification_104$normalize_for_feature_selection": {
             "type": "boolean",
-            "description": "whether or not apply normalization before feature selection"
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$DistilBertForSequenceClassification_104$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
         },
         "train_$DistilBertForTokenClassification_102$nfeats": {
             "type": "integer",
@@ -257,7 +274,11 @@
         },
         "train_$DistilBertForTokenClassification_102$normalize_for_feature_selection": {
             "type": "boolean",
-            "description": "whether or not apply normalization before feature selection"
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$DistilBertForTokenClassification_102$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
         },
         "train_$ElectraForQuestionAnswering_201$nfeats": {
             "type": "integer",
@@ -314,7 +335,11 @@
         },
         "train_$ElectraForQuestionAnswering_201$normalize_for_feature_selection": {
             "type": "boolean",
-            "description": "whether or not apply normalization before feature selection"
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$ElectraForQuestionAnswering_201$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
         },
         "train_$ElectraForSequenceClassification_203$nfeats": {
             "type": "integer",
@@ -371,7 +396,11 @@
         },
         "train_$ElectraForSequenceClassification_203$normalize_for_feature_selection": {
             "type": "boolean",
-            "description": "whether or not apply normalization before feature selection"
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$ElectraForSequenceClassification_203$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
         },
         "train_$ElectraForTokenClassification_201$nfeats": {
             "type": "integer",
@@ -428,7 +457,11 @@
         },
         "train_$ElectraForTokenClassification_201$normalize_for_feature_selection": {
             "type": "boolean",
-            "description": "whether or not apply normalization before feature selection"
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$ElectraForTokenClassification_201$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
         },
         "train_$RobertaForQuestionAnswering_199$nfeats": {
             "type": "integer",
@@ -485,7 +518,11 @@
         },
         "train_$RobertaForQuestionAnswering_199$normalize_for_feature_selection": {
             "type": "boolean",
-            "description": "whether or not apply normalization before feature selection"
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$RobertaForQuestionAnswering_199$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
         },
         "train_$RobertaForSequenceClassification_201$nfeats": {
             "type": "integer",
@@ -542,7 +579,11 @@
         },
         "train_$RobertaForSequenceClassification_201$normalize_for_feature_selection": {
             "type": "boolean",
-            "description": "whether or not apply normalization before feature selection"
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$RobertaForSequenceClassification_201$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
         },
         "train_$RobertaForTokenClassification_199$nfeats": {
             "type": "integer",
@@ -599,7 +640,11 @@
         },
         "train_$RobertaForTokenClassification_199$normalize_for_feature_selection": {
             "type": "boolean",
-            "description": "whether or not apply normalization before feature selection"
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$RobertaForTokenClassification_199$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
         }
     }
 }

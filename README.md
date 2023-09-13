@@ -71,16 +71,16 @@ See above.
 
 
 ### Round 11 env
-
-```
-conda env create -f r11new2.yml
-```
-Note: conda seems to have more issues than pip, so I recommend the following for addressing new requirements:
+Conda and pytorch are struggling to work together, so I recommend setting up the env as follows:
 ```
 conda create -n r11new2 python=3.8.17
-pip install <whatever packages>
+pip install torch==1.12.1+cu113 torchvision==0.13.1+cu113 torchaudio==0.12.1 --extra-index-url https://download.pytorch.org/whl/cu113
+pip install transformers==4.32.1
+pip install opencv-python==4.8.0.74
+pip install jsonargparse==4.23.0 jsonschema==4.18.4
+pip install scikit-learn==1.3.0 scipy==1.10.1
+pip install timm-0.9.7
 ```
-
 
 
 

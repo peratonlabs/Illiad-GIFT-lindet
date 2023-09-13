@@ -21,6 +21,7 @@
         "train_$SimplifiedRLStarter_18$feature_selection_criterion",
         "train_$SimplifiedRLStarter_18$features",
         "train_$SimplifiedRLStarter_18$normalize_for_feature_selection",
+        "train_$SimplifiedRLStarter_18$sort_tensors",
         "train_$BasicFCModel_12$nfeats",
         "train_$BasicFCModel_12$ntensors",
         "train_$BasicFCModel_12$cls_type",
@@ -28,7 +29,8 @@
         "train_$BasicFCModel_12$C",
         "train_$BasicFCModel_12$feature_selection_criterion",
         "train_$BasicFCModel_12$features",
-        "train_$BasicFCModel_12$normalize_for_feature_selection"
+        "train_$BasicFCModel_12$normalize_for_feature_selection",
+        "train_$BasicFCModel_12$sort_tensors"
     ],
     "additionalProperties": false,
     "properties": {
@@ -87,7 +89,11 @@
         },
         "train_$SimplifiedRLStarter_18$normalize_for_feature_selection": {
             "type": "boolean",
-            "description": "whether or not apply normalization before feature selection"
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$SimplifiedRLStarter_18$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
         },
         "train_$BasicFCModel_12$nfeats": {
             "type": "integer",
@@ -144,7 +150,11 @@
         },
         "train_$BasicFCModel_12$normalize_for_feature_selection": {
             "type": "boolean",
-            "description": "whether or not apply normalization before feature selection"
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$BasicFCModel_12$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
         }
     }
 }

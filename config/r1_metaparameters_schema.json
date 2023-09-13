@@ -21,6 +21,7 @@
         "train_$ResNet_161$feature_selection_criterion",
         "train_$ResNet_161$features",
         "train_$ResNet_161$normalize_for_feature_selection",
+        "train_$ResNet_161$sort_tensors",
         "train_$DenseNet_364$nfeats",
         "train_$DenseNet_364$ntensors",
         "train_$DenseNet_364$cls_type",
@@ -29,6 +30,7 @@
         "train_$DenseNet_364$feature_selection_criterion",
         "train_$DenseNet_364$features",
         "train_$DenseNet_364$normalize_for_feature_selection",
+        "train_$DenseNet_364$sort_tensors",
         "train_$Inception3_284$nfeats",
         "train_$Inception3_284$ntensors",
         "train_$Inception3_284$cls_type",
@@ -36,7 +38,8 @@
         "train_$Inception3_284$C",
         "train_$Inception3_284$feature_selection_criterion",
         "train_$Inception3_284$features",
-        "train_$Inception3_284$normalize_for_feature_selection"
+        "train_$Inception3_284$normalize_for_feature_selection",
+        "train_$Inception3_284$sort_tensors"
     ],
     "additionalProperties": false,
     "properties": {
@@ -95,7 +98,11 @@
         },
         "train_$ResNet_161$normalize_for_feature_selection": {
             "type": "boolean",
-            "description": "whether or not apply normalization before feature selection"
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$ResNet_161$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
         },
         "train_$DenseNet_364$nfeats": {
             "type": "integer",
@@ -152,7 +159,11 @@
         },
         "train_$DenseNet_364$normalize_for_feature_selection": {
             "type": "boolean",
-            "description": "whether or not apply normalization before feature selection"
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$DenseNet_364$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
         },
         "train_$Inception3_284$nfeats": {
             "type": "integer",
@@ -209,7 +220,11 @@
         },
         "train_$Inception3_284$normalize_for_feature_selection": {
             "type": "boolean",
-            "description": "whether or not apply normalization before feature selection"
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$Inception3_284$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
         }
     }
 }

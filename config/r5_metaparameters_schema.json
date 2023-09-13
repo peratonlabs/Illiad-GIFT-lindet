@@ -21,6 +21,7 @@
         "train_$GruLinearModel_18_768$feature_selection_criterion",
         "train_$GruLinearModel_18_768$features",
         "train_$GruLinearModel_18_768$normalize_for_feature_selection",
+        "train_$GruLinearModel_18_768$sort_tensors",
         "train_$LstmLinearModel_18_1024$nfeats",
         "train_$LstmLinearModel_18_1024$ntensors",
         "train_$LstmLinearModel_18_1024$cls_type",
@@ -29,6 +30,7 @@
         "train_$LstmLinearModel_18_1024$feature_selection_criterion",
         "train_$LstmLinearModel_18_1024$features",
         "train_$LstmLinearModel_18_1024$normalize_for_feature_selection",
+        "train_$LstmLinearModel_18_1024$sort_tensors",
         "train_$LinearModel_2$nfeats",
         "train_$LinearModel_2$ntensors",
         "train_$LinearModel_2$cls_type",
@@ -36,7 +38,8 @@
         "train_$LinearModel_2$C",
         "train_$LinearModel_2$feature_selection_criterion",
         "train_$LinearModel_2$features",
-        "train_$LinearModel_2$normalize_for_feature_selection"
+        "train_$LinearModel_2$normalize_for_feature_selection",
+        "train_$LinearModel_2$sort_tensors"
     ],
     "additionalProperties": false,
     "properties": {
@@ -95,7 +98,11 @@
         },
         "train_$GruLinearModel_18_768$normalize_for_feature_selection": {
             "type": "boolean",
-            "description": "whether or not apply normalization before feature selection"
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$GruLinearModel_18_768$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
         },
         "train_$LstmLinearModel_18_1024$nfeats": {
             "type": "integer",
@@ -152,7 +159,11 @@
         },
         "train_$LstmLinearModel_18_1024$normalize_for_feature_selection": {
             "type": "boolean",
-            "description": "whether or not apply normalization before feature selection"
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$LstmLinearModel_18_1024$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
         },
         "train_$LinearModel_2$nfeats": {
             "type": "integer",
@@ -209,7 +220,11 @@
         },
         "train_$LinearModel_2$normalize_for_feature_selection": {
             "type": "boolean",
-            "description": "whether or not apply normalization before feature selection"
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$LinearModel_2$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
         }
     }
 }

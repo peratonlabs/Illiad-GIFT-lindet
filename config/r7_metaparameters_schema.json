@@ -21,6 +21,7 @@
         "train_$MobileBertModel_1113$feature_selection_criterion",
         "train_$MobileBertModel_1113$features",
         "train_$MobileBertModel_1113$normalize_for_feature_selection",
+        "train_$MobileBertModel_1113$sort_tensors",
         "train_$BertModel_199$nfeats",
         "train_$BertModel_199$ntensors",
         "train_$BertModel_199$cls_type",
@@ -29,6 +30,7 @@
         "train_$BertModel_199$feature_selection_criterion",
         "train_$BertModel_199$features",
         "train_$BertModel_199$normalize_for_feature_selection",
+        "train_$BertModel_199$sort_tensors",
         "train_$RobertaModel_199$nfeats",
         "train_$RobertaModel_199$ntensors",
         "train_$RobertaModel_199$cls_type",
@@ -37,6 +39,7 @@
         "train_$RobertaModel_199$feature_selection_criterion",
         "train_$RobertaModel_199$features",
         "train_$RobertaModel_199$normalize_for_feature_selection",
+        "train_$RobertaModel_199$sort_tensors",
         "train_$DistilBertModel_102$nfeats",
         "train_$DistilBertModel_102$ntensors",
         "train_$DistilBertModel_102$cls_type",
@@ -44,7 +47,8 @@
         "train_$DistilBertModel_102$C",
         "train_$DistilBertModel_102$feature_selection_criterion",
         "train_$DistilBertModel_102$features",
-        "train_$DistilBertModel_102$normalize_for_feature_selection"
+        "train_$DistilBertModel_102$normalize_for_feature_selection",
+        "train_$DistilBertModel_102$sort_tensors"
     ],
     "additionalProperties": false,
     "properties": {
@@ -103,7 +107,11 @@
         },
         "train_$MobileBertModel_1113$normalize_for_feature_selection": {
             "type": "boolean",
-            "description": "whether or not apply normalization before feature selection"
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$MobileBertModel_1113$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
         },
         "train_$BertModel_199$nfeats": {
             "type": "integer",
@@ -160,7 +168,11 @@
         },
         "train_$BertModel_199$normalize_for_feature_selection": {
             "type": "boolean",
-            "description": "whether or not apply normalization before feature selection"
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$BertModel_199$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
         },
         "train_$RobertaModel_199$nfeats": {
             "type": "integer",
@@ -217,7 +229,11 @@
         },
         "train_$RobertaModel_199$normalize_for_feature_selection": {
             "type": "boolean",
-            "description": "whether or not apply normalization before feature selection"
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$RobertaModel_199$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
         },
         "train_$DistilBertModel_102$nfeats": {
             "type": "integer",
@@ -274,7 +290,11 @@
         },
         "train_$DistilBertModel_102$normalize_for_feature_selection": {
             "type": "boolean",
-            "description": "whether or not apply normalization before feature selection"
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$DistilBertModel_102$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
         }
     }
 }

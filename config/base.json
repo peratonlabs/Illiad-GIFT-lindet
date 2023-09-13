@@ -6,5 +6,6 @@
   "feature_selection_criterion": "auc",
   "normalize_for_feature_selection": true,
   "features": "pnorm_delta",
-  "ntensors": 25
+  "ntensors": 25,
+  "sort_tensors": false
 }

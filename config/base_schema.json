@@ -68,7 +68,11 @@
     },
     "normalize_for_feature_selection": {
       "type": "boolean",
-      "description": "whether or not apply normalization before feature selection"
+      "description": "whether or not to apply normalization before feature selection"
+    },
+    "sort_tensors": {
+      "type": "boolean",
+      "description": "whether or not to sort tensors"
     }
   }
 }
