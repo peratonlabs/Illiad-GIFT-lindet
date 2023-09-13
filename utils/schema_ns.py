@@ -186,9 +186,9 @@ def validate(metaparameters_filepath, schema_filepath):
 
 arch_lists = {
     1: ['ResNet_161', 'DenseNet_364', 'Inception3_284'],
-    2: [],
-    3: [],
-    4: [],
+    2: ['VGG_70', 'ResNet_161', 'Inception3_284', 'DenseNet_364', 'ResNet_110', 'VGG_58', 'ShuffleNetV2_170', 'ResNet_314', 'DenseNet_604', 'DenseNet_508', 'GoogLeNet_173', 'SqueezeNet_52', 'DenseNet_484', 'VGG_46', 'ResNet_62', 'ResNet_467', 'MobileNetV2_158', 'VGG_38'],
+    3: ['ResNet_110', 'VGG_70', 'GoogLeNet_173', 'ResNet_314', 'ResNet_161', 'VGG_58', 'DenseNet_604', 'DenseNet_484', 'ShuffleNetV2_170', 'VGG_38', 'ResNet_62', 'Inception3_284', 'DenseNet_508', 'ResNet_467', 'DenseNet_364', 'SqueezeNet_52', 'VGG_46', 'MobileNetV2_158'],
+    4: ['GoogLeNet_173', 'ResNet_161', 'ShuffleNetV2_170', 'ResNet_62', 'SqueezeNet_52', 'DenseNet_364', 'Inception3_284', 'VGG_38', 'ResNet_314', 'ResNet_110', 'VGG_46', 'MobileNetV2_158'],
     5: ['GruLinearModel_18_768', 'LstmLinearModel_18_1024', 'LinearModel_2'],
     6: ['FCLinearModel_6_256', 'LstmLinearModel_18_1024', 'GruLinearModel_10_768', 'LstmLinearModel_34_1024', 'GruLinearModel_34_1536', 'LstmLinearModel_18_2048', 'FCLinearModel_10_256', 'FCLinearModel_10_512', 'GruLinearModel_18_768', 'FCLinearModel_6_512', 'LstmLinearModel_34_2048', 'GruLinearModel_18_1536', 'GruLinearModel_10_1536', 'LstmLinearModel_10_1024', 'LstmLinearModel_10_2048', 'GruLinearModel_34_768'],
     7: ["MobileBertModel_1113","BertModel_199","RobertaModel_199","DistilBertModel_102"],
@@ -196,7 +196,7 @@ arch_lists = {
     9: ["DistilBertForQuestionAnswering_102","DistilBertForSequenceClassification_104","DistilBertForTokenClassification_102", "ElectraForQuestionAnswering_201","ElectraForSequenceClassification_203","ElectraForTokenClassification_201","RobertaForQuestionAnswering_199","RobertaForSequenceClassification_201","RobertaForTokenClassification_199"],
     10: ["SSD_71", "FasterRCNN_83"],
     11: ["ResNet_161", "VisionTransformer_152", "MobileNetV2_158"],
-    12: [],
+    12: ['Net3_6', 'Net5_10', 'Net4r_8', 'Net5r_10', 'Net7r_14', 'Net6r_12', 'Net2r_4', 'Net3r_6', 'Net7_14', 'Net2s_4', 'Net3s_6', 'Net6_12', 'Net2_4', 'Net4_8'],
     13: ["SSD_71", "FasterRCNN_209", "DetrForObjectDetection_326"],
     14: ["SimplifiedRLStarter_18", "BasicFCModel_12"],
     15: ["RobertaForQuestionAnswering_103", "RobertaForQuestionAnswering_199", "MobileBertForQuestionAnswering_1113"]

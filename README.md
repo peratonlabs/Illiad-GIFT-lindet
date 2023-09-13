@@ -82,6 +82,43 @@ pip install jsonargparse==4.23.0 jsonschema==4.18.4
 pip install scikit-learn==1.3.0 scipy==1.10.1
 pip install timm==0.9.7
 ```
+This environment should work for rounds 1, 5-12, 15
 
+### Round 14 env
+Conda and pytorch are struggling to work together, so I recommend setting up the env as follows:
+```
+conda create -n r14new python=3.8.17
+conda activate r14new
+pip install torch==1.12.1+cu113 torchvision==0.13.1+cu113 torchaudio==0.12.1 --extra-index-url https://download.pytorch.org/whl/cu113
+pip install transformers==4.32.1
+pip install opencv-python==4.8.0.74
+pip install jsonargparse==4.23.0 jsonschema==4.18.4
+pip install scikit-learn==1.3.0 scipy==1.10.1
+pip install timm==0.9.7
+pip install trojai_rl
+```
+This environment should work for round 14
 
+### Round 13 env
+Conda and pytorch are struggling to work together, so I recommend setting up the env as follows:
+```
+conda create -n r13new python=3.8.17
+conda activate r13new
+pip install torch==1.13.1+cu116 torchvision==0.14.1+cu116 torchaudio==0.13.1 --extra-index-url https://download.pytorch.org/whl/cu116
+pip install timm transformers==4.23.1 jsonschema jsonargparse jsonpickle scikit-learn scikit-image
+```
+This environment should work for round 13
+
+### Round 4 env
+
+```
+conda create -n r4new python=3.8
+conda activate r4new
+pip install torch==1.7.1+cu110 torchvision==0.8.2+cu110 torchaudio==0.7.2 -f https://download.pytorch.org/whl/torch_stable.html
+pip install joblib
+pip install jsonargparse==4.23.0 jsonschema==4.18.4
+pip install scikit-learn==1.3.0 scipy==1.10.1
+pip install timm
+```
+This environment should work for rounds 2-4
 

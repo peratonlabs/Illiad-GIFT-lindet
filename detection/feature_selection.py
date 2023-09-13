@@ -546,8 +546,8 @@ def select_pinds(model_fns, labels, cfg_dict, norm, ref_model=None):
     ntrials = 10
     holdout_ratio = 0.2
     # ntensors = 25
-    if ntensors == 0:
-        return select_feats(model_fns, labels, cfg_dict, ref_model=ref_model)
+    # if ntensors == 0:
+    #     return select_feats(model_fns, labels, cfg_dict, ref_model=ref_model)
 
     nfeats = round(nfeats/ntensors)
 
@@ -606,6 +606,10 @@ def select_pinds(model_fns, labels, cfg_dict, norm, ref_model=None):
 
 
 def select_feats2(model_fns, labels, cfg_dict, ref_model=None):
+
+    if cfg_dict['ntensors'] == 0:   
+        return select_feats(model_fns, labels, cfg_dict, ref_model=ref_model)
+    
     labels = torch.tensor(labels)
     if torch.cuda.is_available():
         labels = labels.cuda()
@@ -618,7 +622,6 @@ def select_feats2(model_fns, labels, cfg_dict, ref_model=None):
         norm = norm_type
     else:
         norm = None
-
 
     # nfeats = 100
 
