@@ -74,6 +74,7 @@ See above.
 Conda and pytorch are struggling to work together, so I recommend setting up the env as follows:
 ```
 conda create -n r11new2 python=3.8.17
+conda activate r11new2
 pip install torch==1.12.1+cu113 torchvision==0.13.1+cu113 torchaudio==0.12.1 --extra-index-url https://download.pytorch.org/whl/cu113
 pip install transformers==4.32.1
 pip install opencv-python==4.8.0.74
