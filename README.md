@@ -80,7 +80,7 @@ pip install transformers==4.32.1
 pip install opencv-python==4.8.0.74
 pip install jsonargparse==4.23.0 jsonschema==4.18.4
 pip install scikit-learn==1.3.0 scipy==1.10.1
-pip install timm-0.9.7
+pip install timm==0.9.7
 ```
 
 
