@@ -84,6 +84,9 @@ pip install timm==0.9.7
 ```
 This environment should work for rounds 1, 5-12, 15
 
+note: this may not work on r11 ironically.  maybe run pip install timm==0.6.13
+
+
 ### Round 14 env
 Conda and pytorch are struggling to work together, so I recommend setting up the env as follows:
 ```

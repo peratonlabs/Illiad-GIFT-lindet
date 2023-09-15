@@ -110,6 +110,7 @@ def arch_train(arch_fns, arch_classes, cfg_dict, ref_model=None):
 
     else:
         assert False, 'bad classifier type'
+    # print(x.shape,arch_classes)
     classifier.fit(x, arch_classes)
 
     return weight_mapping, classifier
@@ -350,22 +351,29 @@ def detect(fn, weight_mapping, classifier, cfg_dict, ref_model=None):
 
 def cv_arch_train(arch_fns, arch_classes, cfg_dict, holdout_ratio=0.1, num_cvs=10, cv_scratch_dir=None, arch=None, ref_model=None):
 
-
+    # x1,x2,y1,y2 = get_good_split(arch_fns, arch_classes, holdout_ratio=holdout_ratio, ignore_val=True)
     ns = arch_classes.shape[0]
     inds = np.arange(ns)
-    split_ind = round((1 - holdout_ratio) * ns)
+    # split_ind = round((1 - holdout_ratio) * ns)
+    # print(ns, split_ind)
+    # if split_ind == ns:
+    #     split_ind = ns-1
 
     cvcal_scores = []
     truths = []
     for i in range(num_cvs):
-        np.random.shuffle(inds)
-        trinds = inds[:split_ind]
-        vinds = inds[split_ind:]
+        tr_fns,v_fns,tr_cls,v_cls = get_good_split(arch_fns, arch_classes, holdout_ratio=holdout_ratio, ignore_val=True)
 
-        tr_fns = arch_fns[trinds]
-        tr_cls = arch_classes[trinds]
-        v_fns = arch_fns[vinds]
-        v_cls = arch_classes[vinds]
+
+
+        # np.random.shuffle(inds)
+        # trinds = inds[:split_ind]
+        # vinds = inds[split_ind:]
+
+        # tr_fns = arch_fns[trinds]
+        # tr_cls = arch_classes[trinds]
+        # v_fns = arch_fns[vinds]
+        # v_cls = arch_classes[vinds]
 
         # dump_fn = None if cv_scratch_dir is  None else os.path.join(cv_scratch_dir, 'cvdump' + str(i) + '.p')
 
@@ -382,7 +390,8 @@ def cv_arch_train(arch_fns, arch_classes, cfg_dict, holdout_ratio=0.1, num_cvs=1
             xtr = [get_mapped_weights(fn, weight_mapping, cfg_dict, ref_model=ref_model) for fn in tr_fns]
             xtr = np.stack(xtr)
             xv = [get_mapped_weights(fn, weight_mapping, cfg_dict, ref_model=ref_model) for fn in v_fns]
-            xv = np.stack(xv)
+            if len(xv)>0:
+                xv = np.stack(xv)
 
             # dump_data = [xtr, tr_cls, xv, v_cls]
             xstats = None
@@ -505,18 +514,32 @@ def select_feats(model_fns, labels, cfg_dict, ref_model=None):
     # x = np.stack(x)
 
 
-def get_good_split(x, labels, holdout_ratio=0.9):
+def get_good_split(x, labels, holdout_ratio=0.1, ignore_val=False):
 
-    assert (labels==0).sum()>1 and (labels==1).sum()>1, "can't split data without multiple examples of each class"
+    # print((labels==0).sum(), (labels==1).sum())
+
+    if ignore_val:
+        assert (labels==0).sum()>0 and (labels==1).sum()>0, "can't split data without multiple examples of each class"
+    else:
+        assert (labels==0).sum()>1 and (labels==1).sum()>1, "can't split data without multiple examples of each class"
 
     ns = x.shape[0]
     inds = np.arange(ns)
     split_ind = round((1 - holdout_ratio) * ns)
 
+    if not ignore_val and split_ind > ns-2:
+        split_ind = ns-2
+
     labels_tr = []
     labels_val = []
 
-    while 0 not in labels_tr or 1 not in labels_tr or 0 not in labels_val or 1 not in labels_val:
+    # print(ns, split_ind)
+    # print(split_ind)
+
+
+
+    while 0 not in labels_tr or 1 not in labels_tr or ( not ignore_val and (0 not in labels_val or 1 not in labels_val)):
+        # print((0 not in labels_tr or 1 not in labels_tr) )
         np.random.shuffle(inds)
         trinds = inds[:split_ind]
         vinds = inds[split_ind:]
