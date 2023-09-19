@@ -185,7 +185,7 @@ def validate(metaparameters_filepath, schema_filepath):
 # print(recover_actual_config("./config/test.json"))
 
 arch_lists = {
-    1: ['ResNet_161', 'DenseNet_364', 'Inception3_284'],
+    1: ['ResNet_161_64', 'DenseNet_364', 'Inception3_284'],
     2: ['VGG_58', 'DenseNet_604', 'ResNet_161_128', 'GoogLeNet_173', 'VGG_70', 'ResNet_110_64', 'MobileNetV2_158', 'ResNet_161_64', 'DenseNet_364', 'VGG_38', 'SqueezeNet_52_96', 'ShuffleNetV2_170_122', 'DenseNet_484', 'Inception3_284', 'ResNet_62_64', 'ResNet_467_64', 'ShuffleNetV2_170_58', 'DenseNet_508', 'SqueezeNet_52_64', 'ResNet_314_64', 'ResNet_314_128', 'ShuffleNetV2_170_88', 'VGG_46'],
     3: ['VGG_58', 'DenseNet_604', 'ResNet_161_128', 'GoogLeNet_173', 'VGG_70', 'ResNet_110_64', 'MobileNetV2_158', 'ResNet_161_64', 'DenseNet_364', 'VGG_38', 'SqueezeNet_52_96', 'ShuffleNetV2_170_122', 'DenseNet_484', 'Inception3_284', 'ResNet_62_64', 'ResNet_467_64', 'ShuffleNetV2_170_58', 'DenseNet_508', 'SqueezeNet_52_64', 'ResNet_314_64', 'ResNet_314_128', 'ShuffleNetV2_170_88', 'VGG_46'],
     4: ['ResNet_161_64', 'DenseNet_364', 'GoogLeNet_173', 'ShuffleNetV2_170_88', 'Inception3_284', 'ResNet_62_64', 'ResNet_110_64', 'ShuffleNetV2_170_122', 'VGG_46', 'SqueezeNet_52_64', 'SqueezeNet_52_96', 'ResNet_314_64', 'MobileNetV2_158', 'ShuffleNetV2_170_58', 'VGG_38', 'ResNet_161_128'],

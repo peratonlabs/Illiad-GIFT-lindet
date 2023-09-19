@@ -480,3 +480,36 @@ def r3_load_ref_model(arch, model_dir):
         ref_model.cuda()
     return ref_model
 
+
+r1fnmap = {
+    "DenseNet_364": 'densenet121.pt',
+    "Inception3_284": 'inception_v3.pt',
+    "ResNet_161_64": 'resnet50.pt',
+}
+
+
+def r1_check_for_ref_models(model_dir):
+
+    r1clsmap = {
+        "DenseNet_364": torchvision.models.densenet121,
+        "Inception3_284": torchvision.models.inception_v3,
+        "ResNet_161_64": torchvision.models.resnet50,
+    }
+
+    for k, v in r1fnmap.items():
+        pth = os.path.join(model_dir, v)
+        if not os.path.exists(pth):
+            ref_model = r1clsmap[k](pretrained=True)
+            torch.save(ref_model, pth)
+
+
+def r1_load_ref_model(arch, model_dir):
+
+    if arch in r1fnmap:
+        ref_model = torch.load(os.path.join(model_dir, r3fnmap[arch]))
+    else:
+        print("Warning: missing reference model for", arch)
+        return None
+    if torch.cuda.is_available():
+        ref_model.cuda()
+    return ref_model
