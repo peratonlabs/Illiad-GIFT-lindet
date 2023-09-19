@@ -34,6 +34,25 @@ def get_arch(model_filepath):
         numparams = len(params)
         szparams = params[1].shape[0]
         cls = model.__class__.__name__ + '_' + str(numparams) + '_' + str(szparams)
+    
+    elif isinstance(model, torchvision.models.resnet.ResNet):
+        params = [p for p in model.parameters()]
+        numparams = len(params)
+        width = params[4].shape[0]
+        cls = model.__class__.__name__ + '_' + str(numparams) + '_' + str(width)
+
+    elif isinstance(model, torchvision.models.shufflenetv2.ShuffleNetV2):
+        params = [p for p in model.parameters()]
+        numparams = len(params)
+        width = params[7].shape[0]
+        cls = model.__class__.__name__ + '_' + str(numparams) + '_' + str(width)
+
+    elif isinstance(model, torchvision.models.squeezenet.SqueezeNet):
+        params = [p for p in model.parameters()]
+        numparams = len(params)
+        width = params[1].shape[0]
+        cls = model.__class__.__name__ + '_' + str(numparams) + '_' + str(width)
+    
     elif isinstance(model, torch.nn.Module):
         numparams = len([p for p in model.parameters()])
         cls = model.__class__.__name__ + '_' + str(numparams)

@@ -70,6 +70,12 @@ if __name__ == "__main__":
 
     if args.round == '-1':
         pass
+    elif args.round == '2' or args.round == '3':
+        ref_models.r3_check_for_ref_models(model_dir)
+        ref_model_function = lambda arch: ref_models.r3_load_ref_model(arch, model_dir)
+    elif args.round == '4':
+        ref_models.r4_check_for_ref_models(model_dir)
+        ref_model_function = lambda arch: ref_models.r4_load_ref_model(arch, model_dir)
     elif args.round == '7':
         ref_models.r7_check_for_ref_models(model_dir)
         ref_model_function = lambda arch: ref_models.r7_load_ref_model(arch, model_dir)

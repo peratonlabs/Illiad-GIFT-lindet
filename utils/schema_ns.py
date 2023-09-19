@@ -186,9 +186,9 @@ def validate(metaparameters_filepath, schema_filepath):
 
 arch_lists = {
     1: ['ResNet_161', 'DenseNet_364', 'Inception3_284'],
-    2: ['VGG_70', 'ResNet_161', 'Inception3_284', 'DenseNet_364', 'ResNet_110', 'VGG_58', 'ShuffleNetV2_170', 'ResNet_314', 'DenseNet_604', 'DenseNet_508', 'GoogLeNet_173', 'SqueezeNet_52', 'DenseNet_484', 'VGG_46', 'ResNet_62', 'ResNet_467', 'MobileNetV2_158', 'VGG_38'],
-    3: ['ResNet_110', 'VGG_70', 'GoogLeNet_173', 'ResNet_314', 'ResNet_161', 'VGG_58', 'DenseNet_604', 'DenseNet_484', 'ShuffleNetV2_170', 'VGG_38', 'ResNet_62', 'Inception3_284', 'DenseNet_508', 'ResNet_467', 'DenseNet_364', 'SqueezeNet_52', 'VGG_46', 'MobileNetV2_158'],
-    4: ['GoogLeNet_173', 'ResNet_161', 'ShuffleNetV2_170', 'ResNet_62', 'SqueezeNet_52', 'DenseNet_364', 'Inception3_284', 'VGG_38', 'ResNet_314', 'ResNet_110', 'VGG_46', 'MobileNetV2_158'],
+    2: ['VGG_58', 'DenseNet_604', 'ResNet_161_128', 'GoogLeNet_173', 'VGG_70', 'ResNet_110_64', 'MobileNetV2_158', 'ResNet_161_64', 'DenseNet_364', 'VGG_38', 'SqueezeNet_52_96', 'ShuffleNetV2_170_122', 'DenseNet_484', 'Inception3_284', 'ResNet_62_64', 'ResNet_467_64', 'ShuffleNetV2_170_58', 'DenseNet_508', 'SqueezeNet_52_64', 'ResNet_314_64', 'ResNet_314_128', 'ShuffleNetV2_170_88', 'VGG_46'],
+    3: ['VGG_58', 'DenseNet_604', 'ResNet_161_128', 'GoogLeNet_173', 'VGG_70', 'ResNet_110_64', 'MobileNetV2_158', 'ResNet_161_64', 'DenseNet_364', 'VGG_38', 'SqueezeNet_52_96', 'ShuffleNetV2_170_122', 'DenseNet_484', 'Inception3_284', 'ResNet_62_64', 'ResNet_467_64', 'ShuffleNetV2_170_58', 'DenseNet_508', 'SqueezeNet_52_64', 'ResNet_314_64', 'ResNet_314_128', 'ShuffleNetV2_170_88', 'VGG_46'],
+    4: ['ResNet_161_64', 'DenseNet_364', 'GoogLeNet_173', 'ShuffleNetV2_170_88', 'Inception3_284', 'ResNet_62_64', 'ResNet_110_64', 'ShuffleNetV2_170_122', 'VGG_46', 'SqueezeNet_52_64', 'SqueezeNet_52_96', 'ResNet_314_64', 'MobileNetV2_158', 'ShuffleNetV2_170_58', 'VGG_38', 'ResNet_161_128'],
     5: ['GruLinearModel_18_768', 'LstmLinearModel_18_1024', 'LinearModel_2'],
     6: ['FCLinearModel_6_256', 'LstmLinearModel_18_1024', 'GruLinearModel_10_768', 'LstmLinearModel_34_1024', 'GruLinearModel_34_1536', 'LstmLinearModel_18_2048', 'FCLinearModel_10_256', 'FCLinearModel_10_512', 'GruLinearModel_18_768', 'FCLinearModel_6_512', 'LstmLinearModel_34_2048', 'GruLinearModel_18_1536', 'GruLinearModel_10_1536', 'LstmLinearModel_10_1024', 'LstmLinearModel_10_2048', 'GruLinearModel_34_768'],
     7: ["MobileBertModel_1113","BertModel_199","RobertaModel_199","DistilBertModel_102"],
@@ -215,8 +215,8 @@ def gen_round_schema(round):
 
 
 def gen_exp_configs():
-    base_files = ["./config/base.json", "./config/baseA.json", "./config/baseB.json", "./config/baseC.json", "./config/baseD.json", "./config/baseE.json", "./config/baseF.json"]
-    names = ["", "A", "B", "C", "D", "E", "F"]
+    base_files = ["./config/base.json", "./config/baseA.json", "./config/baseB.json", "./config/baseC.json", "./config/baseD.json", "./config/baseE.json", "./config/baseF.json", "./config/baseG.json", "./config/baseH.json", "./config/baseI.json"]
+    names = ["", "A", "B", "C", "D", "E", "F","G","H","I"]
     rounds = [k for k in arch_lists.keys()]
 
     for round in rounds:

@@ -13,51 +13,6 @@
     "description": "TrojAI schema for the GIFT team, cos-lin method",
     "type": "object",
     "required": [
-        "train_$VGG_70$nfeats",
-        "train_$VGG_70$ntensors",
-        "train_$VGG_70$cls_type",
-        "train_$VGG_70$param_batch_sz",
-        "train_$VGG_70$C",
-        "train_$VGG_70$feature_selection_criterion",
-        "train_$VGG_70$features",
-        "train_$VGG_70$normalize_for_feature_selection",
-        "train_$VGG_70$sort_tensors",
-        "train_$ResNet_161$nfeats",
-        "train_$ResNet_161$ntensors",
-        "train_$ResNet_161$cls_type",
-        "train_$ResNet_161$param_batch_sz",
-        "train_$ResNet_161$C",
-        "train_$ResNet_161$feature_selection_criterion",
-        "train_$ResNet_161$features",
-        "train_$ResNet_161$normalize_for_feature_selection",
-        "train_$ResNet_161$sort_tensors",
-        "train_$Inception3_284$nfeats",
-        "train_$Inception3_284$ntensors",
-        "train_$Inception3_284$cls_type",
-        "train_$Inception3_284$param_batch_sz",
-        "train_$Inception3_284$C",
-        "train_$Inception3_284$feature_selection_criterion",
-        "train_$Inception3_284$features",
-        "train_$Inception3_284$normalize_for_feature_selection",
-        "train_$Inception3_284$sort_tensors",
-        "train_$DenseNet_364$nfeats",
-        "train_$DenseNet_364$ntensors",
-        "train_$DenseNet_364$cls_type",
-        "train_$DenseNet_364$param_batch_sz",
-        "train_$DenseNet_364$C",
-        "train_$DenseNet_364$feature_selection_criterion",
-        "train_$DenseNet_364$features",
-        "train_$DenseNet_364$normalize_for_feature_selection",
-        "train_$DenseNet_364$sort_tensors",
-        "train_$ResNet_110$nfeats",
-        "train_$ResNet_110$ntensors",
-        "train_$ResNet_110$cls_type",
-        "train_$ResNet_110$param_batch_sz",
-        "train_$ResNet_110$C",
-        "train_$ResNet_110$feature_selection_criterion",
-        "train_$ResNet_110$features",
-        "train_$ResNet_110$normalize_for_feature_selection",
-        "train_$ResNet_110$sort_tensors",
         "train_$VGG_58$nfeats",
         "train_$VGG_58$ntensors",
         "train_$VGG_58$cls_type",
@@ -67,24 +22,6 @@
         "train_$VGG_58$features",
         "train_$VGG_58$normalize_for_feature_selection",
         "train_$VGG_58$sort_tensors",
-        "train_$ShuffleNetV2_170$nfeats",
-        "train_$ShuffleNetV2_170$ntensors",
-        "train_$ShuffleNetV2_170$cls_type",
-        "train_$ShuffleNetV2_170$param_batch_sz",
-        "train_$ShuffleNetV2_170$C",
-        "train_$ShuffleNetV2_170$feature_selection_criterion",
-        "train_$ShuffleNetV2_170$features",
-        "train_$ShuffleNetV2_170$normalize_for_feature_selection",
-        "train_$ShuffleNetV2_170$sort_tensors",
-        "train_$ResNet_314$nfeats",
-        "train_$ResNet_314$ntensors",
-        "train_$ResNet_314$cls_type",
-        "train_$ResNet_314$param_batch_sz",
-        "train_$ResNet_314$C",
-        "train_$ResNet_314$feature_selection_criterion",
-        "train_$ResNet_314$features",
-        "train_$ResNet_314$normalize_for_feature_selection",
-        "train_$ResNet_314$sort_tensors",
         "train_$DenseNet_604$nfeats",
         "train_$DenseNet_604$ntensors",
         "train_$DenseNet_604$cls_type",
@@ -94,15 +31,15 @@
         "train_$DenseNet_604$features",
         "train_$DenseNet_604$normalize_for_feature_selection",
         "train_$DenseNet_604$sort_tensors",
-        "train_$DenseNet_508$nfeats",
-        "train_$DenseNet_508$ntensors",
-        "train_$DenseNet_508$cls_type",
-        "train_$DenseNet_508$param_batch_sz",
-        "train_$DenseNet_508$C",
-        "train_$DenseNet_508$feature_selection_criterion",
-        "train_$DenseNet_508$features",
-        "train_$DenseNet_508$normalize_for_feature_selection",
-        "train_$DenseNet_508$sort_tensors",
+        "train_$ResNet_161_128$nfeats",
+        "train_$ResNet_161_128$ntensors",
+        "train_$ResNet_161_128$cls_type",
+        "train_$ResNet_161_128$param_batch_sz",
+        "train_$ResNet_161_128$C",
+        "train_$ResNet_161_128$feature_selection_criterion",
+        "train_$ResNet_161_128$features",
+        "train_$ResNet_161_128$normalize_for_feature_selection",
+        "train_$ResNet_161_128$sort_tensors",
         "train_$GoogLeNet_173$nfeats",
         "train_$GoogLeNet_173$ntensors",
         "train_$GoogLeNet_173$cls_type",
@@ -112,51 +49,24 @@
         "train_$GoogLeNet_173$features",
         "train_$GoogLeNet_173$normalize_for_feature_selection",
         "train_$GoogLeNet_173$sort_tensors",
-        "train_$SqueezeNet_52$nfeats",
-        "train_$SqueezeNet_52$ntensors",
-        "train_$SqueezeNet_52$cls_type",
-        "train_$SqueezeNet_52$param_batch_sz",
-        "train_$SqueezeNet_52$C",
-        "train_$SqueezeNet_52$feature_selection_criterion",
-        "train_$SqueezeNet_52$features",
-        "train_$SqueezeNet_52$normalize_for_feature_selection",
-        "train_$SqueezeNet_52$sort_tensors",
-        "train_$DenseNet_484$nfeats",
-        "train_$DenseNet_484$ntensors",
-        "train_$DenseNet_484$cls_type",
-        "train_$DenseNet_484$param_batch_sz",
-        "train_$DenseNet_484$C",
-        "train_$DenseNet_484$feature_selection_criterion",
-        "train_$DenseNet_484$features",
-        "train_$DenseNet_484$normalize_for_feature_selection",
-        "train_$DenseNet_484$sort_tensors",
-        "train_$VGG_46$nfeats",
-        "train_$VGG_46$ntensors",
-        "train_$VGG_46$cls_type",
-        "train_$VGG_46$param_batch_sz",
-        "train_$VGG_46$C",
-        "train_$VGG_46$feature_selection_criterion",
-        "train_$VGG_46$features",
-        "train_$VGG_46$normalize_for_feature_selection",
-        "train_$VGG_46$sort_tensors",
-        "train_$ResNet_62$nfeats",
-        "train_$ResNet_62$ntensors",
-        "train_$ResNet_62$cls_type",
-        "train_$ResNet_62$param_batch_sz",
-        "train_$ResNet_62$C",
-        "train_$ResNet_62$feature_selection_criterion",
-        "train_$ResNet_62$features",
-        "train_$ResNet_62$normalize_for_feature_selection",
-        "train_$ResNet_62$sort_tensors",
-        "train_$ResNet_467$nfeats",
-        "train_$ResNet_467$ntensors",
-        "train_$ResNet_467$cls_type",
-        "train_$ResNet_467$param_batch_sz",
-        "train_$ResNet_467$C",
-        "train_$ResNet_467$feature_selection_criterion",
-        "train_$ResNet_467$features",
-        "train_$ResNet_467$normalize_for_feature_selection",
-        "train_$ResNet_467$sort_tensors",
+        "train_$VGG_70$nfeats",
+        "train_$VGG_70$ntensors",
+        "train_$VGG_70$cls_type",
+        "train_$VGG_70$param_batch_sz",
+        "train_$VGG_70$C",
+        "train_$VGG_70$feature_selection_criterion",
+        "train_$VGG_70$features",
+        "train_$VGG_70$normalize_for_feature_selection",
+        "train_$VGG_70$sort_tensors",
+        "train_$ResNet_110_64$nfeats",
+        "train_$ResNet_110_64$ntensors",
+        "train_$ResNet_110_64$cls_type",
+        "train_$ResNet_110_64$param_batch_sz",
+        "train_$ResNet_110_64$C",
+        "train_$ResNet_110_64$feature_selection_criterion",
+        "train_$ResNet_110_64$features",
+        "train_$ResNet_110_64$normalize_for_feature_selection",
+        "train_$ResNet_110_64$sort_tensors",
         "train_$MobileNetV2_158$nfeats",
         "train_$MobileNetV2_158$ntensors",
         "train_$MobileNetV2_158$cls_type",
@@ -166,6 +76,24 @@
         "train_$MobileNetV2_158$features",
         "train_$MobileNetV2_158$normalize_for_feature_selection",
         "train_$MobileNetV2_158$sort_tensors",
+        "train_$ResNet_161_64$nfeats",
+        "train_$ResNet_161_64$ntensors",
+        "train_$ResNet_161_64$cls_type",
+        "train_$ResNet_161_64$param_batch_sz",
+        "train_$ResNet_161_64$C",
+        "train_$ResNet_161_64$feature_selection_criterion",
+        "train_$ResNet_161_64$features",
+        "train_$ResNet_161_64$normalize_for_feature_selection",
+        "train_$ResNet_161_64$sort_tensors",
+        "train_$DenseNet_364$nfeats",
+        "train_$DenseNet_364$ntensors",
+        "train_$DenseNet_364$cls_type",
+        "train_$DenseNet_364$param_batch_sz",
+        "train_$DenseNet_364$C",
+        "train_$DenseNet_364$feature_selection_criterion",
+        "train_$DenseNet_364$features",
+        "train_$DenseNet_364$normalize_for_feature_selection",
+        "train_$DenseNet_364$sort_tensors",
         "train_$VGG_38$nfeats",
         "train_$VGG_38$ntensors",
         "train_$VGG_38$cls_type",
@@ -174,315 +102,127 @@
         "train_$VGG_38$feature_selection_criterion",
         "train_$VGG_38$features",
         "train_$VGG_38$normalize_for_feature_selection",
-        "train_$VGG_38$sort_tensors"
+        "train_$VGG_38$sort_tensors",
+        "train_$SqueezeNet_52_96$nfeats",
+        "train_$SqueezeNet_52_96$ntensors",
+        "train_$SqueezeNet_52_96$cls_type",
+        "train_$SqueezeNet_52_96$param_batch_sz",
+        "train_$SqueezeNet_52_96$C",
+        "train_$SqueezeNet_52_96$feature_selection_criterion",
+        "train_$SqueezeNet_52_96$features",
+        "train_$SqueezeNet_52_96$normalize_for_feature_selection",
+        "train_$SqueezeNet_52_96$sort_tensors",
+        "train_$ShuffleNetV2_170_122$nfeats",
+        "train_$ShuffleNetV2_170_122$ntensors",
+        "train_$ShuffleNetV2_170_122$cls_type",
+        "train_$ShuffleNetV2_170_122$param_batch_sz",
+        "train_$ShuffleNetV2_170_122$C",
+        "train_$ShuffleNetV2_170_122$feature_selection_criterion",
+        "train_$ShuffleNetV2_170_122$features",
+        "train_$ShuffleNetV2_170_122$normalize_for_feature_selection",
+        "train_$ShuffleNetV2_170_122$sort_tensors",
+        "train_$DenseNet_484$nfeats",
+        "train_$DenseNet_484$ntensors",
+        "train_$DenseNet_484$cls_type",
+        "train_$DenseNet_484$param_batch_sz",
+        "train_$DenseNet_484$C",
+        "train_$DenseNet_484$feature_selection_criterion",
+        "train_$DenseNet_484$features",
+        "train_$DenseNet_484$normalize_for_feature_selection",
+        "train_$DenseNet_484$sort_tensors",
+        "train_$Inception3_284$nfeats",
+        "train_$Inception3_284$ntensors",
+        "train_$Inception3_284$cls_type",
+        "train_$Inception3_284$param_batch_sz",
+        "train_$Inception3_284$C",
+        "train_$Inception3_284$feature_selection_criterion",
+        "train_$Inception3_284$features",
+        "train_$Inception3_284$normalize_for_feature_selection",
+        "train_$Inception3_284$sort_tensors",
+        "train_$ResNet_62_64$nfeats",
+        "train_$ResNet_62_64$ntensors",
+        "train_$ResNet_62_64$cls_type",
+        "train_$ResNet_62_64$param_batch_sz",
+        "train_$ResNet_62_64$C",
+        "train_$ResNet_62_64$feature_selection_criterion",
+        "train_$ResNet_62_64$features",
+        "train_$ResNet_62_64$normalize_for_feature_selection",
+        "train_$ResNet_62_64$sort_tensors",
+        "train_$ResNet_467_64$nfeats",
+        "train_$ResNet_467_64$ntensors",
+        "train_$ResNet_467_64$cls_type",
+        "train_$ResNet_467_64$param_batch_sz",
+        "train_$ResNet_467_64$C",
+        "train_$ResNet_467_64$feature_selection_criterion",
+        "train_$ResNet_467_64$features",
+        "train_$ResNet_467_64$normalize_for_feature_selection",
+        "train_$ResNet_467_64$sort_tensors",
+        "train_$ShuffleNetV2_170_58$nfeats",
+        "train_$ShuffleNetV2_170_58$ntensors",
+        "train_$ShuffleNetV2_170_58$cls_type",
+        "train_$ShuffleNetV2_170_58$param_batch_sz",
+        "train_$ShuffleNetV2_170_58$C",
+        "train_$ShuffleNetV2_170_58$feature_selection_criterion",
+        "train_$ShuffleNetV2_170_58$features",
+        "train_$ShuffleNetV2_170_58$normalize_for_feature_selection",
+        "train_$ShuffleNetV2_170_58$sort_tensors",
+        "train_$DenseNet_508$nfeats",
+        "train_$DenseNet_508$ntensors",
+        "train_$DenseNet_508$cls_type",
+        "train_$DenseNet_508$param_batch_sz",
+        "train_$DenseNet_508$C",
+        "train_$DenseNet_508$feature_selection_criterion",
+        "train_$DenseNet_508$features",
+        "train_$DenseNet_508$normalize_for_feature_selection",
+        "train_$DenseNet_508$sort_tensors",
+        "train_$SqueezeNet_52_64$nfeats",
+        "train_$SqueezeNet_52_64$ntensors",
+        "train_$SqueezeNet_52_64$cls_type",
+        "train_$SqueezeNet_52_64$param_batch_sz",
+        "train_$SqueezeNet_52_64$C",
+        "train_$SqueezeNet_52_64$feature_selection_criterion",
+        "train_$SqueezeNet_52_64$features",
+        "train_$SqueezeNet_52_64$normalize_for_feature_selection",
+        "train_$SqueezeNet_52_64$sort_tensors",
+        "train_$ResNet_314_64$nfeats",
+        "train_$ResNet_314_64$ntensors",
+        "train_$ResNet_314_64$cls_type",
+        "train_$ResNet_314_64$param_batch_sz",
+        "train_$ResNet_314_64$C",
+        "train_$ResNet_314_64$feature_selection_criterion",
+        "train_$ResNet_314_64$features",
+        "train_$ResNet_314_64$normalize_for_feature_selection",
+        "train_$ResNet_314_64$sort_tensors",
+        "train_$ResNet_314_128$nfeats",
+        "train_$ResNet_314_128$ntensors",
+        "train_$ResNet_314_128$cls_type",
+        "train_$ResNet_314_128$param_batch_sz",
+        "train_$ResNet_314_128$C",
+        "train_$ResNet_314_128$feature_selection_criterion",
+        "train_$ResNet_314_128$features",
+        "train_$ResNet_314_128$normalize_for_feature_selection",
+        "train_$ResNet_314_128$sort_tensors",
+        "train_$ShuffleNetV2_170_88$nfeats",
+        "train_$ShuffleNetV2_170_88$ntensors",
+        "train_$ShuffleNetV2_170_88$cls_type",
+        "train_$ShuffleNetV2_170_88$param_batch_sz",
+        "train_$ShuffleNetV2_170_88$C",
+        "train_$ShuffleNetV2_170_88$feature_selection_criterion",
+        "train_$ShuffleNetV2_170_88$features",
+        "train_$ShuffleNetV2_170_88$normalize_for_feature_selection",
+        "train_$ShuffleNetV2_170_88$sort_tensors",
+        "train_$VGG_46$nfeats",
+        "train_$VGG_46$ntensors",
+        "train_$VGG_46$cls_type",
+        "train_$VGG_46$param_batch_sz",
+        "train_$VGG_46$C",
+        "train_$VGG_46$feature_selection_criterion",
+        "train_$VGG_46$features",
+        "train_$VGG_46$normalize_for_feature_selection",
+        "train_$VGG_46$sort_tensors"
     ],
     "additionalProperties": false,
     "properties": {
-        "train_$VGG_70$nfeats": {
-            "type": "integer",
-            "minimum": 1,
-            "description": "how many features to select",
-            "suggested_minimum": 50,
-            "suggested_maximum": 5000
-        },
-        "train_$VGG_70$ntensors": {
-            "type": "integer",
-            "minimum": 1,
-            "description": "how many tensors select features from",
-            "suggested_minimum": 5,
-            "suggested_maximum": 100
-        },
-        "train_$VGG_70$cls_type": {
-            "enum": [
-                "LogisticRegression"
-            ],
-            "description": "name of classifier class (only LogisticRegression is currently supported)"
-        },
-        "train_$VGG_70$param_batch_sz": {
-            "type": "integer",
-            "minimum": 1,
-            "description": "how many torch 'parameters' to look at at a time (trade off memory and disk reading)",
-            "suggested_minimum": 80,
-            "suggested_maximum": 80
-        },
-        "train_$VGG_70$C": {
-            "type": "number",
-            "minimum": 1e-09,
-            "description": "sklearn-style regularization term.  Higher C -> less regularization. Must be positive",
-            "suggested_minimum": 0.01,
-            "suggested_maximum": 200.0
-        },
-        "train_$VGG_70$feature_selection_criterion": {
-            "enum": [
-                "corr",
-                "auc"
-            ],
-            "description": "criterion for greedy feature selection"
-        },
-        "train_$VGG_70$features": {
-            "enum": [
-                "raw",
-                "white_delta",
-                "cosine_delta",
-                "pnorm_delta",
-                "white",
-                "cosine",
-                "pnorm"
-            ],
-            "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
-        },
-        "train_$VGG_70$normalize_for_feature_selection": {
-            "type": "boolean",
-            "description": "whether or not to apply normalization before feature selection"
-        },
-        "train_$VGG_70$sort_tensors": {
-            "type": "boolean",
-            "description": "whether or not to sort tensors"
-        },
-        "train_$ResNet_161$nfeats": {
-            "type": "integer",
-            "minimum": 1,
-            "description": "how many features to select",
-            "suggested_minimum": 50,
-            "suggested_maximum": 5000
-        },
-        "train_$ResNet_161$ntensors": {
-            "type": "integer",
-            "minimum": 1,
-            "description": "how many tensors select features from",
-            "suggested_minimum": 5,
-            "suggested_maximum": 100
-        },
-        "train_$ResNet_161$cls_type": {
-            "enum": [
-                "LogisticRegression"
-            ],
-            "description": "name of classifier class (only LogisticRegression is currently supported)"
-        },
-        "train_$ResNet_161$param_batch_sz": {
-            "type": "integer",
-            "minimum": 1,
-            "description": "how many torch 'parameters' to look at at a time (trade off memory and disk reading)",
-            "suggested_minimum": 80,
-            "suggested_maximum": 80
-        },
-        "train_$ResNet_161$C": {
-            "type": "number",
-            "minimum": 1e-09,
-            "description": "sklearn-style regularization term.  Higher C -> less regularization. Must be positive",
-            "suggested_minimum": 0.01,
-            "suggested_maximum": 200.0
-        },
-        "train_$ResNet_161$feature_selection_criterion": {
-            "enum": [
-                "corr",
-                "auc"
-            ],
-            "description": "criterion for greedy feature selection"
-        },
-        "train_$ResNet_161$features": {
-            "enum": [
-                "raw",
-                "white_delta",
-                "cosine_delta",
-                "pnorm_delta",
-                "white",
-                "cosine",
-                "pnorm"
-            ],
-            "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
-        },
-        "train_$ResNet_161$normalize_for_feature_selection": {
-            "type": "boolean",
-            "description": "whether or not to apply normalization before feature selection"
-        },
-        "train_$ResNet_161$sort_tensors": {
-            "type": "boolean",
-            "description": "whether or not to sort tensors"
-        },
-        "train_$Inception3_284$nfeats": {
-            "type": "integer",
-            "minimum": 1,
-            "description": "how many features to select",
-            "suggested_minimum": 50,
-            "suggested_maximum": 5000
-        },
-        "train_$Inception3_284$ntensors": {
-            "type": "integer",
-            "minimum": 1,
-            "description": "how many tensors select features from",
-            "suggested_minimum": 5,
-            "suggested_maximum": 100
-        },
-        "train_$Inception3_284$cls_type": {
-            "enum": [
-                "LogisticRegression"
-            ],
-            "description": "name of classifier class (only LogisticRegression is currently supported)"
-        },
-        "train_$Inception3_284$param_batch_sz": {
-            "type": "integer",
-            "minimum": 1,
-            "description": "how many torch 'parameters' to look at at a time (trade off memory and disk reading)",
-            "suggested_minimum": 80,
-            "suggested_maximum": 80
-        },
-        "train_$Inception3_284$C": {
-            "type": "number",
-            "minimum": 1e-09,
-            "description": "sklearn-style regularization term.  Higher C -> less regularization. Must be positive",
-            "suggested_minimum": 0.01,
-            "suggested_maximum": 200.0
-        },
-        "train_$Inception3_284$feature_selection_criterion": {
-            "enum": [
-                "corr",
-                "auc"
-            ],
-            "description": "criterion for greedy feature selection"
-        },
-        "train_$Inception3_284$features": {
-            "enum": [
-                "raw",
-                "white_delta",
-                "cosine_delta",
-                "pnorm_delta",
-                "white",
-                "cosine",
-                "pnorm"
-            ],
-            "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
-        },
-        "train_$Inception3_284$normalize_for_feature_selection": {
-            "type": "boolean",
-            "description": "whether or not to apply normalization before feature selection"
-        },
-        "train_$Inception3_284$sort_tensors": {
-            "type": "boolean",
-            "description": "whether or not to sort tensors"
-        },
-        "train_$DenseNet_364$nfeats": {
-            "type": "integer",
-            "minimum": 1,
-            "description": "how many features to select",
-            "suggested_minimum": 50,
-            "suggested_maximum": 5000
-        },
-        "train_$DenseNet_364$ntensors": {
-            "type": "integer",
-            "minimum": 1,
-            "description": "how many tensors select features from",
-            "suggested_minimum": 5,
-            "suggested_maximum": 100
-        },
-        "train_$DenseNet_364$cls_type": {
-            "enum": [
-                "LogisticRegression"
-            ],
-            "description": "name of classifier class (only LogisticRegression is currently supported)"
-        },
-        "train_$DenseNet_364$param_batch_sz": {
-            "type": "integer",
-            "minimum": 1,
-            "description": "how many torch 'parameters' to look at at a time (trade off memory and disk reading)",
-            "suggested_minimum": 80,
-            "suggested_maximum": 80
-        },
-        "train_$DenseNet_364$C": {
-            "type": "number",
-            "minimum": 1e-09,
-            "description": "sklearn-style regularization term.  Higher C -> less regularization. Must be positive",
-            "suggested_minimum": 0.01,
-            "suggested_maximum": 200.0
-        },
-        "train_$DenseNet_364$feature_selection_criterion": {
-            "enum": [
-                "corr",
-                "auc"
-            ],
-            "description": "criterion for greedy feature selection"
-        },
-        "train_$DenseNet_364$features": {
-            "enum": [
-                "raw",
-                "white_delta",
-                "cosine_delta",
-                "pnorm_delta",
-                "white",
-                "cosine",
-                "pnorm"
-            ],
-            "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
-        },
-        "train_$DenseNet_364$normalize_for_feature_selection": {
-            "type": "boolean",
-            "description": "whether or not to apply normalization before feature selection"
-        },
-        "train_$DenseNet_364$sort_tensors": {
-            "type": "boolean",
-            "description": "whether or not to sort tensors"
-        },
-        "train_$ResNet_110$nfeats": {
-            "type": "integer",
-            "minimum": 1,
-            "description": "how many features to select",
-            "suggested_minimum": 50,
-            "suggested_maximum": 5000
-        },
-        "train_$ResNet_110$ntensors": {
-            "type": "integer",
-            "minimum": 1,
-            "description": "how many tensors select features from",
-            "suggested_minimum": 5,
-            "suggested_maximum": 100
-        },
-        "train_$ResNet_110$cls_type": {
-            "enum": [
-                "LogisticRegression"
-            ],
-            "description": "name of classifier class (only LogisticRegression is currently supported)"
-        },
-        "train_$ResNet_110$param_batch_sz": {
-            "type": "integer",
-            "minimum": 1,
-            "description": "how many torch 'parameters' to look at at a time (trade off memory and disk reading)",
-            "suggested_minimum": 80,
-            "suggested_maximum": 80
-        },
-        "train_$ResNet_110$C": {
-            "type": "number",
-            "minimum": 1e-09,
-            "description": "sklearn-style regularization term.  Higher C -> less regularization. Must be positive",
-            "suggested_minimum": 0.01,
-            "suggested_maximum": 200.0
-        },
-        "train_$ResNet_110$feature_selection_criterion": {
-            "enum": [
-                "corr",
-                "auc"
-            ],
-            "description": "criterion for greedy feature selection"
-        },
-        "train_$ResNet_110$features": {
-            "enum": [
-                "raw",
-                "white_delta",
-                "cosine_delta",
-                "pnorm_delta",
-                "white",
-                "cosine",
-                "pnorm"
-            ],
-            "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
-        },
-        "train_$ResNet_110$normalize_for_feature_selection": {
-            "type": "boolean",
-            "description": "whether or not to apply normalization before feature selection"
-        },
-        "train_$ResNet_110$sort_tensors": {
-            "type": "boolean",
-            "description": "whether or not to sort tensors"
-        },
         "train_$VGG_58$nfeats": {
             "type": "integer",
             "minimum": 1,
@@ -541,128 +281,6 @@
             "description": "whether or not to apply normalization before feature selection"
         },
         "train_$VGG_58$sort_tensors": {
-            "type": "boolean",
-            "description": "whether or not to sort tensors"
-        },
-        "train_$ShuffleNetV2_170$nfeats": {
-            "type": "integer",
-            "minimum": 1,
-            "description": "how many features to select",
-            "suggested_minimum": 50,
-            "suggested_maximum": 5000
-        },
-        "train_$ShuffleNetV2_170$ntensors": {
-            "type": "integer",
-            "minimum": 1,
-            "description": "how many tensors select features from",
-            "suggested_minimum": 5,
-            "suggested_maximum": 100
-        },
-        "train_$ShuffleNetV2_170$cls_type": {
-            "enum": [
-                "LogisticRegression"
-            ],
-            "description": "name of classifier class (only LogisticRegression is currently supported)"
-        },
-        "train_$ShuffleNetV2_170$param_batch_sz": {
-            "type": "integer",
-            "minimum": 1,
-            "description": "how many torch 'parameters' to look at at a time (trade off memory and disk reading)",
-            "suggested_minimum": 80,
-            "suggested_maximum": 80
-        },
-        "train_$ShuffleNetV2_170$C": {
-            "type": "number",
-            "minimum": 1e-09,
-            "description": "sklearn-style regularization term.  Higher C -> less regularization. Must be positive",
-            "suggested_minimum": 0.01,
-            "suggested_maximum": 200.0
-        },
-        "train_$ShuffleNetV2_170$feature_selection_criterion": {
-            "enum": [
-                "corr",
-                "auc"
-            ],
-            "description": "criterion for greedy feature selection"
-        },
-        "train_$ShuffleNetV2_170$features": {
-            "enum": [
-                "raw",
-                "white_delta",
-                "cosine_delta",
-                "pnorm_delta",
-                "white",
-                "cosine",
-                "pnorm"
-            ],
-            "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
-        },
-        "train_$ShuffleNetV2_170$normalize_for_feature_selection": {
-            "type": "boolean",
-            "description": "whether or not to apply normalization before feature selection"
-        },
-        "train_$ShuffleNetV2_170$sort_tensors": {
-            "type": "boolean",
-            "description": "whether or not to sort tensors"
-        },
-        "train_$ResNet_314$nfeats": {
-            "type": "integer",
-            "minimum": 1,
-            "description": "how many features to select",
-            "suggested_minimum": 50,
-            "suggested_maximum": 5000
-        },
-        "train_$ResNet_314$ntensors": {
-            "type": "integer",
-            "minimum": 1,
-            "description": "how many tensors select features from",
-            "suggested_minimum": 5,
-            "suggested_maximum": 100
-        },
-        "train_$ResNet_314$cls_type": {
-            "enum": [
-                "LogisticRegression"
-            ],
-            "description": "name of classifier class (only LogisticRegression is currently supported)"
-        },
-        "train_$ResNet_314$param_batch_sz": {
-            "type": "integer",
-            "minimum": 1,
-            "description": "how many torch 'parameters' to look at at a time (trade off memory and disk reading)",
-            "suggested_minimum": 80,
-            "suggested_maximum": 80
-        },
-        "train_$ResNet_314$C": {
-            "type": "number",
-            "minimum": 1e-09,
-            "description": "sklearn-style regularization term.  Higher C -> less regularization. Must be positive",
-            "suggested_minimum": 0.01,
-            "suggested_maximum": 200.0
-        },
-        "train_$ResNet_314$feature_selection_criterion": {
-            "enum": [
-                "corr",
-                "auc"
-            ],
-            "description": "criterion for greedy feature selection"
-        },
-        "train_$ResNet_314$features": {
-            "enum": [
-                "raw",
-                "white_delta",
-                "cosine_delta",
-                "pnorm_delta",
-                "white",
-                "cosine",
-                "pnorm"
-            ],
-            "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
-        },
-        "train_$ResNet_314$normalize_for_feature_selection": {
-            "type": "boolean",
-            "description": "whether or not to apply normalization before feature selection"
-        },
-        "train_$ResNet_314$sort_tensors": {
             "type": "boolean",
             "description": "whether or not to sort tensors"
         },
@@ -727,48 +345,48 @@
             "type": "boolean",
             "description": "whether or not to sort tensors"
         },
-        "train_$DenseNet_508$nfeats": {
+        "train_$ResNet_161_128$nfeats": {
             "type": "integer",
             "minimum": 1,
             "description": "how many features to select",
             "suggested_minimum": 50,
             "suggested_maximum": 5000
         },
-        "train_$DenseNet_508$ntensors": {
+        "train_$ResNet_161_128$ntensors": {
             "type": "integer",
             "minimum": 1,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
         },
-        "train_$DenseNet_508$cls_type": {
+        "train_$ResNet_161_128$cls_type": {
             "enum": [
                 "LogisticRegression"
             ],
             "description": "name of classifier class (only LogisticRegression is currently supported)"
         },
-        "train_$DenseNet_508$param_batch_sz": {
+        "train_$ResNet_161_128$param_batch_sz": {
             "type": "integer",
             "minimum": 1,
             "description": "how many torch 'parameters' to look at at a time (trade off memory and disk reading)",
             "suggested_minimum": 80,
             "suggested_maximum": 80
         },
-        "train_$DenseNet_508$C": {
+        "train_$ResNet_161_128$C": {
             "type": "number",
             "minimum": 1e-09,
             "description": "sklearn-style regularization term.  Higher C -> less regularization. Must be positive",
             "suggested_minimum": 0.01,
             "suggested_maximum": 200.0
         },
-        "train_$DenseNet_508$feature_selection_criterion": {
+        "train_$ResNet_161_128$feature_selection_criterion": {
             "enum": [
                 "corr",
                 "auc"
             ],
             "description": "criterion for greedy feature selection"
         },
-        "train_$DenseNet_508$features": {
+        "train_$ResNet_161_128$features": {
             "enum": [
                 "raw",
                 "white_delta",
@@ -780,11 +398,11 @@
             ],
             "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
         },
-        "train_$DenseNet_508$normalize_for_feature_selection": {
+        "train_$ResNet_161_128$normalize_for_feature_selection": {
             "type": "boolean",
             "description": "whether or not to apply normalization before feature selection"
         },
-        "train_$DenseNet_508$sort_tensors": {
+        "train_$ResNet_161_128$sort_tensors": {
             "type": "boolean",
             "description": "whether or not to sort tensors"
         },
@@ -849,48 +467,48 @@
             "type": "boolean",
             "description": "whether or not to sort tensors"
         },
-        "train_$SqueezeNet_52$nfeats": {
+        "train_$VGG_70$nfeats": {
             "type": "integer",
             "minimum": 1,
             "description": "how many features to select",
             "suggested_minimum": 50,
             "suggested_maximum": 5000
         },
-        "train_$SqueezeNet_52$ntensors": {
+        "train_$VGG_70$ntensors": {
             "type": "integer",
             "minimum": 1,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
         },
-        "train_$SqueezeNet_52$cls_type": {
+        "train_$VGG_70$cls_type": {
             "enum": [
                 "LogisticRegression"
             ],
             "description": "name of classifier class (only LogisticRegression is currently supported)"
         },
-        "train_$SqueezeNet_52$param_batch_sz": {
+        "train_$VGG_70$param_batch_sz": {
             "type": "integer",
             "minimum": 1,
             "description": "how many torch 'parameters' to look at at a time (trade off memory and disk reading)",
             "suggested_minimum": 80,
             "suggested_maximum": 80
         },
-        "train_$SqueezeNet_52$C": {
+        "train_$VGG_70$C": {
             "type": "number",
             "minimum": 1e-09,
             "description": "sklearn-style regularization term.  Higher C -> less regularization. Must be positive",
             "suggested_minimum": 0.01,
             "suggested_maximum": 200.0
         },
-        "train_$SqueezeNet_52$feature_selection_criterion": {
+        "train_$VGG_70$feature_selection_criterion": {
             "enum": [
                 "corr",
                 "auc"
             ],
             "description": "criterion for greedy feature selection"
         },
-        "train_$SqueezeNet_52$features": {
+        "train_$VGG_70$features": {
             "enum": [
                 "raw",
                 "white_delta",
@@ -902,56 +520,56 @@
             ],
             "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
         },
-        "train_$SqueezeNet_52$normalize_for_feature_selection": {
+        "train_$VGG_70$normalize_for_feature_selection": {
             "type": "boolean",
             "description": "whether or not to apply normalization before feature selection"
         },
-        "train_$SqueezeNet_52$sort_tensors": {
+        "train_$VGG_70$sort_tensors": {
             "type": "boolean",
             "description": "whether or not to sort tensors"
         },
-        "train_$DenseNet_484$nfeats": {
+        "train_$ResNet_110_64$nfeats": {
             "type": "integer",
             "minimum": 1,
             "description": "how many features to select",
             "suggested_minimum": 50,
             "suggested_maximum": 5000
         },
-        "train_$DenseNet_484$ntensors": {
+        "train_$ResNet_110_64$ntensors": {
             "type": "integer",
             "minimum": 1,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
         },
-        "train_$DenseNet_484$cls_type": {
+        "train_$ResNet_110_64$cls_type": {
             "enum": [
                 "LogisticRegression"
             ],
             "description": "name of classifier class (only LogisticRegression is currently supported)"
         },
-        "train_$DenseNet_484$param_batch_sz": {
+        "train_$ResNet_110_64$param_batch_sz": {
             "type": "integer",
             "minimum": 1,
             "description": "how many torch 'parameters' to look at at a time (trade off memory and disk reading)",
             "suggested_minimum": 80,
             "suggested_maximum": 80
         },
-        "train_$DenseNet_484$C": {
+        "train_$ResNet_110_64$C": {
             "type": "number",
             "minimum": 1e-09,
             "description": "sklearn-style regularization term.  Higher C -> less regularization. Must be positive",
             "suggested_minimum": 0.01,
             "suggested_maximum": 200.0
         },
-        "train_$DenseNet_484$feature_selection_criterion": {
+        "train_$ResNet_110_64$feature_selection_criterion": {
             "enum": [
                 "corr",
                 "auc"
             ],
             "description": "criterion for greedy feature selection"
         },
-        "train_$DenseNet_484$features": {
+        "train_$ResNet_110_64$features": {
             "enum": [
                 "raw",
                 "white_delta",
@@ -963,194 +581,11 @@
             ],
             "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
         },
-        "train_$DenseNet_484$normalize_for_feature_selection": {
+        "train_$ResNet_110_64$normalize_for_feature_selection": {
             "type": "boolean",
             "description": "whether or not to apply normalization before feature selection"
         },
-        "train_$DenseNet_484$sort_tensors": {
-            "type": "boolean",
-            "description": "whether or not to sort tensors"
-        },
-        "train_$VGG_46$nfeats": {
-            "type": "integer",
-            "minimum": 1,
-            "description": "how many features to select",
-            "suggested_minimum": 50,
-            "suggested_maximum": 5000
-        },
-        "train_$VGG_46$ntensors": {
-            "type": "integer",
-            "minimum": 1,
-            "description": "how many tensors select features from",
-            "suggested_minimum": 5,
-            "suggested_maximum": 100
-        },
-        "train_$VGG_46$cls_type": {
-            "enum": [
-                "LogisticRegression"
-            ],
-            "description": "name of classifier class (only LogisticRegression is currently supported)"
-        },
-        "train_$VGG_46$param_batch_sz": {
-            "type": "integer",
-            "minimum": 1,
-            "description": "how many torch 'parameters' to look at at a time (trade off memory and disk reading)",
-            "suggested_minimum": 80,
-            "suggested_maximum": 80
-        },
-        "train_$VGG_46$C": {
-            "type": "number",
-            "minimum": 1e-09,
-            "description": "sklearn-style regularization term.  Higher C -> less regularization. Must be positive",
-            "suggested_minimum": 0.01,
-            "suggested_maximum": 200.0
-        },
-        "train_$VGG_46$feature_selection_criterion": {
-            "enum": [
-                "corr",
-                "auc"
-            ],
-            "description": "criterion for greedy feature selection"
-        },
-        "train_$VGG_46$features": {
-            "enum": [
-                "raw",
-                "white_delta",
-                "cosine_delta",
-                "pnorm_delta",
-                "white",
-                "cosine",
-                "pnorm"
-            ],
-            "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
-        },
-        "train_$VGG_46$normalize_for_feature_selection": {
-            "type": "boolean",
-            "description": "whether or not to apply normalization before feature selection"
-        },
-        "train_$VGG_46$sort_tensors": {
-            "type": "boolean",
-            "description": "whether or not to sort tensors"
-        },
-        "train_$ResNet_62$nfeats": {
-            "type": "integer",
-            "minimum": 1,
-            "description": "how many features to select",
-            "suggested_minimum": 50,
-            "suggested_maximum": 5000
-        },
-        "train_$ResNet_62$ntensors": {
-            "type": "integer",
-            "minimum": 1,
-            "description": "how many tensors select features from",
-            "suggested_minimum": 5,
-            "suggested_maximum": 100
-        },
-        "train_$ResNet_62$cls_type": {
-            "enum": [
-                "LogisticRegression"
-            ],
-            "description": "name of classifier class (only LogisticRegression is currently supported)"
-        },
-        "train_$ResNet_62$param_batch_sz": {
-            "type": "integer",
-            "minimum": 1,
-            "description": "how many torch 'parameters' to look at at a time (trade off memory and disk reading)",
-            "suggested_minimum": 80,
-            "suggested_maximum": 80
-        },
-        "train_$ResNet_62$C": {
-            "type": "number",
-            "minimum": 1e-09,
-            "description": "sklearn-style regularization term.  Higher C -> less regularization. Must be positive",
-            "suggested_minimum": 0.01,
-            "suggested_maximum": 200.0
-        },
-        "train_$ResNet_62$feature_selection_criterion": {
-            "enum": [
-                "corr",
-                "auc"
-            ],
-            "description": "criterion for greedy feature selection"
-        },
-        "train_$ResNet_62$features": {
-            "enum": [
-                "raw",
-                "white_delta",
-                "cosine_delta",
-                "pnorm_delta",
-                "white",
-                "cosine",
-                "pnorm"
-            ],
-            "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
-        },
-        "train_$ResNet_62$normalize_for_feature_selection": {
-            "type": "boolean",
-            "description": "whether or not to apply normalization before feature selection"
-        },
-        "train_$ResNet_62$sort_tensors": {
-            "type": "boolean",
-            "description": "whether or not to sort tensors"
-        },
-        "train_$ResNet_467$nfeats": {
-            "type": "integer",
-            "minimum": 1,
-            "description": "how many features to select",
-            "suggested_minimum": 50,
-            "suggested_maximum": 5000
-        },
-        "train_$ResNet_467$ntensors": {
-            "type": "integer",
-            "minimum": 1,
-            "description": "how many tensors select features from",
-            "suggested_minimum": 5,
-            "suggested_maximum": 100
-        },
-        "train_$ResNet_467$cls_type": {
-            "enum": [
-                "LogisticRegression"
-            ],
-            "description": "name of classifier class (only LogisticRegression is currently supported)"
-        },
-        "train_$ResNet_467$param_batch_sz": {
-            "type": "integer",
-            "minimum": 1,
-            "description": "how many torch 'parameters' to look at at a time (trade off memory and disk reading)",
-            "suggested_minimum": 80,
-            "suggested_maximum": 80
-        },
-        "train_$ResNet_467$C": {
-            "type": "number",
-            "minimum": 1e-09,
-            "description": "sklearn-style regularization term.  Higher C -> less regularization. Must be positive",
-            "suggested_minimum": 0.01,
-            "suggested_maximum": 200.0
-        },
-        "train_$ResNet_467$feature_selection_criterion": {
-            "enum": [
-                "corr",
-                "auc"
-            ],
-            "description": "criterion for greedy feature selection"
-        },
-        "train_$ResNet_467$features": {
-            "enum": [
-                "raw",
-                "white_delta",
-                "cosine_delta",
-                "pnorm_delta",
-                "white",
-                "cosine",
-                "pnorm"
-            ],
-            "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
-        },
-        "train_$ResNet_467$normalize_for_feature_selection": {
-            "type": "boolean",
-            "description": "whether or not to apply normalization before feature selection"
-        },
-        "train_$ResNet_467$sort_tensors": {
+        "train_$ResNet_110_64$sort_tensors": {
             "type": "boolean",
             "description": "whether or not to sort tensors"
         },
@@ -1215,6 +650,128 @@
             "type": "boolean",
             "description": "whether or not to sort tensors"
         },
+        "train_$ResNet_161_64$nfeats": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many features to select",
+            "suggested_minimum": 50,
+            "suggested_maximum": 5000
+        },
+        "train_$ResNet_161_64$ntensors": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many tensors select features from",
+            "suggested_minimum": 5,
+            "suggested_maximum": 100
+        },
+        "train_$ResNet_161_64$cls_type": {
+            "enum": [
+                "LogisticRegression"
+            ],
+            "description": "name of classifier class (only LogisticRegression is currently supported)"
+        },
+        "train_$ResNet_161_64$param_batch_sz": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many torch 'parameters' to look at at a time (trade off memory and disk reading)",
+            "suggested_minimum": 80,
+            "suggested_maximum": 80
+        },
+        "train_$ResNet_161_64$C": {
+            "type": "number",
+            "minimum": 1e-09,
+            "description": "sklearn-style regularization term.  Higher C -> less regularization. Must be positive",
+            "suggested_minimum": 0.01,
+            "suggested_maximum": 200.0
+        },
+        "train_$ResNet_161_64$feature_selection_criterion": {
+            "enum": [
+                "corr",
+                "auc"
+            ],
+            "description": "criterion for greedy feature selection"
+        },
+        "train_$ResNet_161_64$features": {
+            "enum": [
+                "raw",
+                "white_delta",
+                "cosine_delta",
+                "pnorm_delta",
+                "white",
+                "cosine",
+                "pnorm"
+            ],
+            "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
+        },
+        "train_$ResNet_161_64$normalize_for_feature_selection": {
+            "type": "boolean",
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$ResNet_161_64$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
+        },
+        "train_$DenseNet_364$nfeats": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many features to select",
+            "suggested_minimum": 50,
+            "suggested_maximum": 5000
+        },
+        "train_$DenseNet_364$ntensors": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many tensors select features from",
+            "suggested_minimum": 5,
+            "suggested_maximum": 100
+        },
+        "train_$DenseNet_364$cls_type": {
+            "enum": [
+                "LogisticRegression"
+            ],
+            "description": "name of classifier class (only LogisticRegression is currently supported)"
+        },
+        "train_$DenseNet_364$param_batch_sz": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many torch 'parameters' to look at at a time (trade off memory and disk reading)",
+            "suggested_minimum": 80,
+            "suggested_maximum": 80
+        },
+        "train_$DenseNet_364$C": {
+            "type": "number",
+            "minimum": 1e-09,
+            "description": "sklearn-style regularization term.  Higher C -> less regularization. Must be positive",
+            "suggested_minimum": 0.01,
+            "suggested_maximum": 200.0
+        },
+        "train_$DenseNet_364$feature_selection_criterion": {
+            "enum": [
+                "corr",
+                "auc"
+            ],
+            "description": "criterion for greedy feature selection"
+        },
+        "train_$DenseNet_364$features": {
+            "enum": [
+                "raw",
+                "white_delta",
+                "cosine_delta",
+                "pnorm_delta",
+                "white",
+                "cosine",
+                "pnorm"
+            ],
+            "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
+        },
+        "train_$DenseNet_364$normalize_for_feature_selection": {
+            "type": "boolean",
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$DenseNet_364$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
+        },
         "train_$VGG_38$nfeats": {
             "type": "integer",
             "minimum": 1,
@@ -1273,6 +830,799 @@
             "description": "whether or not to apply normalization before feature selection"
         },
         "train_$VGG_38$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
+        },
+        "train_$SqueezeNet_52_96$nfeats": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many features to select",
+            "suggested_minimum": 50,
+            "suggested_maximum": 5000
+        },
+        "train_$SqueezeNet_52_96$ntensors": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many tensors select features from",
+            "suggested_minimum": 5,
+            "suggested_maximum": 100
+        },
+        "train_$SqueezeNet_52_96$cls_type": {
+            "enum": [
+                "LogisticRegression"
+            ],
+            "description": "name of classifier class (only LogisticRegression is currently supported)"
+        },
+        "train_$SqueezeNet_52_96$param_batch_sz": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many torch 'parameters' to look at at a time (trade off memory and disk reading)",
+            "suggested_minimum": 80,
+            "suggested_maximum": 80
+        },
+        "train_$SqueezeNet_52_96$C": {
+            "type": "number",
+            "minimum": 1e-09,
+            "description": "sklearn-style regularization term.  Higher C -> less regularization. Must be positive",
+            "suggested_minimum": 0.01,
+            "suggested_maximum": 200.0
+        },
+        "train_$SqueezeNet_52_96$feature_selection_criterion": {
+            "enum": [
+                "corr",
+                "auc"
+            ],
+            "description": "criterion for greedy feature selection"
+        },
+        "train_$SqueezeNet_52_96$features": {
+            "enum": [
+                "raw",
+                "white_delta",
+                "cosine_delta",
+                "pnorm_delta",
+                "white",
+                "cosine",
+                "pnorm"
+            ],
+            "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
+        },
+        "train_$SqueezeNet_52_96$normalize_for_feature_selection": {
+            "type": "boolean",
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$SqueezeNet_52_96$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
+        },
+        "train_$ShuffleNetV2_170_122$nfeats": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many features to select",
+            "suggested_minimum": 50,
+            "suggested_maximum": 5000
+        },
+        "train_$ShuffleNetV2_170_122$ntensors": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many tensors select features from",
+            "suggested_minimum": 5,
+            "suggested_maximum": 100
+        },
+        "train_$ShuffleNetV2_170_122$cls_type": {
+            "enum": [
+                "LogisticRegression"
+            ],
+            "description": "name of classifier class (only LogisticRegression is currently supported)"
+        },
+        "train_$ShuffleNetV2_170_122$param_batch_sz": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many torch 'parameters' to look at at a time (trade off memory and disk reading)",
+            "suggested_minimum": 80,
+            "suggested_maximum": 80
+        },
+        "train_$ShuffleNetV2_170_122$C": {
+            "type": "number",
+            "minimum": 1e-09,
+            "description": "sklearn-style regularization term.  Higher C -> less regularization. Must be positive",
+            "suggested_minimum": 0.01,
+            "suggested_maximum": 200.0
+        },
+        "train_$ShuffleNetV2_170_122$feature_selection_criterion": {
+            "enum": [
+                "corr",
+                "auc"
+            ],
+            "description": "criterion for greedy feature selection"
+        },
+        "train_$ShuffleNetV2_170_122$features": {
+            "enum": [
+                "raw",
+                "white_delta",
+                "cosine_delta",
+                "pnorm_delta",
+                "white",
+                "cosine",
+                "pnorm"
+            ],
+            "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
+        },
+        "train_$ShuffleNetV2_170_122$normalize_for_feature_selection": {
+            "type": "boolean",
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$ShuffleNetV2_170_122$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
+        },
+        "train_$DenseNet_484$nfeats": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many features to select",
+            "suggested_minimum": 50,
+            "suggested_maximum": 5000
+        },
+        "train_$DenseNet_484$ntensors": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many tensors select features from",
+            "suggested_minimum": 5,
+            "suggested_maximum": 100
+        },
+        "train_$DenseNet_484$cls_type": {
+            "enum": [
+                "LogisticRegression"
+            ],
+            "description": "name of classifier class (only LogisticRegression is currently supported)"
+        },
+        "train_$DenseNet_484$param_batch_sz": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many torch 'parameters' to look at at a time (trade off memory and disk reading)",
+            "suggested_minimum": 80,
+            "suggested_maximum": 80
+        },
+        "train_$DenseNet_484$C": {
+            "type": "number",
+            "minimum": 1e-09,
+            "description": "sklearn-style regularization term.  Higher C -> less regularization. Must be positive",
+            "suggested_minimum": 0.01,
+            "suggested_maximum": 200.0
+        },
+        "train_$DenseNet_484$feature_selection_criterion": {
+            "enum": [
+                "corr",
+                "auc"
+            ],
+            "description": "criterion for greedy feature selection"
+        },
+        "train_$DenseNet_484$features": {
+            "enum": [
+                "raw",
+                "white_delta",
+                "cosine_delta",
+                "pnorm_delta",
+                "white",
+                "cosine",
+                "pnorm"
+            ],
+            "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
+        },
+        "train_$DenseNet_484$normalize_for_feature_selection": {
+            "type": "boolean",
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$DenseNet_484$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
+        },
+        "train_$Inception3_284$nfeats": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many features to select",
+            "suggested_minimum": 50,
+            "suggested_maximum": 5000
+        },
+        "train_$Inception3_284$ntensors": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many tensors select features from",
+            "suggested_minimum": 5,
+            "suggested_maximum": 100
+        },
+        "train_$Inception3_284$cls_type": {
+            "enum": [
+                "LogisticRegression"
+            ],
+            "description": "name of classifier class (only LogisticRegression is currently supported)"
+        },
+        "train_$Inception3_284$param_batch_sz": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many torch 'parameters' to look at at a time (trade off memory and disk reading)",
+            "suggested_minimum": 80,
+            "suggested_maximum": 80
+        },
+        "train_$Inception3_284$C": {
+            "type": "number",
+            "minimum": 1e-09,
+            "description": "sklearn-style regularization term.  Higher C -> less regularization. Must be positive",
+            "suggested_minimum": 0.01,
+            "suggested_maximum": 200.0
+        },
+        "train_$Inception3_284$feature_selection_criterion": {
+            "enum": [
+                "corr",
+                "auc"
+            ],
+            "description": "criterion for greedy feature selection"
+        },
+        "train_$Inception3_284$features": {
+            "enum": [
+                "raw",
+                "white_delta",
+                "cosine_delta",
+                "pnorm_delta",
+                "white",
+                "cosine",
+                "pnorm"
+            ],
+            "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
+        },
+        "train_$Inception3_284$normalize_for_feature_selection": {
+            "type": "boolean",
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$Inception3_284$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
+        },
+        "train_$ResNet_62_64$nfeats": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many features to select",
+            "suggested_minimum": 50,
+            "suggested_maximum": 5000
+        },
+        "train_$ResNet_62_64$ntensors": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many tensors select features from",
+            "suggested_minimum": 5,
+            "suggested_maximum": 100
+        },
+        "train_$ResNet_62_64$cls_type": {
+            "enum": [
+                "LogisticRegression"
+            ],
+            "description": "name of classifier class (only LogisticRegression is currently supported)"
+        },
+        "train_$ResNet_62_64$param_batch_sz": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many torch 'parameters' to look at at a time (trade off memory and disk reading)",
+            "suggested_minimum": 80,
+            "suggested_maximum": 80
+        },
+        "train_$ResNet_62_64$C": {
+            "type": "number",
+            "minimum": 1e-09,
+            "description": "sklearn-style regularization term.  Higher C -> less regularization. Must be positive",
+            "suggested_minimum": 0.01,
+            "suggested_maximum": 200.0
+        },
+        "train_$ResNet_62_64$feature_selection_criterion": {
+            "enum": [
+                "corr",
+                "auc"
+            ],
+            "description": "criterion for greedy feature selection"
+        },
+        "train_$ResNet_62_64$features": {
+            "enum": [
+                "raw",
+                "white_delta",
+                "cosine_delta",
+                "pnorm_delta",
+                "white",
+                "cosine",
+                "pnorm"
+            ],
+            "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
+        },
+        "train_$ResNet_62_64$normalize_for_feature_selection": {
+            "type": "boolean",
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$ResNet_62_64$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
+        },
+        "train_$ResNet_467_64$nfeats": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many features to select",
+            "suggested_minimum": 50,
+            "suggested_maximum": 5000
+        },
+        "train_$ResNet_467_64$ntensors": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many tensors select features from",
+            "suggested_minimum": 5,
+            "suggested_maximum": 100
+        },
+        "train_$ResNet_467_64$cls_type": {
+            "enum": [
+                "LogisticRegression"
+            ],
+            "description": "name of classifier class (only LogisticRegression is currently supported)"
+        },
+        "train_$ResNet_467_64$param_batch_sz": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many torch 'parameters' to look at at a time (trade off memory and disk reading)",
+            "suggested_minimum": 80,
+            "suggested_maximum": 80
+        },
+        "train_$ResNet_467_64$C": {
+            "type": "number",
+            "minimum": 1e-09,
+            "description": "sklearn-style regularization term.  Higher C -> less regularization. Must be positive",
+            "suggested_minimum": 0.01,
+            "suggested_maximum": 200.0
+        },
+        "train_$ResNet_467_64$feature_selection_criterion": {
+            "enum": [
+                "corr",
+                "auc"
+            ],
+            "description": "criterion for greedy feature selection"
+        },
+        "train_$ResNet_467_64$features": {
+            "enum": [
+                "raw",
+                "white_delta",
+                "cosine_delta",
+                "pnorm_delta",
+                "white",
+                "cosine",
+                "pnorm"
+            ],
+            "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
+        },
+        "train_$ResNet_467_64$normalize_for_feature_selection": {
+            "type": "boolean",
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$ResNet_467_64$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
+        },
+        "train_$ShuffleNetV2_170_58$nfeats": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many features to select",
+            "suggested_minimum": 50,
+            "suggested_maximum": 5000
+        },
+        "train_$ShuffleNetV2_170_58$ntensors": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many tensors select features from",
+            "suggested_minimum": 5,
+            "suggested_maximum": 100
+        },
+        "train_$ShuffleNetV2_170_58$cls_type": {
+            "enum": [
+                "LogisticRegression"
+            ],
+            "description": "name of classifier class (only LogisticRegression is currently supported)"
+        },
+        "train_$ShuffleNetV2_170_58$param_batch_sz": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many torch 'parameters' to look at at a time (trade off memory and disk reading)",
+            "suggested_minimum": 80,
+            "suggested_maximum": 80
+        },
+        "train_$ShuffleNetV2_170_58$C": {
+            "type": "number",
+            "minimum": 1e-09,
+            "description": "sklearn-style regularization term.  Higher C -> less regularization. Must be positive",
+            "suggested_minimum": 0.01,
+            "suggested_maximum": 200.0
+        },
+        "train_$ShuffleNetV2_170_58$feature_selection_criterion": {
+            "enum": [
+                "corr",
+                "auc"
+            ],
+            "description": "criterion for greedy feature selection"
+        },
+        "train_$ShuffleNetV2_170_58$features": {
+            "enum": [
+                "raw",
+                "white_delta",
+                "cosine_delta",
+                "pnorm_delta",
+                "white",
+                "cosine",
+                "pnorm"
+            ],
+            "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
+        },
+        "train_$ShuffleNetV2_170_58$normalize_for_feature_selection": {
+            "type": "boolean",
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$ShuffleNetV2_170_58$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
+        },
+        "train_$DenseNet_508$nfeats": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many features to select",
+            "suggested_minimum": 50,
+            "suggested_maximum": 5000
+        },
+        "train_$DenseNet_508$ntensors": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many tensors select features from",
+            "suggested_minimum": 5,
+            "suggested_maximum": 100
+        },
+        "train_$DenseNet_508$cls_type": {
+            "enum": [
+                "LogisticRegression"
+            ],
+            "description": "name of classifier class (only LogisticRegression is currently supported)"
+        },
+        "train_$DenseNet_508$param_batch_sz": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many torch 'parameters' to look at at a time (trade off memory and disk reading)",
+            "suggested_minimum": 80,
+            "suggested_maximum": 80
+        },
+        "train_$DenseNet_508$C": {
+            "type": "number",
+            "minimum": 1e-09,
+            "description": "sklearn-style regularization term.  Higher C -> less regularization. Must be positive",
+            "suggested_minimum": 0.01,
+            "suggested_maximum": 200.0
+        },
+        "train_$DenseNet_508$feature_selection_criterion": {
+            "enum": [
+                "corr",
+                "auc"
+            ],
+            "description": "criterion for greedy feature selection"
+        },
+        "train_$DenseNet_508$features": {
+            "enum": [
+                "raw",
+                "white_delta",
+                "cosine_delta",
+                "pnorm_delta",
+                "white",
+                "cosine",
+                "pnorm"
+            ],
+            "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
+        },
+        "train_$DenseNet_508$normalize_for_feature_selection": {
+            "type": "boolean",
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$DenseNet_508$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
+        },
+        "train_$SqueezeNet_52_64$nfeats": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many features to select",
+            "suggested_minimum": 50,
+            "suggested_maximum": 5000
+        },
+        "train_$SqueezeNet_52_64$ntensors": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many tensors select features from",
+            "suggested_minimum": 5,
+            "suggested_maximum": 100
+        },
+        "train_$SqueezeNet_52_64$cls_type": {
+            "enum": [
+                "LogisticRegression"
+            ],
+            "description": "name of classifier class (only LogisticRegression is currently supported)"
+        },
+        "train_$SqueezeNet_52_64$param_batch_sz": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many torch 'parameters' to look at at a time (trade off memory and disk reading)",
+            "suggested_minimum": 80,
+            "suggested_maximum": 80
+        },
+        "train_$SqueezeNet_52_64$C": {
+            "type": "number",
+            "minimum": 1e-09,
+            "description": "sklearn-style regularization term.  Higher C -> less regularization. Must be positive",
+            "suggested_minimum": 0.01,
+            "suggested_maximum": 200.0
+        },
+        "train_$SqueezeNet_52_64$feature_selection_criterion": {
+            "enum": [
+                "corr",
+                "auc"
+            ],
+            "description": "criterion for greedy feature selection"
+        },
+        "train_$SqueezeNet_52_64$features": {
+            "enum": [
+                "raw",
+                "white_delta",
+                "cosine_delta",
+                "pnorm_delta",
+                "white",
+                "cosine",
+                "pnorm"
+            ],
+            "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
+        },
+        "train_$SqueezeNet_52_64$normalize_for_feature_selection": {
+            "type": "boolean",
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$SqueezeNet_52_64$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
+        },
+        "train_$ResNet_314_64$nfeats": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many features to select",
+            "suggested_minimum": 50,
+            "suggested_maximum": 5000
+        },
+        "train_$ResNet_314_64$ntensors": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many tensors select features from",
+            "suggested_minimum": 5,
+            "suggested_maximum": 100
+        },
+        "train_$ResNet_314_64$cls_type": {
+            "enum": [
+                "LogisticRegression"
+            ],
+            "description": "name of classifier class (only LogisticRegression is currently supported)"
+        },
+        "train_$ResNet_314_64$param_batch_sz": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many torch 'parameters' to look at at a time (trade off memory and disk reading)",
+            "suggested_minimum": 80,
+            "suggested_maximum": 80
+        },
+        "train_$ResNet_314_64$C": {
+            "type": "number",
+            "minimum": 1e-09,
+            "description": "sklearn-style regularization term.  Higher C -> less regularization. Must be positive",
+            "suggested_minimum": 0.01,
+            "suggested_maximum": 200.0
+        },
+        "train_$ResNet_314_64$feature_selection_criterion": {
+            "enum": [
+                "corr",
+                "auc"
+            ],
+            "description": "criterion for greedy feature selection"
+        },
+        "train_$ResNet_314_64$features": {
+            "enum": [
+                "raw",
+                "white_delta",
+                "cosine_delta",
+                "pnorm_delta",
+                "white",
+                "cosine",
+                "pnorm"
+            ],
+            "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
+        },
+        "train_$ResNet_314_64$normalize_for_feature_selection": {
+            "type": "boolean",
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$ResNet_314_64$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
+        },
+        "train_$ResNet_314_128$nfeats": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many features to select",
+            "suggested_minimum": 50,
+            "suggested_maximum": 5000
+        },
+        "train_$ResNet_314_128$ntensors": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many tensors select features from",
+            "suggested_minimum": 5,
+            "suggested_maximum": 100
+        },
+        "train_$ResNet_314_128$cls_type": {
+            "enum": [
+                "LogisticRegression"
+            ],
+            "description": "name of classifier class (only LogisticRegression is currently supported)"
+        },
+        "train_$ResNet_314_128$param_batch_sz": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many torch 'parameters' to look at at a time (trade off memory and disk reading)",
+            "suggested_minimum": 80,
+            "suggested_maximum": 80
+        },
+        "train_$ResNet_314_128$C": {
+            "type": "number",
+            "minimum": 1e-09,
+            "description": "sklearn-style regularization term.  Higher C -> less regularization. Must be positive",
+            "suggested_minimum": 0.01,
+            "suggested_maximum": 200.0
+        },
+        "train_$ResNet_314_128$feature_selection_criterion": {
+            "enum": [
+                "corr",
+                "auc"
+            ],
+            "description": "criterion for greedy feature selection"
+        },
+        "train_$ResNet_314_128$features": {
+            "enum": [
+                "raw",
+                "white_delta",
+                "cosine_delta",
+                "pnorm_delta",
+                "white",
+                "cosine",
+                "pnorm"
+            ],
+            "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
+        },
+        "train_$ResNet_314_128$normalize_for_feature_selection": {
+            "type": "boolean",
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$ResNet_314_128$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
+        },
+        "train_$ShuffleNetV2_170_88$nfeats": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many features to select",
+            "suggested_minimum": 50,
+            "suggested_maximum": 5000
+        },
+        "train_$ShuffleNetV2_170_88$ntensors": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many tensors select features from",
+            "suggested_minimum": 5,
+            "suggested_maximum": 100
+        },
+        "train_$ShuffleNetV2_170_88$cls_type": {
+            "enum": [
+                "LogisticRegression"
+            ],
+            "description": "name of classifier class (only LogisticRegression is currently supported)"
+        },
+        "train_$ShuffleNetV2_170_88$param_batch_sz": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many torch 'parameters' to look at at a time (trade off memory and disk reading)",
+            "suggested_minimum": 80,
+            "suggested_maximum": 80
+        },
+        "train_$ShuffleNetV2_170_88$C": {
+            "type": "number",
+            "minimum": 1e-09,
+            "description": "sklearn-style regularization term.  Higher C -> less regularization. Must be positive",
+            "suggested_minimum": 0.01,
+            "suggested_maximum": 200.0
+        },
+        "train_$ShuffleNetV2_170_88$feature_selection_criterion": {
+            "enum": [
+                "corr",
+                "auc"
+            ],
+            "description": "criterion for greedy feature selection"
+        },
+        "train_$ShuffleNetV2_170_88$features": {
+            "enum": [
+                "raw",
+                "white_delta",
+                "cosine_delta",
+                "pnorm_delta",
+                "white",
+                "cosine",
+                "pnorm"
+            ],
+            "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
+        },
+        "train_$ShuffleNetV2_170_88$normalize_for_feature_selection": {
+            "type": "boolean",
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$ShuffleNetV2_170_88$sort_tensors": {
+            "type": "boolean",
+            "description": "whether or not to sort tensors"
+        },
+        "train_$VGG_46$nfeats": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many features to select",
+            "suggested_minimum": 50,
+            "suggested_maximum": 5000
+        },
+        "train_$VGG_46$ntensors": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many tensors select features from",
+            "suggested_minimum": 5,
+            "suggested_maximum": 100
+        },
+        "train_$VGG_46$cls_type": {
+            "enum": [
+                "LogisticRegression"
+            ],
+            "description": "name of classifier class (only LogisticRegression is currently supported)"
+        },
+        "train_$VGG_46$param_batch_sz": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "how many torch 'parameters' to look at at a time (trade off memory and disk reading)",
+            "suggested_minimum": 80,
+            "suggested_maximum": 80
+        },
+        "train_$VGG_46$C": {
+            "type": "number",
+            "minimum": 1e-09,
+            "description": "sklearn-style regularization term.  Higher C -> less regularization. Must be positive",
+            "suggested_minimum": 0.01,
+            "suggested_maximum": 200.0
+        },
+        "train_$VGG_46$feature_selection_criterion": {
+            "enum": [
+                "corr",
+                "auc"
+            ],
+            "description": "criterion for greedy feature selection"
+        },
+        "train_$VGG_46$features": {
+            "enum": [
+                "raw",
+                "white_delta",
+                "cosine_delta",
+                "pnorm_delta",
+                "white",
+                "cosine",
+                "pnorm"
+            ],
+            "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
+        },
+        "train_$VGG_46$normalize_for_feature_selection": {
+            "type": "boolean",
+            "description": "whether or not to apply normalization before feature selection"
+        },
+        "train_$VGG_46$sort_tensors": {
             "type": "boolean",
             "description": "whether or not to sort tensors"
         }

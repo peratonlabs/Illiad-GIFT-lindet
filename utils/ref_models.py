@@ -346,3 +346,137 @@ def r15_load_ref_model(arch, model_dir):
     if torch.cuda.is_available():
         ref_model.cuda()
     return ref_model
+
+
+r4fnmap = {
+    "DenseNet_364": 'densenet121.pt',
+    "GoogLeNet_173": 'googlenet.pt',
+    "Inception3_284": 'inception_v3.pt',
+    "MobileNetV2_158": 'mobilenet_v2.pt',
+    "ResNet_62_64": 'resnet18.pt',
+    "ResNet_110_64": 'resnet34.pt',
+    "ResNet_161_64": 'resnet50.pt',
+    "ResNet_314_64": 'resnet101.pt',
+    "ShuffleNetV2_170_58": 'shufflenet_v2_x1_0.pt',
+    # "ShuffleNetV2_170_88": 'shufflenet_v2_x1_5.pt',
+    # "ShuffleNetV2_170_122": 'shufflenet_v2_x2_0.pt',
+    "SqueezeNet_52_64": 'squeezenet1_0.pt',
+    "SqueezeNet_52_96": 'squeezenet1_1.pt',
+    'VGG_38': 'vgg11_bn.pt',
+    'VGG_46': 'vgg13_bn.pt',
+    "ResNet_161_128": 'wide_resnet50_2.pt',
+}
+
+
+def r4_check_for_ref_models(model_dir):
+
+    r4clsmap = {
+        "DenseNet_364": torchvision.models.densenet121,
+        "GoogLeNet_173": torchvision.models.googlenet,
+        "Inception3_284": torchvision.models.inception_v3,
+        "MobileNetV2_158": torchvision.models.mobilenet_v2,
+        "ResNet_62_64": torchvision.models.resnet18,
+        "ResNet_110_64": torchvision.models.resnet34,
+        "ResNet_161_64": torchvision.models.resnet50,
+        "ResNet_314_64": torchvision.models.resnet101,
+        "ShuffleNetV2_170_58": torchvision.models.shufflenet_v2_x1_0,
+        # "ShuffleNetV2_170_88": torchvision.models.shufflenet_v2_x1_5,
+        # "ShuffleNetV2_170_122": torchvision.models.shufflenet_v2_x2_0,
+        "SqueezeNet_52_64": torchvision.models.squeezenet1_0,
+        "SqueezeNet_52_96": torchvision.models.squeezenet1_1,
+        'VGG_38': torchvision.models.vgg11_bn,
+        'VGG_46': torchvision.models.vgg13_bn,
+        "ResNet_161_128": torchvision.models.wide_resnet50_2,
+    }
+
+    for k, v in r4fnmap.items():
+        pth = os.path.join(model_dir, v)
+        if not os.path.exists(pth):
+            ref_model = r4clsmap[k](pretrained=True)
+            torch.save(ref_model, pth)
+
+
+def r4_load_ref_model(arch, model_dir):
+
+    if arch in r4fnmap:
+        ref_model = torch.load(os.path.join(model_dir, r4fnmap[arch]))
+    else:
+        print("Warning: missing reference model for", arch)
+        return None
+    if torch.cuda.is_available():
+        ref_model.cuda()
+    return ref_model
+
+
+r3fnmap = {
+    "DenseNet_364": 'densenet121.pt',
+    "DenseNet_484": 'densenet161.pt',
+    "DenseNet_508": 'densenet169.pt',
+    "DenseNet_604": 'densenet201.pt',
+    "GoogLeNet_173": 'googlenet.pt',
+    "Inception3_284": 'inception_v3.pt',
+    "MobileNetV2_158": 'mobilenet_v2.pt',
+    "ResNet_62_64": 'resnet18.pt',
+    "ResNet_110_64": 'resnet34.pt',
+    "ResNet_161_64": 'resnet50.pt',
+    "ResNet_314_64": 'resnet101.pt',
+    "ResNet_467_64": 'resnet152.pt',
+    "ShuffleNetV2_170_58": 'shufflenet_v2_x1_0.pt',
+    # "ShuffleNetV2_170_88": 'shufflenet_v2_x1_5.pt',
+    # "ShuffleNetV2_170_122": 'shufflenet_v2_x2_0.pt',
+    "SqueezeNet_52_64": 'squeezenet1_0.pt',
+    "SqueezeNet_52_96": 'squeezenet1_1.pt',
+    "VGG_38": 'vgg11_bn.pt',
+    "VGG_46": 'vgg13_bn.pt',
+    "VGG_58": 'vgg16_bn.pt',
+    "VGG_70": 'vgg19_bn.pt',
+    "ResNet_161_128": 'wide_resnet50_2.pt',
+    "ResNet_314_128": 'wide_resnet101_2.pt',
+}
+
+def r3_check_for_ref_models(model_dir):
+
+    r3clsmap = {
+        "DenseNet_364": torchvision.models.densenet121,
+        "DenseNet_484": torchvision.models.densenet161,
+        "DenseNet_508": torchvision.models.densenet169,
+        "DenseNet_604": torchvision.models.densenet201,
+        "GoogLeNet_173": torchvision.models.googlenet,
+        "Inception3_284": torchvision.models.inception_v3,
+        "MobileNetV2_158": torchvision.models.mobilenet_v2,
+        "ResNet_62_64": torchvision.models.resnet18,
+        "ResNet_110_64": torchvision.models.resnet34,
+        "ResNet_161_64": torchvision.models.resnet50,
+        "ResNet_314_64": torchvision.models.resnet101,
+        "ResNet_467_64": torchvision.models.resnet152,
+        "ShuffleNetV2_170_58": torchvision.models.shufflenet_v2_x1_0,
+        # "ShuffleNetV2_170_88": torchvision.models.shufflenet_v2_x1_5,
+        # "ShuffleNetV2_170_122": torchvision.models.shufflenet_v2_x2_0,
+        "SqueezeNet_52_64": torchvision.models.squeezenet1_0,
+        "SqueezeNet_52_96": torchvision.models.squeezenet1_1,
+        'VGG_38': torchvision.models.vgg11_bn,
+        'VGG_46': torchvision.models.vgg13_bn,
+        'VGG_58': torchvision.models.vgg16_bn,
+        'VGG_70': torchvision.models.vgg19_bn,
+        "ResNet_161_128": torchvision.models.wide_resnet50_2,
+        "ResNet_314_128": torchvision.models.wide_resnet101_2,
+    }
+
+    for k, v in r3fnmap.items():
+        pth = os.path.join(model_dir, v)
+        if not os.path.exists(pth):
+            ref_model = r3clsmap[k](pretrained=True)
+            torch.save(ref_model, pth)
+
+
+def r3_load_ref_model(arch, model_dir):
+
+    if arch in r3fnmap:
+        ref_model = torch.load(os.path.join(model_dir, r3fnmap[arch]))
+    else:
+        print("Warning: missing reference model for", arch)
+        return None
+    if torch.cuda.is_available():
+        ref_model.cuda()
+    return ref_model
+
