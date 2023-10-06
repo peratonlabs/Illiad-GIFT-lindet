@@ -1,0 +1,20 @@
+{
+    "train_$SimplifiedRLStarter_18$nfeats": 1000,
+    "train_$SimplifiedRLStarter_18$cls_type": "LogisticRegression",
+    "train_$SimplifiedRLStarter_18$param_batch_sz": 80,
+    "train_$SimplifiedRLStarter_18$C": 10,
+    "train_$SimplifiedRLStarter_18$feature_selection_criterion": "auc",
+    "train_$SimplifiedRLStarter_18$normalize_for_feature_selection": true,
+    "train_$SimplifiedRLStarter_18$features": "raw",
+    "train_$SimplifiedRLStarter_18$ntensors": 25,
+    "train_$SimplifiedRLStarter_18$sort_tensors": true,
+    "train_$BasicFCModel_12$nfeats": 1000,
+    "train_$BasicFCModel_12$cls_type": "LogisticRegression",
+    "train_$BasicFCModel_12$param_batch_sz": 80,
+    "train_$BasicFCModel_12$C": 10,
+    "train_$BasicFCModel_12$feature_selection_criterion": "auc",
+    "train_$BasicFCModel_12$normalize_for_feature_selection": true,
+    "train_$BasicFCModel_12$features": "raw",
+    "train_$BasicFCModel_12$ntensors": 25,
+    "train_$BasicFCModel_12$sort_tensors": true
+}
