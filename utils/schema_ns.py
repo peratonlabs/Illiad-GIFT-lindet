@@ -199,7 +199,8 @@ arch_lists = {
     12: ['Net3_6', 'Net5_10', 'Net4r_8', 'Net5r_10', 'Net7r_14', 'Net6r_12', 'Net2r_4', 'Net3r_6', 'Net7_14', 'Net2s_4', 'Net3s_6', 'Net6_12', 'Net2_4', 'Net4_8'],
     13: ["SSD_71", "FasterRCNN_209", "DetrForObjectDetection_326"],
     14: ["SimplifiedRLStarter_18", "BasicFCModel_12"],
-    15: ["RobertaForQuestionAnswering_103", "RobertaForQuestionAnswering_199", "MobileBertForQuestionAnswering_1113"]
+    15: ["RobertaForQuestionAnswering_103", "RobertaForQuestionAnswering_199", "MobileBertForQuestionAnswering_1113"],
+    16: ['FCModel_16', 'CNNModel_14']
 }
 
 

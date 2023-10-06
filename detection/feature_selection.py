@@ -237,6 +237,9 @@ def get_deltas(model_or_path, ref_model=None, norm=None, psort=False):
             model = torch.load(model_or_path)
         else:
             model = torch.load(model_or_path, map_location=torch.device('cpu'))
+        if type(model)==dict:
+            import utils.models_r16
+            model, model_repr, model_class = utils.models_r16.load_model(model_or_path)
     else:
         model = model_or_path
     if torch.cuda.is_available():
