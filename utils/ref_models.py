@@ -81,7 +81,7 @@ def r11_check_for_ref_models(model_dir):
 
 def r11_load_ref_model(arch, model_dir):
     # this function is called whenever we get features
-    if "ResNet_161" == arch:
+    if "ResNet_161_64" == arch:
         # cfg_dicts[arch] = cfg_dict_resnet
         ref_model = torchvision.models.resnet50()
         ref_model.load_state_dict(torch.load(os.path.join(model_dir, 'resnet50_V2.pt')))
