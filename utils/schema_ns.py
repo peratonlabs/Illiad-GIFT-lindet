@@ -195,7 +195,7 @@ arch_lists = {
     8: ["ElectraForQuestionAnswering_201","RobertaForQuestionAnswering_199"],
     9: ["DistilBertForQuestionAnswering_102","DistilBertForSequenceClassification_104","DistilBertForTokenClassification_102", "ElectraForQuestionAnswering_201","ElectraForSequenceClassification_203","ElectraForTokenClassification_201","RobertaForQuestionAnswering_199","RobertaForSequenceClassification_201","RobertaForTokenClassification_199"],
     10: ["SSD_71", "FasterRCNN_83"],
-    11: ["ResNet_161", "VisionTransformer_152", "MobileNetV2_158"],
+    11: ["ResNet_161_64", "VisionTransformer_152", "MobileNetV2_158"],
     12: ['Net3_6', 'Net5_10', 'Net4r_8', 'Net5r_10', 'Net7r_14', 'Net6r_12', 'Net2r_4', 'Net3r_6', 'Net7_14', 'Net2s_4', 'Net3s_6', 'Net6_12', 'Net2_4', 'Net4_8'],
     13: ["SSD_71", "FasterRCNN_209", "DetrForObjectDetection_326"],
     14: ["SimplifiedRLStarter_18", "BasicFCModel_12"],
