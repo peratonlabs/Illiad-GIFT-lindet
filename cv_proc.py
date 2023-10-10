@@ -52,6 +52,9 @@ if __name__ == "__main__":
         
         mp[field] = arch_dict[arch][0]
 
+        field = 'train_$' + arch + '$param_batch_sz'
+        mp[field]=20
+
 
 
     with open(args.outjson, "w") as f:
