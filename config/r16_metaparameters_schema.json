@@ -13,69 +13,69 @@
     "description": "TrojAI schema for the GIFT team, cos-lin method",
     "type": "object",
     "required": [
-        "train_$ElectraForQuestionAnswering_201$nfeats",
-        "train_$ElectraForQuestionAnswering_201$ntensors",
-        "train_$ElectraForQuestionAnswering_201$cls_type",
-        "train_$ElectraForQuestionAnswering_201$param_batch_sz",
-        "train_$ElectraForQuestionAnswering_201$C",
-        "train_$ElectraForQuestionAnswering_201$feature_selection_criterion",
-        "train_$ElectraForQuestionAnswering_201$features",
-        "train_$ElectraForQuestionAnswering_201$normalize_for_feature_selection",
-        "train_$ElectraForQuestionAnswering_201$sort_tensors",
-        "train_$RobertaForQuestionAnswering_199$nfeats",
-        "train_$RobertaForQuestionAnswering_199$ntensors",
-        "train_$RobertaForQuestionAnswering_199$cls_type",
-        "train_$RobertaForQuestionAnswering_199$param_batch_sz",
-        "train_$RobertaForQuestionAnswering_199$C",
-        "train_$RobertaForQuestionAnswering_199$feature_selection_criterion",
-        "train_$RobertaForQuestionAnswering_199$features",
-        "train_$RobertaForQuestionAnswering_199$normalize_for_feature_selection",
-        "train_$RobertaForQuestionAnswering_199$sort_tensors"
+        "train_$FCModel_16$nfeats",
+        "train_$FCModel_16$ntensors",
+        "train_$FCModel_16$cls_type",
+        "train_$FCModel_16$param_batch_sz",
+        "train_$FCModel_16$C",
+        "train_$FCModel_16$feature_selection_criterion",
+        "train_$FCModel_16$features",
+        "train_$FCModel_16$normalize_for_feature_selection",
+        "train_$FCModel_16$sort_tensors",
+        "train_$CNNModel_14$nfeats",
+        "train_$CNNModel_14$ntensors",
+        "train_$CNNModel_14$cls_type",
+        "train_$CNNModel_14$param_batch_sz",
+        "train_$CNNModel_14$C",
+        "train_$CNNModel_14$feature_selection_criterion",
+        "train_$CNNModel_14$features",
+        "train_$CNNModel_14$normalize_for_feature_selection",
+        "train_$CNNModel_14$sort_tensors"
     ],
     "additionalProperties": false,
     "properties": {
-        "train_$ElectraForQuestionAnswering_201$nfeats": {
+        "train_$FCModel_16$nfeats": {
             "type": "integer",
             "minimum": 1,
             "description": "how many features to select",
             "suggested_minimum": 50,
             "suggested_maximum": 5000
         },
-        "train_$ElectraForQuestionAnswering_201$ntensors": {
+        "train_$FCModel_16$ntensors": {
             "type": "integer",
             "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
         },
-        "train_$ElectraForQuestionAnswering_201$cls_type": {
+        "train_$FCModel_16$cls_type": {
             "enum": [
                 "LogisticRegression"
             ],
             "description": "name of classifier class (only LogisticRegression is currently supported)"
         },
-        "train_$ElectraForQuestionAnswering_201$param_batch_sz": {
+        "train_$FCModel_16$param_batch_sz": {
             "type": "integer",
             "minimum": 1,
             "description": "how many torch 'parameters' to look at at a time (trade off memory and disk reading)",
             "suggested_minimum": 80,
             "suggested_maximum": 80
         },
-        "train_$ElectraForQuestionAnswering_201$C": {
+        "train_$FCModel_16$C": {
             "type": "number",
             "minimum": 1e-09,
             "description": "sklearn-style regularization term.  Higher C -> less regularization. Must be positive",
             "suggested_minimum": 0.01,
             "suggested_maximum": 200.0
         },
-        "train_$ElectraForQuestionAnswering_201$feature_selection_criterion": {
+        "train_$FCModel_16$feature_selection_criterion": {
             "enum": [
                 "corr",
                 "auc"
             ],
             "description": "criterion for greedy feature selection"
         },
-        "train_$ElectraForQuestionAnswering_201$features": {
+        "train_$FCModel_16$features": {
             "enum": [
                 "raw",
                 "white_delta",
@@ -87,56 +87,56 @@
             ],
             "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
         },
-        "train_$ElectraForQuestionAnswering_201$normalize_for_feature_selection": {
+        "train_$FCModel_16$normalize_for_feature_selection": {
             "type": "boolean",
             "description": "whether or not to apply normalization before feature selection"
         },
-        "train_$ElectraForQuestionAnswering_201$sort_tensors": {
+        "train_$FCModel_16$sort_tensors": {
             "type": "boolean",
             "description": "whether or not to sort tensors"
         },
-        "train_$RobertaForQuestionAnswering_199$nfeats": {
+        "train_$CNNModel_14$nfeats": {
             "type": "integer",
             "minimum": 1,
             "description": "how many features to select",
             "suggested_minimum": 50,
             "suggested_maximum": 5000
         },
-        "train_$RobertaForQuestionAnswering_199$ntensors": {
+        "train_$CNNModel_14$ntensors": {
             "type": "integer",
             "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
         },
-        "train_$RobertaForQuestionAnswering_199$cls_type": {
+        "train_$CNNModel_14$cls_type": {
             "enum": [
                 "LogisticRegression"
             ],
             "description": "name of classifier class (only LogisticRegression is currently supported)"
         },
-        "train_$RobertaForQuestionAnswering_199$param_batch_sz": {
+        "train_$CNNModel_14$param_batch_sz": {
             "type": "integer",
             "minimum": 1,
             "description": "how many torch 'parameters' to look at at a time (trade off memory and disk reading)",
             "suggested_minimum": 80,
             "suggested_maximum": 80
         },
-        "train_$RobertaForQuestionAnswering_199$C": {
+        "train_$CNNModel_14$C": {
             "type": "number",
             "minimum": 1e-09,
             "description": "sklearn-style regularization term.  Higher C -> less regularization. Must be positive",
             "suggested_minimum": 0.01,
             "suggested_maximum": 200.0
         },
-        "train_$RobertaForQuestionAnswering_199$feature_selection_criterion": {
+        "train_$CNNModel_14$feature_selection_criterion": {
             "enum": [
                 "corr",
                 "auc"
             ],
             "description": "criterion for greedy feature selection"
         },
-        "train_$RobertaForQuestionAnswering_199$features": {
+        "train_$CNNModel_14$features": {
             "enum": [
                 "raw",
                 "white_delta",
@@ -148,11 +148,11 @@
             ],
             "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
         },
-        "train_$RobertaForQuestionAnswering_199$normalize_for_feature_selection": {
+        "train_$CNNModel_14$normalize_for_feature_selection": {
             "type": "boolean",
             "description": "whether or not to apply normalization before feature selection"
         },
-        "train_$RobertaForQuestionAnswering_199$sort_tensors": {
+        "train_$CNNModel_14$sort_tensors": {
             "type": "boolean",
             "description": "whether or not to sort tensors"
         }

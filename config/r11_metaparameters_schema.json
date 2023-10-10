@@ -13,15 +13,15 @@
     "description": "TrojAI schema for the GIFT team, cos-lin method",
     "type": "object",
     "required": [
-        "train_$ResNet_161$nfeats",
-        "train_$ResNet_161$ntensors",
-        "train_$ResNet_161$cls_type",
-        "train_$ResNet_161$param_batch_sz",
-        "train_$ResNet_161$C",
-        "train_$ResNet_161$feature_selection_criterion",
-        "train_$ResNet_161$features",
-        "train_$ResNet_161$normalize_for_feature_selection",
-        "train_$ResNet_161$sort_tensors",
+        "train_$ResNet_161_64$nfeats",
+        "train_$ResNet_161_64$ntensors",
+        "train_$ResNet_161_64$cls_type",
+        "train_$ResNet_161_64$param_batch_sz",
+        "train_$ResNet_161_64$C",
+        "train_$ResNet_161_64$feature_selection_criterion",
+        "train_$ResNet_161_64$features",
+        "train_$ResNet_161_64$normalize_for_feature_selection",
+        "train_$ResNet_161_64$sort_tensors",
         "train_$VisionTransformer_152$nfeats",
         "train_$VisionTransformer_152$ntensors",
         "train_$VisionTransformer_152$cls_type",
@@ -43,48 +43,48 @@
     ],
     "additionalProperties": false,
     "properties": {
-        "train_$ResNet_161$nfeats": {
+        "train_$ResNet_161_64$nfeats": {
             "type": "integer",
             "minimum": 1,
             "description": "how many features to select",
             "suggested_minimum": 50,
             "suggested_maximum": 5000
         },
-        "train_$ResNet_161$ntensors": {
+        "train_$ResNet_161_64$ntensors": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
         },
-        "train_$ResNet_161$cls_type": {
+        "train_$ResNet_161_64$cls_type": {
             "enum": [
                 "LogisticRegression"
             ],
             "description": "name of classifier class (only LogisticRegression is currently supported)"
         },
-        "train_$ResNet_161$param_batch_sz": {
+        "train_$ResNet_161_64$param_batch_sz": {
             "type": "integer",
             "minimum": 1,
             "description": "how many torch 'parameters' to look at at a time (trade off memory and disk reading)",
             "suggested_minimum": 80,
             "suggested_maximum": 80
         },
-        "train_$ResNet_161$C": {
+        "train_$ResNet_161_64$C": {
             "type": "number",
             "minimum": 1e-09,
             "description": "sklearn-style regularization term.  Higher C -> less regularization. Must be positive",
             "suggested_minimum": 0.01,
             "suggested_maximum": 200.0
         },
-        "train_$ResNet_161$feature_selection_criterion": {
+        "train_$ResNet_161_64$feature_selection_criterion": {
             "enum": [
                 "corr",
                 "auc"
             ],
             "description": "criterion for greedy feature selection"
         },
-        "train_$ResNet_161$features": {
+        "train_$ResNet_161_64$features": {
             "enum": [
                 "raw",
                 "white_delta",
@@ -96,11 +96,11 @@
             ],
             "description": "preprocessing options. Normalize by stdev (white) or L2 (cosine) or None. Use raw or 'delta' from pretrained reference model"
         },
-        "train_$ResNet_161$normalize_for_feature_selection": {
+        "train_$ResNet_161_64$normalize_for_feature_selection": {
             "type": "boolean",
             "description": "whether or not to apply normalization before feature selection"
         },
-        "train_$ResNet_161$sort_tensors": {
+        "train_$ResNet_161_64$sort_tensors": {
             "type": "boolean",
             "description": "whether or not to sort tensors"
         },
@@ -113,7 +113,7 @@
         },
         "train_$VisionTransformer_152$ntensors": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
@@ -174,7 +174,7 @@
         },
         "train_$MobileNetV2_158$ntensors": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100

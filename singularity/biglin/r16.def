@@ -4,6 +4,7 @@ From: python:3.8-bullseye
 %files
     ./wa_detector.py /gift/
     ./model_factories.py /gift/
+    ./reference_models/frcnn_COCO_V1.pt /gift/reference_models/
     ./utils /gift/
     ./detection /gift/
     ./config /gift/

@@ -151,7 +151,7 @@
         },
         "train_$Net3_6$ntensors": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
@@ -212,7 +212,7 @@
         },
         "train_$Net5_10$ntensors": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
@@ -273,7 +273,7 @@
         },
         "train_$Net4r_8$ntensors": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
@@ -334,7 +334,7 @@
         },
         "train_$Net5r_10$ntensors": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
@@ -395,7 +395,7 @@
         },
         "train_$Net7r_14$ntensors": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
@@ -456,7 +456,7 @@
         },
         "train_$Net6r_12$ntensors": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
@@ -517,7 +517,7 @@
         },
         "train_$Net2r_4$ntensors": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
@@ -578,7 +578,7 @@
         },
         "train_$Net3r_6$ntensors": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
@@ -639,7 +639,7 @@
         },
         "train_$Net7_14$ntensors": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
@@ -700,7 +700,7 @@
         },
         "train_$Net2s_4$ntensors": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
@@ -761,7 +761,7 @@
         },
         "train_$Net3s_6$ntensors": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
@@ -822,7 +822,7 @@
         },
         "train_$Net6_12$ntensors": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
@@ -883,7 +883,7 @@
         },
         "train_$Net2_4$ntensors": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
@@ -944,7 +944,7 @@
         },
         "train_$Net4_8$ntensors": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100

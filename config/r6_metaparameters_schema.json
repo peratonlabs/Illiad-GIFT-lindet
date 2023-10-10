@@ -169,7 +169,7 @@
         },
         "train_$FCLinearModel_6_256$ntensors": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
@@ -230,7 +230,7 @@
         },
         "train_$LstmLinearModel_18_1024$ntensors": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
@@ -291,7 +291,7 @@
         },
         "train_$GruLinearModel_10_768$ntensors": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
@@ -352,7 +352,7 @@
         },
         "train_$LstmLinearModel_34_1024$ntensors": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
@@ -413,7 +413,7 @@
         },
         "train_$GruLinearModel_34_1536$ntensors": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
@@ -474,7 +474,7 @@
         },
         "train_$LstmLinearModel_18_2048$ntensors": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
@@ -535,7 +535,7 @@
         },
         "train_$FCLinearModel_10_256$ntensors": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
@@ -596,7 +596,7 @@
         },
         "train_$FCLinearModel_10_512$ntensors": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
@@ -657,7 +657,7 @@
         },
         "train_$GruLinearModel_18_768$ntensors": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
@@ -718,7 +718,7 @@
         },
         "train_$FCLinearModel_6_512$ntensors": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
@@ -779,7 +779,7 @@
         },
         "train_$LstmLinearModel_34_2048$ntensors": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
@@ -840,7 +840,7 @@
         },
         "train_$GruLinearModel_18_1536$ntensors": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
@@ -901,7 +901,7 @@
         },
         "train_$GruLinearModel_10_1536$ntensors": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
@@ -962,7 +962,7 @@
         },
         "train_$LstmLinearModel_10_1024$ntensors": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
@@ -1023,7 +1023,7 @@
         },
         "train_$LstmLinearModel_10_2048$ntensors": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
@@ -1084,7 +1084,7 @@
         },
         "train_$GruLinearModel_34_768$ntensors": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100

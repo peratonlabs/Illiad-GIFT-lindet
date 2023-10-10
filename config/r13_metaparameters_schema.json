@@ -52,7 +52,7 @@
         },
         "train_$SSD_71$ntensors": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
@@ -113,7 +113,7 @@
         },
         "train_$FasterRCNN_209$ntensors": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
@@ -174,7 +174,7 @@
         },
         "train_$DetrForObjectDetection_326$ntensors": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100

@@ -4,15 +4,15 @@ From: python:3.8-bullseye
 %files
     ./wa_detector.py /gift/
     ./model_factories.py /gift/
-    ./models.py /gift/
-    ./reference_models/frcnn_COCO_V1.pt /gift/reference_models/
-    ./reference_models/ssd300_vgg16_coco.pt /gift/reference_models
+    ./reference_models/tinyroberta15_qa.pt /gift/reference_models/
+    ./reference_models/roberta15_qa.pt /gift/reference_models
+    ./reference_models/mobilebert15_qa.pt /gift/reference_models
     ./utils /gift/
     ./detection /gift/
     ./config /gift/
-    ./config/final/r10_metaparameters.json /metaparameters.json
-    ./config/r10_metaparameters_schema.json /metaparameters_schema.json
-    ./learned_parameters/alllins/round10/lp/wa_lr.joblib /learned_parameters/wa_lr.joblib
+    ./config/final/r15F_metaparameters.json /metaparameters.json
+    ./config/r15_metaparameters_schema.json /metaparameters_schema.json
+    ./learned_parameters/alllins/round15F/lp/wa_lr.joblib /learned_parameters/wa_lr.joblib
     
 %post
     pip install --upgrade pip
@@ -24,4 +24,4 @@ From: python:3.8-bullseye
     pip install timm==0.9.7
 
 %runscript
-    exec python3 /gift/wa_detector.py --round 10 "$@"
+    exec python3 /gift/wa_detector.py --round 15 "$@"

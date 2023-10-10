@@ -232,7 +232,7 @@
         },
         "train_$VGG_58$ntensors": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
@@ -293,7 +293,7 @@
         },
         "train_$DenseNet_604$ntensors": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
@@ -354,7 +354,7 @@
         },
         "train_$ResNet_161_128$ntensors": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
@@ -415,7 +415,7 @@
         },
         "train_$GoogLeNet_173$ntensors": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
@@ -476,7 +476,7 @@
         },
         "train_$VGG_70$ntensors": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
@@ -537,7 +537,7 @@
         },
         "train_$ResNet_110_64$ntensors": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
@@ -598,7 +598,7 @@
         },
         "train_$MobileNetV2_158$ntensors": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
@@ -659,7 +659,7 @@
         },
         "train_$ResNet_161_64$ntensors": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
@@ -720,7 +720,7 @@
         },
         "train_$DenseNet_364$ntensors": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
@@ -781,7 +781,7 @@
         },
         "train_$VGG_38$ntensors": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
@@ -842,7 +842,7 @@
         },
         "train_$SqueezeNet_52_96$ntensors": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
@@ -903,7 +903,7 @@
         },
         "train_$ShuffleNetV2_170_122$ntensors": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
@@ -964,7 +964,7 @@
         },
         "train_$DenseNet_484$ntensors": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
@@ -1025,7 +1025,7 @@
         },
         "train_$Inception3_284$ntensors": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
@@ -1086,7 +1086,7 @@
         },
         "train_$ResNet_62_64$ntensors": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
@@ -1147,7 +1147,7 @@
         },
         "train_$ResNet_467_64$ntensors": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
@@ -1208,7 +1208,7 @@
         },
         "train_$ShuffleNetV2_170_58$ntensors": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
@@ -1269,7 +1269,7 @@
         },
         "train_$DenseNet_508$ntensors": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
@@ -1330,7 +1330,7 @@
         },
         "train_$SqueezeNet_52_64$ntensors": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
@@ -1391,7 +1391,7 @@
         },
         "train_$ResNet_314_64$ntensors": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
@@ -1452,7 +1452,7 @@
         },
         "train_$ResNet_314_128$ntensors": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
@@ -1513,7 +1513,7 @@
         },
         "train_$ShuffleNetV2_170_88$ntensors": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
@@ -1574,7 +1574,7 @@
         },
         "train_$VGG_46$ntensors": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 0,
             "description": "how many tensors select features from",
             "suggested_minimum": 5,
             "suggested_maximum": 100
