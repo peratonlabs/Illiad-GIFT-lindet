@@ -8,7 +8,7 @@ from sklearn.metrics import roc_auc_score, log_loss
 from detection.feature_selection import detect, get_arch, get_archmap, arch_train, get_mapped_weights, cv_arch_train
 import torch
 from torchvision.models import resnet50, mobilenet_v2
-import timm
+# import timm
 
 
 

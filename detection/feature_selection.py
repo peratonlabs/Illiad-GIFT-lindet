@@ -10,14 +10,14 @@ from utils import utils
 from joblib import dump, load
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.isotonic import IsotonicRegression
+#from sklearn.isotonic import IsotonicRegression
 from sklearn.metrics import roc_auc_score, log_loss
 # import pandas
 
 import torchvision
 from torchvision.models import resnet50, mobilenet_v2
-import timm
-from timm.models.vision_transformer import VisionTransformer
+#import timm
+#from timm.models.vision_transformer import VisionTransformer
 import model_factories
 
 def get_arch(model_filepath):

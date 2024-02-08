@@ -8,9 +8,9 @@ From: python:3.8-bullseye
     ./utils /gift/
     ./detection /gift/
     ./config /gift/
-    ./config/final/r16_metaparameters.json /metaparameters.json
+    ./config/r16E_metaparameters.json /metaparameters.json
     ./config/r16_metaparameters_schema.json /metaparameters_schema.json
-    ./learned_parameters/alllins/round16/lp/wa_lr.joblib /learned_parameters/wa_lr.joblib
+    ./learned_parameters/round16E_reg/lp/wa_lr.joblib /learned_parameters/wa_lr.joblib
     
 %post
     pip install --upgrade pip

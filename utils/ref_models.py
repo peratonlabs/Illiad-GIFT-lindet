@@ -1,7 +1,7 @@
 
 import torch
 # from torchvision.models import resnet50, mobilenet_v2
-import timm
+
 import os
 import torchvision
 
@@ -62,6 +62,7 @@ def r13_load_ref_model(arch, model_dir):
 
 
 def r11_check_for_ref_models(model_dir):
+    import timm
     # this function is called once during setup
     pth = os.path.join(model_dir, 'resnet50_V2.pt')
     if not os.path.exists(pth):
@@ -86,6 +87,7 @@ def r11_load_ref_model(arch, model_dir):
         ref_model = torchvision.models.resnet50()
         ref_model.load_state_dict(torch.load(os.path.join(model_dir, 'resnet50_V2.pt')))
     elif "VisionTransformer_152" == arch:
+        import timm
         # cfg_dicts[arch] = cfg_dict_vit
         ref_model = timm.create_model('vit_base_patch32_224')
         ref_model.load_state_dict(torch.load(os.path.join(model_dir, 'vit.pt')))

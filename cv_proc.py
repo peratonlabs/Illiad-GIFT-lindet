@@ -50,7 +50,7 @@ if __name__ == "__main__":
     for arch in arch_dict.keys():
         field = 'train_$' + arch + '$C'
         
-        mp[field] = arch_dict[arch][0]
+        mp[field] = float(arch_dict[arch][0])
 
         field = 'train_$' + arch + '$param_batch_sz'
         mp[field]=20

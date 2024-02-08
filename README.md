@@ -125,3 +125,14 @@ pip install timm
 ```
 This environment should work for rounds 2-4
 
+## Round 16 env
+
+```
+conda create -n r16new2 python=3.8
+conda activate r16new
+pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+pip install gym gymnasium minigrid jsonschema jsonpickle scikit-learn opencv-python
+pip install jsonargparse==4.23.0
+
+```
+This environment should work for round 16. (need to get specific versions)
