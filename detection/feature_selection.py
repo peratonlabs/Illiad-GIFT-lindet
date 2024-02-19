@@ -5,7 +5,7 @@ import torch
 import numpy as np
 # import lightgbm as lgb
 import os
-import pickle
+
 from utils import utils
 from joblib import dump, load
 from sklearn.linear_model import LogisticRegression
@@ -539,8 +539,11 @@ def select_feats(model_fns, labels, cfg_dict, ref_model=None):
 
     weight_mapping = []
     for auc in aucs:
-        weight_mapping.append(auc >= thr)
-
+        cur_weight_mapping = auc >= thr
+        cur_weight_mapping2 = np.where(cur_weight_mapping)[0]
+        
+        weight_mapping.append(cur_weight_mapping2)
+        
     torch.cuda.empty_cache()
     return weight_mapping
     # x = [get_mapped_weights(fn, weight_mapping) for fn in arch_fns]
@@ -707,8 +710,8 @@ def select_feats2(model_fns, labels, cfg_dict, ref_model=None):
         else:
             thr = -np.inf
         cur_weight_mapping = this_aucs >= thr
-
-        weight_mapping[pind] = cur_weight_mapping
+        cur_weight_mapping2 = np.where(cur_weight_mapping)[0]
+        weight_mapping[pind] = cur_weight_mapping2
         torch.cuda.empty_cache()
 
     del xs

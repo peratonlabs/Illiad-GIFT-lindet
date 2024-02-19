@@ -222,10 +222,12 @@ def gen_exp_configs():
     rounds = [k for k in arch_lists.keys()]
 
     for round in rounds:
+        gen_round_schema(round)
         for name, base_file in zip(names, base_files):
             gen_exp(round, base=base_file, suffix=name)
 
 
-
+if __name__ == "__main__":
+    gen_exp_configs()
 
 

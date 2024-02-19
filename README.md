@@ -1,18 +1,49 @@
-# cosine-linear method
+# Linear Trojan Detection
 
-Example calibration: 
+
+
+## Setup
+
+Create a suitable conda environment (see [Multiround Environments] for more examples)
+
 ```
-python wa_detector.py --configure_mode --gift_basepath ./ --configure_models_dirpath /path/to/round15 --scratch_dirpath /path/to/round15/scratch/trial1 --num_cv_trials 10 --metaparameters_filepath ./config/r15_metaparameters.json --schema_filepath ./config/r15_metaparameters.json --round 15
+conda create -n rXX python=3.8.17
+conda activate rXX
+pip install torch==1.12.1+cu113 torchvision==0.13.1+cu113 torchaudio==0.12.1 --extra-index-url https://download.pytorch.org/whl/cu113
+pip install transformers==4.32.1
+pip install opencv-python==4.8.0.74
+pip install jsonargparse==4.23.0 jsonschema==4.18.4
+pip install scikit-learn==1.3.0 scipy==1.10.1
+pip install timm==0.9.7
+```
+
+Automatically generate schemas and baseline metaparameter configs.
+```
+python -m utils.schema_ns
+```
+
+
+## Examples Usages
+
+Example calibration (outside singularity): 
+```
+python wa_detector.py --configure_mode --gift_basepath ./ --configure_models_dirpath /path/to/round18 --scratch_dirpath ./scratch/ --num_cv_trials 10 --metaparameters_filepath ./config/final/r18SB_metaparameters.json --schema_filepath ./config/r18_metaparameters_schema.json --round 18 --learned_parameters_dirpath learned_parameters/round18SB
+```
+
+Example inference (outside singularity): 
+```
+python wa_detector.py --gift_basepath ./ --model_filepath /path/to/round18/models/id-XXXXXXXX/model.pt --result_filepath ./scratch/output.txt --scratch_dirpath ./scratch/ --metaparameters_filepath ./config/final/r18SB_metaparameters.json --schema_filepath ./config/r18_metaparameters_schema.json --round 18 --learned_parameters_dirpath learned_parameters/round18SB --examples_dirpath ./123fakepath/
 ```
 
 Example container build: 
+Make sure the paths in the .def file are accurate.
 ```
-sudo singularity build --force ./containers/nlp-question-answering-aug2023_test_sts_coslin.simg    ./singularity/r15_wa_detector.def
+sudo singularity build --force ./containers/cyber-network-c2-feb2024_sts_coslin.simg ./singularity/r18SB.def
 ```
 
 Example container execution: 
 ```
-singularity run --nv ./containers/nlp-question-answering-aug2023_test_sts_coslin.simg --model_filepath=./scratch/round15/id-00000000/model.pt --result_filepath=./scratch/output.txt --scratch_dirpath=./scratch/ --metaparameters_filepath=/metaparameters.json --schema_filepath=/metaparameters_schema.json --learned_parameters_dirpath=/learned_parameters/ --examples_dirpath=./123fakepath/
+singularity run --nv ./containers/cyber-network-c2-feb2024_sts_coslin.simg --model_filepath=./path/to/round18/models/id-XXXXXXXX/model.pt --result_filepath=./scratch/output.txt --scratch_dirpath=./scratch/ --metaparameters_filepath=/metaparameters.json --schema_filepath=/metaparameters_schema.json --learned_parameters_dirpath=/learned_parameters/ --examples_dirpath=./123fakepath/
 ```
 
 ## Adding a round
@@ -67,14 +98,14 @@ Several examples are available in the ./singularity directory. Be sure to update
 See above.
 
 
-## Multiround environments
+## Multiround Environments
 
 
-### Round 11 env
+### Round XX env
 Conda and pytorch are struggling to work together, so I recommend setting up the env as follows:
 ```
-conda create -n r11new2 python=3.8.17
-conda activate r11new2
+conda create -n r11XX python=3.8.17
+conda activate r11XX
 pip install torch==1.12.1+cu113 torchvision==0.13.1+cu113 torchaudio==0.12.1 --extra-index-url https://download.pytorch.org/whl/cu113
 pip install transformers==4.32.1
 pip install opencv-python==4.8.0.74
@@ -82,9 +113,9 @@ pip install jsonargparse==4.23.0 jsonschema==4.18.4
 pip install scikit-learn==1.3.0 scipy==1.10.1
 pip install timm==0.9.7
 ```
-This environment should work for rounds 1, 5-12, 15
+This environment should work for rounds 1, 5-12, 15, 18
 
-note: this may not work on r11 ironically.  maybe run pip install timm==0.6.13
+This environment may work on r11 if you run pip install timm==0.6.13 instead of 0.9.7. 
 
 
 ### Round 14 env

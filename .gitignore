@@ -7,5 +7,6 @@ reference_models
 test_scripts
 */__pycache__
 scratch
+config/r*.json
 
 
