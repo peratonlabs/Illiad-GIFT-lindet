@@ -1,5 +1,9 @@
 # Linear Trojan Detection
 
+This repository contains code developed by the Perspecta Labs/Project Iliad "GIFT" team for the IARPA/TrojAI program. Code was developed by Todd Huster and Emmanuel Ekwedike.
+
+Contact: thuster@peratonlabs.com
+
 ## Setup
 
 Create a suitable conda environment (see [Multiround Environments](#multiround-environments) for more examples)
@@ -51,7 +55,7 @@ To apply this method to a new round, you need to perform the following steps:
 ```
 python wa_detector.py --configure_mode --gift_basepath ./ --configure_models_dirpath /path/to/roundXX --scratch_dirpath ./scratch/trial1 --num_cv_trials 10 --metaparameters_filepath ./config/r11_metaparameters.json --schema_filepath ./config/r11_metaparameters.json --round 11
 ```
-This will crash, but it and find the list of architecture names & number of tensors (e.g., RobertaForQuestionAnswering_103).
+This will crash, but it will give you the list of architecture names & number of tensors (e.g., RobertaForQuestionAnswering_103).
 
 Note that each round may have its own environment issues, which could cause this script to crash prior to printing the architectures.
 
@@ -62,11 +66,15 @@ archlist = ["RobertaForQuestionAnswering_103", "RobertaForQuestionAnswering_199"
 utils.schema_ns.gen_schema("./config/base_schema.json", "./config/rXX_metaparameters_schema.json", archlist)
 utils.schema_ns.gen_init_json("./config/base.json", "./config/rXX_metaparameters.json", archlist)
 ```
+Alternatively (and perhaps better), you can add the archlist to the utils.schema_ns.arch_lists and rerun 
+```
+python -m utils.schema_ns
+```
 
 ### Build a reference model function (optional) 
 To maximize performance on many rounds, we identify the pretrained source model for each architecture. 
 
-This is currently handled with a big if-else statement around line 64 in wa_detector.py. 
+This is currently handled with a big if-else statement around line 71 in wa_detector.py. 
 
 If you would like to use reference models, we recommend the following design pattern:
 ```
@@ -82,12 +90,20 @@ Alternatively, you can skip this step and ignore the reference models. This is r
 Modify rXX_metaparameters.json as desired (defaults are reasonable) and rerun calibration.
 
 ```
-python wa_detector.py --configure_mode --gift_basepath ./ --configure_models_dirpath /path/to/roundXX --scratch_dirpath ./scratch/trial1 --num_cv_trials 10 --metaparameters_filepath ./config/rXX_metaparameters.json --schema_filepath ./config/rXX_metaparameters.json --round XX
+python wa_detector.py --configure_mode --gift_basepath ./ --configure_models_dirpath /path/to/roundXX --scratch_dirpath ./scratch/trial1 --num_cv_trials 10 --metaparameters_filepath ./config/rXX_metaparameters.json --schema_filepath ./config/rXX_metaparameters.json --round XX --learned_parameters_dirpath learned_parameters/roundxx_trial1
 ```
 
 Note that each round may have its own environment issues, which could cause this script to crash.
 
-This will run 10 cross validation trials, then calibrate on the full dataset. To just quickly calibrate, set num_cv_trials to 0 or 1. 
+This will run 10 cross validation trials, then calibrate on the full training dataset. To just quickly calibrate, set num_cv_trials to 0. 
+
+### Hyperparameter Tuning
+If you set --num_cv_trials to a positive number, cv.py gives a simple method for tuning the regularization hyperparameter C.  This only retrains the final linear regressor and avoids rerunning the extensive feature selection procedure. 
+
+```
+python cv.py --cv_dir ./scratch/trial1
+```
+We use this to select a value for C for each architecture, which we place into the final version of the json config and run the calibration routine one final time.
 
 ### Create a singularity file
 Several examples are available in the ./singularity directory. Be sure to update the exec command for the current round. Different rounds may have different environment requirements.
