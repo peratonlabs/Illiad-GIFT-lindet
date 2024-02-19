@@ -5,20 +5,21 @@ import torch
 import numpy as np
 # import lightgbm as lgb
 import os
-import pickle
+
 from utils import utils
 from joblib import dump, load
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.isotonic import IsotonicRegression
+#from sklearn.isotonic import IsotonicRegression
 from sklearn.metrics import roc_auc_score, log_loss
 # import pandas
 
 import torchvision
 from torchvision.models import resnet50, mobilenet_v2
-import timm
-from timm.models.vision_transformer import VisionTransformer
-
+#import timm
+#from timm.models.vision_transformer import VisionTransformer
+import model_factories
+import collections
 
 def get_arch(model_filepath):
     if torch.cuda.is_available():
@@ -26,13 +27,43 @@ def get_arch(model_filepath):
     else:
         model = torch.load(model_filepath, map_location=torch.device('cpu'))
 
-    if isinstance(model, torch.nn.Module):
+    if isinstance(model, model_factories.NerLinearModel):
         numparams = len([p for p in model.parameters()])
+        cls = [p for p in model.modules()][1].__class__.__name__ + '_' + str(numparams)
+    elif isinstance(model, model_factories.LstmLinearModel) or isinstance(model, model_factories.GruLinearModel) or isinstance(model, model_factories.FCLinearModel):
+        params = [p for p in model.parameters()]
+        numparams = len(params)
+        szparams = params[1].shape[0]
+        cls = model.__class__.__name__ + '_' + str(numparams) + '_' + str(szparams)
+    
+    elif isinstance(model, torchvision.models.resnet.ResNet):
+        params = [p for p in model.parameters()]
+        numparams = len(params)
+        width = params[4].shape[0]
+        cls = model.__class__.__name__ + '_' + str(numparams) + '_' + str(width)
+
+    elif isinstance(model, torchvision.models.shufflenetv2.ShuffleNetV2):
+        params = [p for p in model.parameters()]
+        numparams = len(params)
+        width = params[7].shape[0]
+        cls = model.__class__.__name__ + '_' + str(numparams) + '_' + str(width)
+
+    elif isinstance(model, torchvision.models.squeezenet.SqueezeNet):
+        params = [p for p in model.parameters()]
+        numparams = len(params)
+        width = params[1].shape[0]
+        cls = model.__class__.__name__ + '_' + str(numparams) + '_' + str(width)
+    
+    elif isinstance(model, torch.nn.Module):
+        numparams = len([p for p in model.parameters()])
+        cls = model.__class__.__name__ + '_' + str(numparams)
+    elif isinstance(model, collections.OrderedDict):
+        numparams = len(model)
         cls = model.__class__.__name__ + '_' + str(numparams)
     else:
         numparams = len(model['state_dict'])
         cls = model['model'] + '_' + str(numparams)
-    
+    # print(cls)
     return cls
 
 
@@ -50,7 +81,7 @@ def get_archmap(model_filepaths, metadata_path):
             index = ids.index(this_id)
             arch_list.append(archs[index])
     else:
-        arch_list = [get_arch(model_filepath) for model_filepath in model_filepaths]
+        arch_list = [get_arch(model_filepath) for model_filepath in model_filepaths] 
     arch_map = {}
     for i, arch in enumerate(arch_list):
         if arch not in arch_map:
@@ -102,6 +133,7 @@ def arch_train(arch_fns, arch_classes, cfg_dict, ref_model=None):
 
     else:
         assert False, 'bad classifier type'
+    # print(x.shape,arch_classes)
     classifier.fit(x, arch_classes)
 
     return weight_mapping, classifier
@@ -203,25 +235,31 @@ def get_metric_batched(x,y, maxelements=600000000, fun=get_corr):
     return np.concatenate(this_param_metric)
 
 
-def get_deltas(model_or_path, ref_model=None, norm=None):
-    if not isinstance(model_or_path, torch.nn.Module):
-        if torch.cuda.is_available():
-            model = torch.load(model_or_path)
-        else:
-            model = torch.load(model_or_path, map_location=torch.device('cpu'))
+def get_deltas(model_or_path, ref_model=None, norm=None, psort=False):
+
+    device = 'cuda' if torch.cuda.is_available() else 'cpu'
+
+    if isinstance(model_or_path, str):
+        model = torch.load(model_or_path, map_location=torch.device(device))
     else:
         model = model_or_path
-    if torch.cuda.is_available():
-        model.cuda()
 
-    if ref_model is None:
-        ps = [mp.data for mp in model.parameters()]
+    if type(model)==collections.OrderedDict: #state dictionary
+        ps = [v.data.to(device) for k, v in model.items() if len(v.shape)>0]
     else:
-        ps = []
-        for p, ref_p in zip(model.parameters(), ref_model.parameters()):
-            if p.shape == ref_p.shape:
-                ps.append(p.data-ref_p.data)
+        if type(model)==dict:
+            import utils.models_r16
+            model, model_repr, model_class = utils.models_r16.load_model(model_or_path)
+        ps = [mp.data.to(device) for mp in model.parameters()]
 
+    if ref_model is not None:
+        ref_ps = [rp.data.to(device) for rp in ref_model.parameters()]
+        final_ps = []
+        for p, ref_p in zip(ps, ref_ps):
+            if p.shape == ref_p.shape:
+                final_ps.append(p.data-ref_p.data)
+        ps = final_ps
+    
     if norm is not None:
         if norm=='pnorm':
             ps_new = []
@@ -242,21 +280,34 @@ def get_deltas(model_or_path, ref_model=None, norm=None):
                 scaling_factor = norm
 
             ps = [p/scaling_factor for p in ps]
+    
+    if psort:
+        ps = [p.sort()[0] for p in ps]
 
     return ps
+
+
+def proc_feat_type(feat_type, ref_model):
+    if feat_type == 'raw':
+        norm_type = None
+    elif feat_type == 'cosine_delta' or feat_type == 'cosine':
+        norm_type = 'cosine'
+    elif feat_type == 'white_delta' or feat_type == 'white':
+        norm_type = 'white'
+    elif feat_type == 'pnorm_delta' or feat_type == 'pnorm':
+        norm_type = 'pnorm'
+
+    if "_delta" not in feat_type:
+        ref_model = None
+
+    return norm_type, ref_model
+
 
 
 def get_mapped_weights(model_filepath, weight_mapping, cfg_dict, ref_model=None):
     # print(ref_model)
 
-    if cfg_dict['features'] == 'raw':
-        norm_type = None
-    elif cfg_dict['features'] == 'cosine_delta' or cfg_dict['features'] == 'cosine':
-        norm_type = 'cosine'
-    elif cfg_dict['features'] == 'white_delta' or cfg_dict['features'] == 'white':
-        norm_type = 'white'
-    elif cfg_dict['features'] == 'pnorm_delta' or cfg_dict['features'] == 'pnorm':
-        norm_type = 'pnorm'
+    norm_type, ref_model = proc_feat_type(cfg_dict['features'], ref_model)
 
     if cfg_dict['normalize_for_feature_selection']:
         post_norm = None
@@ -264,8 +315,10 @@ def get_mapped_weights(model_filepath, weight_mapping, cfg_dict, ref_model=None)
     else:
         post_norm = norm_type
         feat_sel_norm = None
-
-    ps = get_deltas(model_filepath, ref_model=ref_model, norm=feat_sel_norm)
+    
+    with torch.no_grad():
+        ps = get_deltas(model_filepath, ref_model=ref_model, norm=feat_sel_norm, psort=cfg_dict["sort_tensors"])
+    
     mapped_weights = []
 
     for i in range(len(weight_mapping)):
@@ -284,17 +337,18 @@ def get_mapped_weights(model_filepath, weight_mapping, cfg_dict, ref_model=None)
     return mapped_weights
 
 
-def get_params(models, start_ind, num_params, ref_model=None, norm=None, pinds=None):
+def get_params(models, start_ind, num_params, ref_model=None, norm=None, pinds=None, psort=False):
 
     output_ps = []
     for model in models:
-        ps = get_deltas(model, ref_model=ref_model, norm=norm)
+        ps = get_deltas(model, ref_model=ref_model, norm=norm, psort=False)
         if pinds is None:
             ps = ps[start_ind:start_ind+num_params]
         else:
             ps = [ps[pind] for pind in pinds]
         # ps = [p.cpu().detach().numpy().reshape(-1) for p in ps]
         ps = [p.reshape(-1).cpu() for p in ps]
+        
 
         if len(output_ps)==0:
             output_ps = [[p] for p in ps]
@@ -327,22 +381,29 @@ def detect(fn, weight_mapping, classifier, cfg_dict, ref_model=None):
 
 def cv_arch_train(arch_fns, arch_classes, cfg_dict, holdout_ratio=0.1, num_cvs=10, cv_scratch_dir=None, arch=None, ref_model=None):
 
-
+    # x1,x2,y1,y2 = get_good_split(arch_fns, arch_classes, holdout_ratio=holdout_ratio, ignore_val=True)
     ns = arch_classes.shape[0]
     inds = np.arange(ns)
-    split_ind = round((1 - holdout_ratio) * ns)
+    # split_ind = round((1 - holdout_ratio) * ns)
+    # print(ns, split_ind)
+    # if split_ind == ns:
+    #     split_ind = ns-1
 
     cvcal_scores = []
     truths = []
     for i in range(num_cvs):
-        np.random.shuffle(inds)
-        trinds = inds[:split_ind]
-        vinds = inds[split_ind:]
+        tr_fns,v_fns,tr_cls,v_cls = get_good_split(arch_fns, arch_classes, holdout_ratio=holdout_ratio, ignore_val=True)
 
-        tr_fns = arch_fns[trinds]
-        tr_cls = arch_classes[trinds]
-        v_fns = arch_fns[vinds]
-        v_cls = arch_classes[vinds]
+
+
+        # np.random.shuffle(inds)
+        # trinds = inds[:split_ind]
+        # vinds = inds[split_ind:]
+
+        # tr_fns = arch_fns[trinds]
+        # tr_cls = arch_classes[trinds]
+        # v_fns = arch_fns[vinds]
+        # v_cls = arch_classes[vinds]
 
         # dump_fn = None if cv_scratch_dir is  None else os.path.join(cv_scratch_dir, 'cvdump' + str(i) + '.p')
 
@@ -359,7 +420,8 @@ def cv_arch_train(arch_fns, arch_classes, cfg_dict, holdout_ratio=0.1, num_cvs=1
             xtr = [get_mapped_weights(fn, weight_mapping, cfg_dict, ref_model=ref_model) for fn in tr_fns]
             xtr = np.stack(xtr)
             xv = [get_mapped_weights(fn, weight_mapping, cfg_dict, ref_model=ref_model) for fn in v_fns]
-            xv = np.stack(xv)
+            if len(xv)>0:
+                xv = np.stack(xv)
 
             # dump_data = [xtr, tr_cls, xv, v_cls]
             xstats = None
@@ -372,10 +434,14 @@ def cv_arch_train(arch_fns, arch_classes, cfg_dict, holdout_ratio=0.1, num_cvs=1
         pv = [detect(fn, weight_mapping, classifier, cfg_dict, ref_model=ref_model) for fn in v_fns]
 
         # pv = classifier.predict_proba(xv)[:, 1]
+        
+        ce=log_loss(v_cls, pv, labels=[0,1])
         try:
-            print(roc_auc_score(v_cls, pv), log_loss(v_cls, pv))
+            print('auc =', roc_auc_score(v_cls, pv), ', ce =',ce)
         except:
-            print('AUC error (probably due to class balance)')
+            #print('AUC error (probably due to class balance)')
+            print('auc error (probably due to class balance)', ', ce =',ce)
+        
         cvcal_scores.append(pv)
         truths.append(v_cls)
 
@@ -421,15 +487,9 @@ def select_feats(model_fns, labels, cfg_dict, ref_model=None):
     criterion = cfg_dict['feature_selection_criterion']
     param_batch_sz = cfg_dict['param_batch_sz']
 
+    norm_type, ref_model = proc_feat_type(cfg_dict['features'], ref_model)
     if cfg_dict['normalize_for_feature_selection']:
-        if cfg_dict['features'] == 'cosine_delta' or cfg_dict['features'] == 'cosine':
-            norm = 'cosine'
-        elif cfg_dict['features'] == 'white_delta' or cfg_dict['features'] == 'white':
-            norm = 'white'
-        elif cfg_dict['features'] == 'pnorm_delta' or cfg_dict['features'] == 'pnorm':
-            norm = 'pnorm'
-        else:
-            norm = None
+        norm = norm_type
     else:
         norm = None
 
@@ -479,8 +539,11 @@ def select_feats(model_fns, labels, cfg_dict, ref_model=None):
 
     weight_mapping = []
     for auc in aucs:
-        weight_mapping.append(auc >= thr)
-
+        cur_weight_mapping = auc >= thr
+        cur_weight_mapping2 = np.where(cur_weight_mapping)[0]
+        
+        weight_mapping.append(cur_weight_mapping2)
+        
     torch.cuda.empty_cache()
     return weight_mapping
     # x = [get_mapped_weights(fn, weight_mapping) for fn in arch_fns]
@@ -488,18 +551,32 @@ def select_feats(model_fns, labels, cfg_dict, ref_model=None):
     # x = np.stack(x)
 
 
-def get_good_split(x, labels, holdout_ratio=0.9):
+def get_good_split(x, labels, holdout_ratio=0.1, ignore_val=False):
 
-    assert (labels==0).sum()>1 and (labels==1).sum()>1, "can't split data without multiple examples of each class"
+    # print((labels==0).sum(), (labels==1).sum())
+
+    if ignore_val:
+        assert (labels==0).sum()>0 and (labels==1).sum()>0, "can't split data without multiple examples of each class"
+    else:
+        assert (labels==0).sum()>1 and (labels==1).sum()>1, "can't split data without multiple examples of each class"
 
     ns = x.shape[0]
     inds = np.arange(ns)
     split_ind = round((1 - holdout_ratio) * ns)
 
+    if not ignore_val and split_ind > ns-2:
+        split_ind = ns-2
+
     labels_tr = []
     labels_val = []
 
-    while 0 not in labels_tr or 1 not in labels_tr or 0 not in labels_val or 1 not in labels_val:
+    # print(ns, split_ind)
+    # print(split_ind)
+
+
+
+    while 0 not in labels_tr or 1 not in labels_tr or ( not ignore_val and (0 not in labels_val or 1 not in labels_val)):
+        # print((0 not in labels_tr or 1 not in labels_tr) )
         np.random.shuffle(inds)
         trinds = inds[:split_ind]
         vinds = inds[split_ind:]
@@ -529,6 +606,9 @@ def select_pinds(model_fns, labels, cfg_dict, norm, ref_model=None):
     ntrials = 10
     holdout_ratio = 0.2
     # ntensors = 25
+    # if ntensors == 0:
+    #     return select_feats(model_fns, labels, cfg_dict, ref_model=ref_model)
+
     nfeats = round(nfeats/ntensors)
 
     ind = 0
@@ -586,6 +666,10 @@ def select_pinds(model_fns, labels, cfg_dict, norm, ref_model=None):
 
 
 def select_feats2(model_fns, labels, cfg_dict, ref_model=None):
+
+    if cfg_dict['ntensors'] == 0:   
+        return select_feats(model_fns, labels, cfg_dict, ref_model=ref_model)
+    
     labels = torch.tensor(labels)
     if torch.cuda.is_available():
         labels = labels.cuda()
@@ -593,15 +677,9 @@ def select_feats2(model_fns, labels, cfg_dict, ref_model=None):
     criterion = cfg_dict['feature_selection_criterion']
     param_batch_sz = cfg_dict['param_batch_sz']
 
+    norm_type, ref_model = proc_feat_type(cfg_dict['features'], ref_model)
     if cfg_dict['normalize_for_feature_selection']:
-        if cfg_dict['features'] == 'cosine_delta' or cfg_dict['features'] == 'cosine':
-            norm = 'cosine'
-        elif cfg_dict['features'] == 'white_delta' or cfg_dict['features'] == 'white':
-            norm = 'white'
-        elif cfg_dict['features'] == 'pnorm_delta' or cfg_dict['features'] == 'pnorm':
-            norm = 'pnorm'
-        else:
-            norm = None
+        norm = norm_type
     else:
         norm = None
 
@@ -632,8 +710,8 @@ def select_feats2(model_fns, labels, cfg_dict, ref_model=None):
         else:
             thr = -np.inf
         cur_weight_mapping = this_aucs >= thr
-
-        weight_mapping[pind] = cur_weight_mapping
+        cur_weight_mapping2 = np.where(cur_weight_mapping)[0]
+        weight_mapping[pind] = cur_weight_mapping2
         torch.cuda.empty_cache()
 
     del xs

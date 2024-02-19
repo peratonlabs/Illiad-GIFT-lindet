@@ -1,0 +1,11 @@
+{
+  "nfeats": 1000,
+  "cls_type": "LogisticRegression",
+  "param_batch_sz": 80,
+  "C": 0.3,
+  "feature_selection_criterion": "auc",
+  "normalize_for_feature_selection": true,
+  "features": "pnorm_delta",
+  "ntensors": 25,
+  "sort_tensors": true
+}

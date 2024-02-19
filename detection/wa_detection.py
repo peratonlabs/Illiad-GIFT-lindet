@@ -8,7 +8,7 @@ from sklearn.metrics import roc_auc_score, log_loss
 from detection.feature_selection import detect, get_arch, get_archmap, arch_train, get_mapped_weights, cv_arch_train
 import torch
 from torchvision.models import resnet50, mobilenet_v2
-import timm
+# import timm
 
 
 
@@ -159,7 +159,7 @@ def cal(arg_dict, metaParameters, ref_model_function=None):
         if use_ISO:
             ISO_arch_classifiers[arch] = ir_model
 
-
+    os.makedirs(os.path.join(arg_dict['learned_parameters_dirpath']), exist_ok=True)
     if use_ISO:
         dump([arch_weight_mappings, arch_classifiers, ISO_arch_classifiers, cfg_dicts], os.path.join(arg_dict['learned_parameters_dirpath'], 'wa_lr.joblib'))
     else:

@@ -1,0 +1,24 @@
+Bootstrap: docker
+From: python:3.8-bullseye
+
+%files
+    ./wa_detector.py /gift/
+    ./model_factories.py /gift/
+    ./models.py /gift/
+    ./reference_models/FasterRCNN_209.pt /gift/reference_models/
+    ./reference_models/SSD_71.pt /gift/reference_models
+    ./reference_models/DetrForObjectDetection_326_r13.pt /gift/reference_models
+    ./utils /gift/
+    ./detection /gift/
+    ./config /gift/
+    ./config/final/r13B_metaparameters.json /metaparameters.json
+    ./config/r13_metaparameters_schema.json /metaparameters_schema.json
+    ./learned_parameters/alllins/round13B/lp/wa_lr.joblib /learned_parameters/wa_lr.joblib
+    
+%post
+    pip install --upgrade pip
+    pip install torch==1.13.1+cu116 torchvision==0.14.1+cu116 torchaudio==0.13.1 --extra-index-url https://download.pytorch.org/whl/cu116
+    pip install timm transformers==4.23.1 jsonschema jsonargparse jsonpickle scikit-learn scikit-image
+
+%runscript
+    exec python3 /gift/wa_detector.py --round 13 "$@"

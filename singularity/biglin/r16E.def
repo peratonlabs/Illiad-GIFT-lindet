@@ -1,0 +1,23 @@
+Bootstrap: docker
+From: python:3.8-bullseye
+
+%files
+    ./wa_detector.py /gift/
+    ./model_factories.py /gift/
+    ./reference_models/frcnn_COCO_V1.pt /gift/reference_models/
+    ./utils /gift/
+    ./detection /gift/
+    ./config /gift/
+    ./config/final/r16E_metaparameters.json /metaparameters.json
+    ./config/r16_metaparameters_schema.json /metaparameters_schema.json
+    ./learned_parameters/alllins/round16E/lp/wa_lr.joblib /learned_parameters/wa_lr.joblib
+    
+%post
+    pip install --upgrade pip
+    pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+    pip install gym gymnasium minigrid jsonschema jsonpickle scikit-learn opencv-python
+    pip install jsonargparse==4.23.0
+
+
+%runscript
+    exec python3 /gift/wa_detector.py --round 16 "$@"

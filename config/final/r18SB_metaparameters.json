@@ -1,0 +1,20 @@
+{
+    "train_$OrderedDict_127$nfeats": 1000,
+    "train_$OrderedDict_127$cls_type": "LogisticRegression",
+    "train_$OrderedDict_127$param_batch_sz": 80,
+    "train_$OrderedDict_127$C": 0.003,
+    "train_$OrderedDict_127$feature_selection_criterion": "auc",
+    "train_$OrderedDict_127$normalize_for_feature_selection": true,
+    "train_$OrderedDict_127$features": "white_delta",
+    "train_$OrderedDict_127$ntensors": 25,
+    "train_$OrderedDict_127$sort_tensors": true,
+    "train_$OrderedDict_223$nfeats": 1000,
+    "train_$OrderedDict_223$cls_type": "LogisticRegression",
+    "train_$OrderedDict_223$param_batch_sz": 80,
+    "train_$OrderedDict_223$C": 0.003,
+    "train_$OrderedDict_223$feature_selection_criterion": "auc",
+    "train_$OrderedDict_223$normalize_for_feature_selection": true,
+    "train_$OrderedDict_223$features": "white_delta",
+    "train_$OrderedDict_223$ntensors": 25,
+    "train_$OrderedDict_223$sort_tensors": true
+}
