@@ -19,6 +19,7 @@ from torchvision.models import resnet50, mobilenet_v2
 #import timm
 #from timm.models.vision_transformer import VisionTransformer
 import model_factories
+import collections
 
 def get_arch(model_filepath):
     if torch.cuda.is_available():
@@ -55,6 +56,9 @@ def get_arch(model_filepath):
     
     elif isinstance(model, torch.nn.Module):
         numparams = len([p for p in model.parameters()])
+        cls = model.__class__.__name__ + '_' + str(numparams)
+    elif isinstance(model, collections.OrderedDict):
+        numparams = len(model)
         cls = model.__class__.__name__ + '_' + str(numparams)
     else:
         numparams = len(model['state_dict'])
@@ -232,27 +236,30 @@ def get_metric_batched(x,y, maxelements=600000000, fun=get_corr):
 
 
 def get_deltas(model_or_path, ref_model=None, norm=None, psort=False):
-    if not isinstance(model_or_path, torch.nn.Module):
-        if torch.cuda.is_available():
-            model = torch.load(model_or_path)
-        else:
-            model = torch.load(model_or_path, map_location=torch.device('cpu'))
+
+    device = 'cuda' if torch.cuda.is_available() else 'cpu'
+
+    if isinstance(model_or_path, str):
+        model = torch.load(model_or_path, map_location=torch.device(device))
+    else:
+        model = model_or_path
+
+    if type(model)==collections.OrderedDict: #state dictionary
+        ps = [v.data.to(device) for k, v in model.items() if len(v.shape)>0]
+    else:
         if type(model)==dict:
             import utils.models_r16
             model, model_repr, model_class = utils.models_r16.load_model(model_or_path)
-    else:
-        model = model_or_path
-    if torch.cuda.is_available():
-        model.cuda()
+        ps = [mp.data.to(device) for mp in model.parameters()]
 
-    if ref_model is None:
-        ps = [mp.data for mp in model.parameters()]
-    else:
-        ps = []
-        for p, ref_p in zip(model.parameters(), ref_model.parameters()):
+    if ref_model is not None:
+        ref_ps = [rp.data.to(device) for rp in ref_model.parameters()]
+        final_ps = []
+        for p, ref_p in zip(ps, ref_ps):
             if p.shape == ref_p.shape:
-                ps.append(p.data-ref_p.data)
-
+                final_ps.append(p.data-ref_p.data)
+        ps = final_ps
+    
     if norm is not None:
         if norm=='pnorm':
             ps_new = []
@@ -294,6 +301,7 @@ def proc_feat_type(feat_type, ref_model):
         ref_model = None
 
     return norm_type, ref_model
+
 
 
 def get_mapped_weights(model_filepath, weight_mapping, cfg_dict, ref_model=None):
@@ -426,10 +434,14 @@ def cv_arch_train(arch_fns, arch_classes, cfg_dict, holdout_ratio=0.1, num_cvs=1
         pv = [detect(fn, weight_mapping, classifier, cfg_dict, ref_model=ref_model) for fn in v_fns]
 
         # pv = classifier.predict_proba(xv)[:, 1]
+        
+        ce=log_loss(v_cls, pv, labels=[0,1])
         try:
-            print(roc_auc_score(v_cls, pv), log_loss(v_cls, pv))
+            print('auc =', roc_auc_score(v_cls, pv), ', ce =',ce)
         except:
-            print('AUC error (probably due to class balance)')
+            #print('AUC error (probably due to class balance)')
+            print('auc error (probably due to class balance)', ', ce =',ce)
+        
         cvcal_scores.append(pv)
         truths.append(v_cls)
 
