@@ -1,10 +1,8 @@
 # Linear Trojan Detection
 
-
-
 ## Setup
 
-Create a suitable conda environment (see [Multiround Environments](#envs) for more examples)
+Create a suitable conda environment (see [Multiround Environments](#multiround-environments) for more examples)
 
 ```
 conda create -n rXX python=3.8.17
@@ -98,7 +96,7 @@ Several examples are available in the ./singularity directory. Be sure to update
 See above.
 
 
-## Multiround Environments {#envs}
+## Multiround Environments
 
 
 ### Round XX env
