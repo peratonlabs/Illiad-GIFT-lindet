@@ -4,7 +4,7 @@
 
 ## Setup
 
-Create a suitable conda environment (see [Multiround Environments] for more examples)
+Create a suitable conda environment (see [Multiround Environments](Multiround Environments) for more examples)
 
 ```
 conda create -n rXX python=3.8.17
