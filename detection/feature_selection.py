@@ -282,7 +282,7 @@ def get_deltas(model_or_path, ref_model=None, norm=None, psort=False):
             ps = [p/scaling_factor for p in ps]
     
     if psort:
-        ps = [p.sort()[0] for p in ps]
+        ps = [p.reshape(-1).sort()[0] for p in ps]
 
     return ps
 
@@ -341,7 +341,7 @@ def get_params(models, start_ind, num_params, ref_model=None, norm=None, pinds=N
 
     output_ps = []
     for model in models:
-        ps = get_deltas(model, ref_model=ref_model, norm=norm, psort=False)
+        ps = get_deltas(model, ref_model=ref_model, norm=norm, psort=psort)
         if pinds is None:
             ps = ps[start_ind:start_ind+num_params]
         else:
@@ -497,7 +497,7 @@ def select_feats(model_fns, labels, cfg_dict, ref_model=None):
     aucs = []
     while True:
         # print('starting param', ind)
-        xs = get_params(model_fns, ind, param_batch_sz, ref_model=ref_model, norm=norm)
+        xs = get_params(model_fns, ind, param_batch_sz, ref_model=ref_model, norm=norm, psort=cfg_dict['sort_tensors'])
         torch.cuda.empty_cache()
         xs_len = len(xs)
 
@@ -616,7 +616,7 @@ def select_pinds(model_fns, labels, cfg_dict, norm, ref_model=None):
     param_aucs = []
 
     while True:
-        xs = get_params(model_fns, ind, param_batch_sz, ref_model=ref_model, norm=norm)
+        xs = get_params(model_fns, ind, param_batch_sz, ref_model=ref_model, norm=norm, psort=cfg_dict['sort_tensors'])
         torch.cuda.empty_cache()
         xs_len = len(xs)
         
@@ -688,7 +688,7 @@ def select_feats2(model_fns, labels, cfg_dict, ref_model=None):
     pinds = select_pinds(model_fns, labels, cfg_dict, norm, ref_model=ref_model)
     weight_mapping = [[] for i in range(1+max(pinds))]
 
-    xs = get_params(model_fns, 0, param_batch_sz, ref_model=ref_model, norm=norm, pinds=pinds)
+    xs = get_params(model_fns, 0, param_batch_sz, ref_model=ref_model, norm=norm, pinds=pinds, psort=cfg_dict['sort_tensors'])
 
     torch.cuda.empty_cache()
     xs_len = len(xs)
