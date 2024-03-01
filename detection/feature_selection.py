@@ -593,10 +593,10 @@ def select_pinds(model_fns, labels, cfg_dict, norm, ref_model=None):
     # labels = torch.tensor(labels)
     if torch.cuda.is_available():
         labels = labels.cuda()
-    nfeats = cfg_dict['nfeats']
+    # nfeats = cfg_dict['nfeats']
     criterion = cfg_dict['feature_selection_criterion']
     param_batch_sz = cfg_dict['param_batch_sz']
-    
+
 
     ntensors = cfg_dict['ntensors']
     # ntrials = cfg_dict['ntrials']
@@ -609,7 +609,7 @@ def select_pinds(model_fns, labels, cfg_dict, norm, ref_model=None):
     # if ntensors == 0:
     #     return select_feats(model_fns, labels, cfg_dict, ref_model=ref_model)
 
-    nfeats = round(nfeats/ntensors)
+    nfeats_per_tensor = cfg_dict['_nfeats_per_tensor']
 
     ind = 0
 
@@ -636,8 +636,8 @@ def select_pinds(model_fns, labels, cfg_dict, norm, ref_model=None):
 
                 aucscopy = this_aucs.copy()
                 aucscopy.sort()
-                if aucscopy.shape[0]>nfeats:
-                    thr = aucscopy[-nfeats]
+                if aucscopy.shape[0]>nfeats_per_tensor:
+                    thr = aucscopy[-nfeats_per_tensor]
                 else:
                     thr = -np.inf
                 cur_weight_mapping = this_aucs >= thr
@@ -674,6 +674,11 @@ def select_feats2(model_fns, labels, cfg_dict, ref_model=None):
     if torch.cuda.is_available():
         labels = labels.cuda()
     nfeats = cfg_dict['nfeats']
+    ntensors = cfg_dict['ntensors']
+    nfeats_per_tensor = round(nfeats/ntensors)
+
+    cfg_dict['_nfeats_per_tensor'] = nfeats_per_tensor
+
     criterion = cfg_dict['feature_selection_criterion']
     param_batch_sz = cfg_dict['param_batch_sz']
 
@@ -688,7 +693,7 @@ def select_feats2(model_fns, labels, cfg_dict, ref_model=None):
     pinds = select_pinds(model_fns, labels, cfg_dict, norm, ref_model=ref_model)
     weight_mapping = [[] for i in range(1+max(pinds))]
 
-    xs = get_params(model_fns, 0, param_batch_sz, ref_model=ref_model, norm=norm, pinds=pinds, psort=cfg_dict['sort_tensors'])
+    xs = get_params(model_fns, -1, -1, ref_model=ref_model, norm=norm, pinds=pinds, psort=cfg_dict['sort_tensors'])
 
     torch.cuda.empty_cache()
     xs_len = len(xs)
@@ -705,8 +710,8 @@ def select_feats2(model_fns, labels, cfg_dict, ref_model=None):
         this_aucs += 1E-8 * np.random.randn(*this_aucs.shape)
         aucscopy = this_aucs.copy()
         aucscopy.sort()
-        if aucscopy.shape[0]>nfeats:
-            thr = aucscopy[-nfeats]
+        if aucscopy.shape[0]>nfeats_per_tensor:
+            thr = aucscopy[-nfeats_per_tensor]
         else:
             thr = -np.inf
         cur_weight_mapping = this_aucs >= thr
