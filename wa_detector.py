@@ -1,9 +1,9 @@
 import warnings
 warnings.filterwarnings("ignore")
 from core.lindet import LinDet
-from utils import schema_ns
+from core import schema_ns
 import numpy as np
-
+import torch
 
 if __name__ == "__main__":
     import json
@@ -53,7 +53,8 @@ if __name__ == "__main__":
     if args.configure_mode:
         if (args.learned_parameters_dirpath != None and args.configure_models_dirpath != None ):
             print(f"Configure Mode Activated: Calibrating Detector(s)!")
-            lindet.cal(args.configure_models_dirpath)
+            with torch.no_grad():
+                lindet.cal(args.configure_models_dirpath)
         else:
             print("Required Self-Tune-Mode parameters missing!")
     else:
@@ -63,7 +64,8 @@ if __name__ == "__main__":
                 args.examples_dirpath != None and
                 args.learned_parameters_dirpath is not None and
                 args.metaparameters_filepath is not None):
-            trojan_probability = lindet.det(model_filepath=args.model_filepath)
+            with torch.no_grad():
+                trojan_probability = lindet.det(model_filepath=args.model_filepath)
             print("Trojan prob (before clipping ): ", trojan_probability)
             trojan_probability = np.clip(trojan_probability, 0.01, 0.99)
             with open(args.result_filepath, 'w') as fh:
