@@ -30,6 +30,11 @@ This library works on NeurIPS Trojan Detection Challenge 2022, but there is one 
 pip install vit_pytorch
 python convert_tdc.py --tdc_train_path /path/to/tdc/detection/train
 ```
+Notes: 
+ - This makes a duplicate of the whole dataset (simlinks might make more sense)
+ - We create a "models" directory and a ground truth CSV to match the TrojAI format
+ - CIFAR-10 and CIFAR-100 models both use the same architecture, but may benefit from being separated.
+ - Users can make custom data splits by using subsets of the folders
 
 ## Examples Usages
 
