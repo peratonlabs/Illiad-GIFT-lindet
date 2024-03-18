@@ -201,7 +201,8 @@ arch_lists = {
     14: ["SimplifiedRLStarter_18", "BasicFCModel_12"],
     15: ["RobertaForQuestionAnswering_103", "RobertaForQuestionAnswering_199", "MobileBertForQuestionAnswering_1113"],
     16: ['FCModel_16', 'CNNModel_14'],
-    18: ['OrderedDict_127', 'OrderedDict_223']
+    18: ['OrderedDict_127', 'OrderedDict_223'],
+    'tdc': ['WideResNet_116']
 }
 
 
