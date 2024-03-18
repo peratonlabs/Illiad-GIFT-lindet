@@ -23,7 +23,13 @@ Automatically generate schemas and baseline metaparameter configs.
 ```
 python -m utils.schema_ns
 ```
+### TDC 22 Setup
+This library works on NeurIPS Trojan Detection Challenge 2022, but there is one additional dependency and the directory structure is different. To run on TDC:
 
+```
+pip install vit_pytorch
+python convert_tdc.py --tdc_train_path /path/to/tdc/detection/train
+```
 
 ## Examples Usages
 
