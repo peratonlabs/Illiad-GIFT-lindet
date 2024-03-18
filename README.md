@@ -21,7 +21,7 @@ pip install timm==0.9.7
 
 Automatically generate schemas and baseline metaparameter configs.
 ```
-python -m utils.schema_ns
+python -m core.schema_ns
 ```
 ### TDC 22 Setup
 This library works on NeurIPS Trojan Detection Challenge 2022, but there is one additional dependency and the directory structure is different. To run on TDC:
