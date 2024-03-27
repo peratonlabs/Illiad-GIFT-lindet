@@ -54,6 +54,20 @@ def sort1(p):
         return p.reshape(-1).sort()[0]
     else:
         return dimlist_sort(p, dimlist=(1,))
+        
+def sort_out_in(p):
+    if len(p.shape) <= 1:
+        return p.reshape(-1).sort()[0]
+    else:
+        p = p.reshape(p.shape[0], -1)
+        return dimlist_sort(p, dimlist=(0, 1))
+        
+def sort_in_out(p):
+    if len(p.shape) <= 1:
+        return p.reshape(-1).sort()[0]
+    else:
+        p = p.reshape(p.shape[0], -1)
+        return dimlist_sort(p, dimlist=(1, 0))
 
 
 ############## Common Functions ##############

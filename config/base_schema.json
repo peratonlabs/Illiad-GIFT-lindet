@@ -81,7 +81,10 @@
         "sort01",
         "sort10",
         "sort0",
-        "sort1"
+        "sort1",
+        "sort_in_out",
+        "sort_out_in"
+        
       ],
       "description": "transform performed on each tensor prior to feature selection"
     }
