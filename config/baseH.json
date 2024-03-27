@@ -7,5 +7,5 @@
   "normalize_for_feature_selection": true,
   "features": "white",
   "ntensors": 0,
-  "sort_tensors": true
+  "tensor_transform": "sort_all"
 }

@@ -30,10 +30,10 @@ class ArchLinDet:
             self.post_norm = norm_type
             self.feat_sel_norm = None
 
-        if cfg_dict['sort_tensors']:
-            self.tensor_transform = core.transforms.sort_all
-        else:
+        if cfg_dict['tensor_transform'] == "None":
             self.tensor_transform = None
+        else:
+            self.tensor_transform = getattr(core.transforms, cfg_dict['tensor_transform'])
 
     def detect(self, model_or_path):
         # Runs the detector on this model, returns P(trojan)

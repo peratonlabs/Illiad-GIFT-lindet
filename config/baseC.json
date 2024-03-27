@@ -7,5 +7,5 @@
   "normalize_for_feature_selection": true,
   "features": "pnorm_delta",
   "ntensors": 0,
-  "sort_tensors": false
+  "tensor_transform": "None"
 }

@@ -70,9 +70,18 @@
       "type": "boolean",
       "description": "whether or not to apply normalization before feature selection"
     },
-    "sort_tensors": {
-      "type": "boolean",
-      "description": "whether or not to sort tensors"
+    "tensor_transform": {
+      "enum": [
+        "None",
+        "sort_all",
+        "pca_eigenvalues",
+        "pca_tensor",
+        "pca_components",
+        "sv",
+        "sort01",
+        "sort10"
+      ],
+      "description": "transform performed on each tensor prior to feature selection"
     }
   }
 }
