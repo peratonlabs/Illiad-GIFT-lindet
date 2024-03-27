@@ -79,7 +79,9 @@
         "pca_components",
         "sv",
         "sort01",
-        "sort10"
+        "sort10",
+        "sort0",
+        "sort1"
       ],
       "description": "transform performed on each tensor prior to feature selection"
     }

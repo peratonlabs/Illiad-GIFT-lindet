@@ -43,6 +43,19 @@ def sort10(p):
         return dimlist_sort(p, dimlist=(1, 0))
 
 
+def sort0(p):
+    if len(p.shape) <= 1:
+        return p.reshape(-1).sort()[0]
+    else:
+        return dimlist_sort(p, dimlist=(0,))
+
+def sort1(p):
+    if len(p.shape) <= 1:
+        return p.reshape(-1).sort()[0]
+    else:
+        return dimlist_sort(p, dimlist=(1,))
+
+
 ############## Common Functions ##############
 
 
