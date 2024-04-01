@@ -1,20 +1,18 @@
+
 import torch
 from sklearn.decomposition import PCA
 
-
 ############## Valid Transform Functions ##############
-
 
 def sort_all(p):
     return p.reshape(-1).sort()[0]
-
 
 def pca_eigenvalues(p):
     return pca_feature(p, "eigenvalues")
 
 
-def pca_tensor(p):
-    return pca_feature(p, "tensor")
+def pca_rightsingular(p):
+    return pca_feature(p, "rightsingular")
 
 
 def pca_components(p):
@@ -69,11 +67,15 @@ def sort_in_out(p):
         p = p.reshape(p.shape[0], -1)
         return dimlist_sort(p, dimlist=(1, 0))
 
-
 ############## Common Functions ##############
 
+    
+def effective_dims(tensor):
+    return sum(d > 1 for d in tensor.shape)
 
 def pca_feature(tensor, feature_type):
+    tensor = tensor.squeeze() # remove all dimensions of size 1
+    #ndim = effective_dims(tensor)
     if tensor.ndim == 1:
         ps = tensor
     elif tensor.ndim >= 2:
@@ -81,19 +83,22 @@ def pca_feature(tensor, feature_type):
         tensor = tensor.reshape(tensor.shape[0], -1)
         kd = int(tensor.shape[1]/4.)
         k = min(kd, tensor.shape[0])
-        pca = PCA(n_components=k)
-        tensor_cpu = tensor.cpu().detach().numpy()
-        tensor_pca = pca.fit_transform(tensor_cpu)
-        eigenvalues = pca.explained_variance_
-        components = pca.components_
-        # Convert the PCA result back to a PyTorch tensor and move to CUDA
-        original_device = tensor.device
+        U, S, V = torch.pca_lowrank(tensor, q=k)
+        #U: contains the left singular vectors (principal components) of the input data matrix. These are the eigenvectors of 
+        #   the covariance matrix of the dataset, which represent the directions of maximum variance in the data.
+        #S: is a diagonal matrix containing the singular values, which are related to the eigenvalues of the covariance matrix of the dataset.
+        #   These values quantify the amount of variance captured by each principal component.
+        #V: contains the right singular vectors, which represent the coefficients for each principal component, loadings matrix,
+        #   providing a basis for transforming the original data into the principal component space.
+        rightsingular = V
+        eigenvalues = S
+        components = U
         if feature_type == "eigenvalues":
-            pca_feature = torch.tensor(eigenvalues, device=original_device)
-        elif feature_type == "tensor":
-            pca_feature = torch.tensor(tensor_pca, device=original_device)
+            pca_feature = eigenvalues
+        elif feature_type == "rightsingular":
+            pca_feature = rightsingular
         elif feature_type == "components":
-            pca_feature = torch.tensor(components, device=original_device)
+            pca_feature = components
         else:
             print(f'Wrong feature type given: {feature_type}')
             exit(1)
@@ -102,6 +107,7 @@ def pca_feature(tensor, feature_type):
         print("should not be here tensor.ndim {tensor.ndim} ")
         exit(1)
     return ps
+
 
 
 # def sort_or_norm(p, normlist=(), sortlist=()):

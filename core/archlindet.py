@@ -119,7 +119,10 @@ class ArchLinDet:
 
         if self.tensor_transform is not None:
             ps = [self.tensor_transform(p) for p in ps]
-
+            
+            if self.tensor_transform != "sort_all":  # don't do sort_all again if self.tensor_transform is core.transforms.sort_all
+                ps = [core.transforms.sort_all(p) for p in ps]
+            
         return ps
 
     def train_weight_mapping(self, model_fns, labels):
@@ -350,7 +353,8 @@ class ArchLinDet:
 
     def run_cv_trials(self, arch_fns, arch_classes, arg_dict):
         # for educational purposes only
-
+        aucs = []
+        ces = []
         ns = arch_classes.shape[0]
         arch_name = self.arch
 
@@ -386,12 +390,19 @@ class ArchLinDet:
             pv = [cv_det.detect(fn) for fn in v_fns]
             ce = log_loss(v_cls, pv, labels=[0, 1])
             try:
-                print('auc =', roc_auc_score(v_cls, pv), ', ce =', ce)
+                auc = roc_auc_score(v_cls, pv)
+                print('auc =', auc, ', ce =', ce)
             except:
                 print('auc error (probably due to class balance)', ', ce =', ce)
 
             cvcal_scores.append(pv)
             truths.append(v_cls)
 
+            aucs.append(auc)
+            ces.append(ce)
+
+        mean_auc = sum(aucs)/len(aucs)
+        mean_ce = sum(ces)/len(ces)
+        print(f'Average: auc={mean_auc:.4f}, ce={mean_ce:.4f}')
         # print()
 

@@ -75,7 +75,7 @@
         "None",
         "sort_all",
         "pca_eigenvalues",
-        "pca_tensor",
+        "pca_rightsingular",
         "pca_components",
         "sv",
         "sort01",
