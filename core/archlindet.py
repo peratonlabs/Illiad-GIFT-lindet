@@ -84,8 +84,8 @@ class ArchLinDet:
             ps = [v.data.to(self.device) for k, v in model.items() if len(v.shape) > 0]
         else:
             if type(model) == dict: # annoying r16 hack
-                import utils.models_r16
-                model, model_repr, model_class = utils.models_r16.load_model(model_or_path)
+                import models_r16
+                model, model_repr, model_class = models_r16.load_model(model_or_path)
             ps = [mp.data.to(self.device) for mp in model.parameters()]
 
         if self.ref_model is not None:

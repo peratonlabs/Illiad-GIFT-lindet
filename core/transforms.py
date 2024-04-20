@@ -67,6 +67,239 @@ def sort_in_out(p):
         p = p.reshape(p.shape[0], -1)
         return dimlist_sort(p, dimlist=(1, 0))
 
+
+
+def sv_sortall(p):
+    if len(p.shape) <= 1:
+        return p.reshape(-1).sort()[0]
+    else:
+        p = p.reshape(p.shape[0], -1)
+        
+        U, S, Vh = torch.linalg.svd(p, full_matrices=False)
+        
+        #left = U @ torch.diag(S)
+        #right = torch.diag(S) @ Vh
+        
+        left = U
+        right = Vh
+        
+        left = left.sort(dim=0)[0].reshape(-1)
+        right = right.sort(dim=1)[0].reshape(-1)
+        
+
+        return torch.cat([left, right])
+        #return left
+        #return right
+
+
+
+
+
+def sv_sort(p):
+    if len(p.shape) <= 1:
+        return 0*p.reshape(-1).sort()[0]
+    else:
+        p = p.reshape(p.shape[0], -1)
+        
+        U, S, Vh = torch.linalg.svd(p, full_matrices=False)
+        
+        left = U @ torch.diag(S)
+        right = torch.diag(S) @ Vh
+        #rank = 5
+        
+        #left = U[:,:rank]
+        #right = Vh[:rank]
+        
+        left_rows = U[:,0].sort()[1]
+        right_cols = Vh[0,:].sort()[1]
+        
+        left = left[left_rows]
+        right = right[:,right_cols]
+        
+        
+        left = left.reshape(-1)
+        right = right.reshape(-1)
+        
+
+        return torch.cat([left, right])
+
+
+def sort_sv(p):
+    if len(p.shape) <= 1:
+        return p.reshape(-1).sort()[0]
+    else:
+        p = p.reshape(p.shape[0], -1)
+        
+        p0 = sort0(p)
+        p1 = sort1(p)
+        
+        
+        p=sort01(p)
+        #return p
+        rank=5
+        
+        U, S0, Vhxx = torch.linalg.svd(p0, full_matrices=False)
+        Uxx, S1, Vh = torch.linalg.svd(p1, full_matrices=False)
+        
+        #S0 = S0[:rank]
+        #U = U[:,:rank]
+        #S1 = S1[:rank]
+        #Vh = Vh[:rank]
+        
+        left = U @ torch.diag(S0)
+        right = torch.diag(S1) @ Vh
+        #rank = 5
+        
+        #left = U
+        #right = Vh
+        
+        #left_rows = U[:,0].sort()[1]
+        #right_cols = Vh[0,:].sort()[1]
+        
+        #left = left[left_rows]
+        #right = right[:,right_cols]
+        
+        
+        left = left.reshape(-1)
+        right = right.reshape(-1)
+        
+
+        return torch.cat([left, right])
+
+
+def sv_sort_recombine_rank1(p):
+    return sv_sort_recombine(p, rank=1)
+def sv_sort_recombine_rank5(p):
+    return sv_sort_recombine(p, rank=5)
+def sv_sort_recombine_4d_rank1(p):
+    return sv_sort_recombine_4d(p, rank=1)
+def sv_sort_recombine_4d_rank5(p):
+    return sv_sort_recombine_4d(p, rank=5)
+
+
+
+def sv_sort_recombine(p, rank=100000000):
+    if len(p.shape) <= 1:
+        return p.reshape(-1).sort()[0]
+    else:
+
+        p = p.reshape(p.shape[0], -1)
+        
+        U, S, Vh = torch.linalg.svd(p, full_matrices=False)
+        
+        #left = U @ torch.diag(S)
+        #right = torch.diag(S) @ Vh
+        #rank = 1000
+        
+        #S[rank:]=0
+        
+        #left = U[:,:rank]
+        #right = Vh[:rank]
+        
+        left = U
+        right = Vh
+        
+        
+        #left_rows = (U @ torch.diag(S)).mean(dim=1).sort()[1]
+        #right_cols = (torch.diag(S) @ Vh).mean(dim=0).sort()[1]
+        
+        left_rows = (U @ torch.diag(S))[:,:rank].mean(dim=1).sort()[1]
+        right_cols = (torch.diag(S) @ Vh)[:rank,:].mean(dim=0).sort()[1]
+        
+        #left_rows = U[:,:rank].mean(dim=1).sort()[1]
+        #right_cols = Vh[:rank,:].mean(dim=0).sort()[1]
+        
+        #left_rows = U[:,0].sort()[1]
+        #right_cols = Vh[0,:].sort()[1]
+        
+        left = left[left_rows]
+        right = right[:,right_cols]
+        #print(left.shape, S.shape,right.shape)
+        
+        #pp=left @ torch.diag(S)
+        #ppp=pp @ right
+        
+        
+        final = left @ torch.diag(S) @ right
+        
+        
+        #left = left.reshape(-1)
+        #right = right.reshape(-1)
+        
+
+        return final
+
+
+
+def sv_sort_recombine_4d(p, rank=100000000):
+
+    if len(p.shape) <= 1:
+        return p.reshape(-1).sort()[0]
+    elif len(p.shape) == 2:
+        U, S, Vh = torch.linalg.svd(p, full_matrices=False)
+        
+        left_rows = (U @ torch.diag(S))[:,:rank].mean(dim=1).sort()[1]
+        right_cols = (torch.diag(S) @ Vh)[:rank,:].mean(dim=0).sort()[1]
+        left = U[left_rows]
+        right = Vh[:,right_cols]
+        final = left @ torch.diag(S) @ right
+        
+        return final
+
+    else:
+        assert len(p.shape) == 4
+        
+        orig_shape = p.shape
+
+        p = p.reshape(p.shape[0], -1)
+        U, S, Vh = torch.linalg.svd(p, full_matrices=False)
+        
+        left_rows = (U @ torch.diag(S))[:,:rank].mean(dim=1).sort()[1]
+        left = U[left_rows]
+        
+        
+        SVh_4d=(torch.diag(S) @ Vh)[:rank,:].reshape(-1, *orig_shape[1:])
+
+        
+        right_cols = SVh_4d.mean(dim=3).mean(dim=2).mean(dim=0).sort()[1]
+        
+
+        Vh_4d = Vh.reshape(-1, *orig_shape[1:])
+        
+        Vh_4d = Vh_4d[:,right_cols]
+        
+        
+        right = Vh_4d.reshape(Vh_4d.shape[0],-1)
+        
+        
+        
+        
+        #left_rows = U[:,:rank].mean(dim=1).sort()[1]
+        #right_cols = Vh[:rank,:].mean(dim=0).sort()[1]
+        
+        #left_rows = U[:,0].sort()[1]
+        #right_cols = Vh[0,:].sort()[1]
+        
+        #left = left[left_rows]
+        #right = right[:,right_cols]
+        #print(left.shape, S.shape,right.shape)
+        
+        #pp=left @ torch.diag(S)
+        #ppp=pp @ right
+        
+        
+        final = left @ torch.diag(S) @ right
+        
+        
+        #left = left.reshape(-1)
+        #right = right.reshape(-1)
+        
+
+        return final
+
+#def sv_sort_recombine_4d(p):
+#    fgdfgdf
+
 ############## Common Functions ##############
 
     
